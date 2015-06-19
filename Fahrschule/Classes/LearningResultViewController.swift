@@ -2,7 +2,7 @@
 //  LearningResultViewController.swift
 //  Fahrschule
 //
-//  Created by Alexandr Zhovty on 17.06.15.
+//  Created on 17.06.15.
 //  Copyright (c) 2015. All rights reserved.
 //
 

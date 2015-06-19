@@ -2,7 +2,7 @@
 //  Appearance.swift
 //  pocketfahrschule
 //
-//  Created by Alexandr Zhovty on 10.06.15.
+//  Created on 10.06.15.
 //  Copyright (c) 2015. All rights reserved.
 //
 

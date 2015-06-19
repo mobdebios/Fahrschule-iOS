@@ -2,7 +2,7 @@
 //  SubGroupTableViewController.swift
 //  Fahrschule
 //
-//  Created by Alexandr Zhovty on 19.06.15.
+//  Created on 19.06.15.
 //  Copyright (c) 2015 RE'FLEKT. All rights reserved.
 //
 

@@ -329,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrR-dY-Lrh" customClass="CircularCounterView" customModule="Fahrschule" customModuleProvider="target">
-                                <rect key="frame" x="185" y="254" width="110" height="110"/>
+                                <rect key="frame" x="185" y="210" width="110" height="110"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.75294117650000003" green="0.79215686269999996" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -338,14 +338,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uze-Nh-R1a" customClass="CircularCounterView" customModule="Fahrschule" customModuleProvider="target">
-                                <rect key="frame" x="305" y="254" width="110" height="110"/>
+                                <rect key="frame" x="305" y="210" width="110" height="110"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uze-Nh-R1a" secondAttribute="height" multiplier="1:1" id="jKu-f4-oAD"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exP-Ts-vpM">
-                                <rect key="frame" x="246" y="467" width="108" height="30"/>
+                                <rect key="frame" x="246" y="423" width="108" height="30"/>
                                 <state key="normal" title="Fehler anzeigen">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -354,13 +354,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du hast %d Fragen bearbeitet." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNV-yu-l4G">
-                                <rect key="frame" x="183" y="149" width="235" height="20"/>
+                                <rect key="frame" x="183" y="105" width="235" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNT-0O-Old">
-                                <rect key="frame" x="229" y="429" width="143" height="30"/>
+                                <rect key="frame" x="229" y="385" width="143" height="30"/>
                                 <state key="normal" title="Alle Fragen anzeigen">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -519,7 +519,7 @@
         <image name="zurück" width="12" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vck-KF-2sV"/>
         <segue reference="sRF-O0-CLU"/>
+        <segue reference="Vck-KF-2sV"/>
     </inferredMetricsTieBreakers>
 </document>

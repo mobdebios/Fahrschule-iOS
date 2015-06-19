@@ -2,8 +2,8 @@
 //  QuestionCatalogTableViewController.swift
 //  Fahrschule
 //
-//  Created by Шурик on 19.06.15.
-//  Copyright (c) 2015 Alexandr Zhovty. All rights reserved.
+//  Created 19.06.15.
+//  Copyright (c) 2015. All rights reserved.
 //
 
 import UIKit
@@ -44,6 +44,9 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
 //    MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Segmented control
+        self.segmentedControl.setEnabled(false, forSegmentAtIndex: 1)
 
         // TableView settings
         self.tableView.registerNib(UINib(nibName: "ProgressCell", bundle: nil), forCellReuseIdentifier: progressCellIdentifier)
@@ -137,10 +140,6 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
         cell.titleLabel.text = mainGroup.name
         cell.iconImageView.image = mainGroup.mainGroupImage()
         
-        if cell.iconImageView.image == nil {
-            println("\(__FUNCTION__) + \(mainGroup.image)")
-        }
-        
         return cell
     }
     
@@ -157,8 +156,13 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
         
     }
     
-    func didTagQuestion() {
-        
+    func tagQuestion() {
+        let questions = Question.taggedQuestionsInManagedObjectContext(self.managedObjectContext)
+        if questions.count > 0 {
+            self.segmentedControl.setEnabled(true, forSegmentAtIndex: 1)
+        } else {
+            self.segmentedControl.setEnabled(false, forSegmentAtIndex: 1)
+        }
     }
     
     func didChangeAnswersGiven(sender: AnyObject) {
