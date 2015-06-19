@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>image</key>
+		<string>101.png</string>
+		<key>text</key>
+		<string>Achtung: Gefahrstelle</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>102.png</string>
+		<key>text</key>
+		<string>Achtung: Kreuzung oder Einmündung mit Vorfahrt von rechts</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>103-10.png</string>
+		<key>text</key>
+		<string>Achtung: Kurve</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>105-10.png</string>
+		<key>text</key>
+		<string>Achtung: Doppelkurve</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>108-71.png</string>
+		<key>text</key>
+		<string>Achtung: Gefälle</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>110-71.png</string>
+		<key>text</key>
+		<string>Achtung: Steigung</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>112.png</string>
+		<key>text</key>
+		<string>Achtung: unebene Fahrbahn</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>114.png</string>
+		<key>text</key>
+		<string>Achtung: Schleudergefahr bei Nässe oder Schmutz</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>117-10.png</string>
+		<key>text</key>
+		<string>Achtung: Seitenwind</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>120.png</string>
+		<key>text</key>
+		<string>Achtung: verengte Fahrbahn</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>121-10.png</string>
+		<key>text</key>
+		<string>Achtung: einseitig verengte Fahrbahn</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>123.png</string>
+		<key>text</key>
+		<string>Achtung: Baustelle</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>124.png</string>
+		<key>text</key>
+		<string>Achtung: Stau</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>125.png</string>
+		<key>text</key>
+		<string>Achtung: Gegenverkehr</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>131.png</string>
+		<key>text</key>
+		<string>Achtung: Lichtzeichenanlage</string>
+	</dict>
+    <dict>
+		<key>image</key>
+		<string>133-10.png</string>
+		<key>text</key>
+		<string>Achtung: Fußgänger</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>136-10.png</string>
+		<key>text</key>
+		<string>Achtung: Kinder</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>138-10.png</string>
+		<key>text</key>
+		<string>Achtung: Radfahrer kreuzen</string>
+	</dict>
+    <dict>
+		<key>image</key>
+		<string>142-10.png</string>
+		<key>text</key>
+		<string>Achtung: Wildwechsel</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>150.png</string>
+		<key>text</key>
+		<string>Achtung: Bahnübergang mit Schranken oder Halbschranken</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>151.png</string>
+		<key>text</key>
+		<string>Achtung: unbeschrankter Bahnübergang</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>301.png</string>
+		<key>text</key>
+		<string>Achtung: Vorfahrt</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>159-10.png</string>
+		<key>text</key>
+		<string>Zweistreifige Bake: etwa 160 m vor dem Bahnübergang</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>162-10.png</string>
+		<key>text</key>
+		<string>Einstreifige Bake: etwa 80 m vor dem Bahnübergang</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>201-50.png</string>
+		<key>text</key>
+		<string>Fahrzeugführer müssen dem Schienenverkehr Vorrang gewähren.</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>201-51.png</string>
+		<key>text</key>
+		<string>Fahrzeugführer müssen dem Schienenverkehr Vorrang gewähren. Bahnstrecke hat eine Spannung führende Fahrleitung.</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>205.png</string>
+		<key>text</key>
+		<string>Vorfahrt gewähren!</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>206.png</string>
+		<key>text</key>
+		<string>Halt! Vorfahrt gewähren!</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>208.png</string>
+		<key>text</key>
+		<string>Vorrang des Gegenverkehrs</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>209-10.png</string>
+		<key>text</key>
+		<string>vorgeschriebene Fahrtrichtung - links</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>209-30.png</string>
+		<key>text</key>
+		<string>vorgeschriebene Fahrtrichtung - geradeaus</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>209-31.png</string>
+		<key>text</key>
+		<string>vorgeschriebene Fahrtrichtung - rechts und links</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>211-10.png</string>
+		<key>text</key>
+		<string>vorgeschriebene Fahrtrichtung - links</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>214-10.png</string>
+		<key>text</key>
+		<string>vorgeschriebene Fahrtrichtung - geradeaus und links</string>
+	</dict>
+    <dict>
+		<key>image</key>
+		<string>215.png</string>
+		<key>text</key>
+		<string>Kreisverkehr: Ausgenommen von dem Verbot zum Überfahren der Mittelinsel sind nur Fahrzeuge, denen wegen ihrer Abmessungen das Befahren sonst nicht möglich wäre.</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>222-10.png</string>
+		<key>text</key>
+		<string>vorgeschriebene Vorbeifahrt - links vorbei</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>224-50.png</string>
+		<key>text</key>
+		<string>Haltestelle für Straßenbahnen oder Linienbusse</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>224-51.png</string>
+		<key>text</key>
+		<string>Haltestelle für Schulbusse</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>229.png</string>
+		<key>text</key>
+		<string>Taxenstand</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>237.png</string>
+		<key>text</key>
+		<string>Sonderweg Radfahrer</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>238.png</string>
+		<key>text</key>
+		<string>Sonderweg Reiter</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>239.png</string>
+		<key>text</key>
+		<string>Sonderweg Fußgänger</string>
+	</dict>
+    <dict>
+		<key>image</key>
+		<string>240.png</string>
+		<key>text</key>
+		<string>Gemeinsamer Geh- und Radweg: Radfahrer dürfen nicht die Fahrbahn, sondern müssen den gemeinsamen Geh- und Radweg benutzen (Radwegbenutzungspflicht)</string>
+	</dict>
+    <dict>
+		<key>image</key>
+		<string>241-30.png</string>
+		<key>text</key>
+		<string>Getrennter Rad- und Gehweg: Radfahrer dürfen nicht die Fahrbahn, sondern müssen den Radweg des getrennten Rad- und Gehweges benutzen (Radwegbenutzungspflicht)</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>242.png</string>
+		<key>text</key>
+		<string>Beginn eines Fußgängerbereichs</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>245.png</string>
+		<key>text</key>
+		<string>Bussonderfahrstreifen</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>250.png</string>
+		<key>text</key>
+		<string>Verbot für Fahrzeuge aller Art</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>251.png</string>
+		<key>text</key>
+		<string>Verbot für Kraftwagen und sonstige mehrspurige Kraftfahrzeuge</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>253.png</string>
+		<key>text</key>
+		<string>Verbot für Kraftfahrzeuge mit einem zulässigen Gesamtgewicht über 3,5t, einschließlich ihrer Anhänger, und Zugmaschinen, ausgenommen Personenkraftwagen und Kraftomnibusse</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>254.png</string>
+		<key>text</key>
+		<string>Verbot für Radfahrer</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>255.png</string>
+		<key>text</key>
+		<string>Verbot für Krafträder, auch mit Beiwagen, Kleinkrafträder und Mofas</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>256.png</string>
+		<key>text</key>
+		<string>Verbot für Mofas</string>
+	</dict>
+    <dict>
+		<key>image</key>
+		<string>259.png</string>
+		<key>text</key>
+		<string>Verbot für Fußgänger</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>261.png</string>
+		<key>text</key>
+		<string>Verbot für kennzeichnungspflichtige Kraftfahrzeuge mit gefährlichen Gütern</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>264.png</string>
+		<key>text</key>
+		<string>Verbot für Fahrzeuge über angegebene Breite einschließlich Ladung</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>265.png</string>
+		<key>text</key>
+		<string>Verbot für Fahrzeuge über angegebene Höhe einschließlich Ladung</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>266.png</string>
+		<key>text</key>
+		<string>Verbot für Fahrzeuge und Züge über angegebene Länge einschließlich Ladung</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>267.png</string>
+		<key>text</key>
+		<string>Verbot der Einfahrt</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>268.png</string>
+		<key>text</key>
+		<string>Schneeketten vorgeschrieben</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>270.1.png</string>
+		<key>text</key>
+		<string>Beginn eines Verkehrsverbots zur Verminderung schädlicher Luftverunreinigungen in einer Zone</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>270.2.png</string>
+		<key>text</key>
+		<string>Ende eines Verkehrsverbots zur Verminderung schädlicher Luftverunreinigungen in einer Zone</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>272.png</string>
+		<key>text</key>
+		<string>Wendeverbot</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>273.png</string>
+		<key>text</key>
+		<string>Verbot des Fahrens ohne einen Mindestabstand</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>274-1-50.png</string>
+		<key>text</key>
+		<string>Beginn der Zone mit zulässiger Höchstgeschwindigkeit 30 km/h</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>274-53.png</string>
+		<key>text</key>
+		<string>Zulässige Höchstgeschwindigkeit</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>275.png</string>
+		<key>text</key>
+		<string>Vorgeschriebene Mindestgeschwindigkeit</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>276.png</string>
+		<key>text</key>
+		<string>Überholverbot für Kraftfahrzeuge aller Art</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>277.png</string>
+		<key>text</key>
+		<string>Überholverbot für Kraftfahrzeuge mit einem zulässigen Gesamtgewicht über 3,5t, einschließlich ihrer Anhänger, und von ausgenommen Personenkraftwagen und Kraftomnibusse</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>278-53.png</string>
+		<key>text</key>
+		<string>Ende der zulässigen Höchstgeschwindigkeit</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>282.png</string>
+		<key>text</key>
+		<string>Ende sämtlicher Streckenverbote</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>283-50.png</string>
+		<key>text</key>
+		<string>Absolutes Haltverbot</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>286-50.png</string>
+		<key>text</key>
+		<string>Eingeschränktes Haltverbot</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>306.png</string>
+		<key>text</key>
+		<string>Vorfahrtstraße (Fahrzeugführer dürfen außerhalb geschlossener Ortschaften auf Fahrbahnen von Vorfahrtstraßen nicht parken.)</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>307.png</string>
+		<key>text</key>
+		<string>Ende der Vorfahrtstraße</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>308.png</string>
+		<key>text</key>
+		<string>Vorrang vor dem Gegenverkehr</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>310-50.png</string>
+		<key>text</key>
+		<string>Ortstafel: Beginn einer geschlossene Ortschaft. Zulässige Höchstgeschwindigkeit 50 km/h.</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>315-50.png</string>
+		<key>text</key>
+		<string>Parken halb auf Gehwegen: erlaubt Fahrzeugen mit einem zul. Gesamtgewicht bis 2,8 t das Parken auf Gehwegen. Im Zeichen wird bildl. angeordnet, wie die Fahrzeuge aufzustellen sind.</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>325.png</string>
+		<key>text</key>
+		<string>Beginn eines verkehrsberuhigten Bereichs</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>326-50.png</string>
+		<key>text</key>
+		<string>Ende eines verkehrsberuhigten Bereichs</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>327.png</string>
+		<key>text</key>
+		<string>Tunnel</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>328.png</string>
+		<key>text</key>
+		<string>Nothalte- und Pannenbucht</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>330.png</string>
+		<key>text</key>
+		<string>Autobahn</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>331.png</string>
+		<key>text</key>
+		<string>Kraftfahrstraße</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>334.png</string>
+		<key>text</key>
+		<string>Ende der Autobahn</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>336.png</string>
+		<key>text</key>
+		<string>Ende der Kraftfahrstraße</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>350-10.png</string>
+		<key>text</key>
+		<string>Fußgängerüberweg</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>357.png</string>
+		<key>text</key>
+		<string>Sackgasse</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>358.png</string>
+		<key>text</key>
+		<string>Erste Hilfe</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>380-52.png</string>
+		<key>text</key>
+		<string>Richtgeschwindigkeit</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>392.png</string>
+		<key>text</key>
+		<string>Zollstelle</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>394-50.png</string>
+		<key>text</key>
+		<string>Laternenring: Kennzeichnung von Laternen, die nicht die ganze Nacht leuchten (innerhalb geschlossener Ortschaften)</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>401.png</string>
+		<key>text</key>
+		<string>Nummernschild für Bundesstraßen</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>405.png</string>
+		<key>text</key>
+		<string>Nummernschild für Autobahnen</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>448.png</string>
+		<key>text</key>
+		<string>Ankündigungstafel auf Autobahnen</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>460-30.png</string>
+		<key>text</key>
+		<string>Bedarfsumleitung</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>467.png</string>
+		<key>text</key>
+		<string>Umlenkungspfeil: Kennzeichnung von Alternativstrecken auf Autobahnen, deren Benutzung im Bedarfsfall empfohlen wird (Streckenempfehlung)</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>720.png</string>
+		<key>text</key>
+		<string>Grünpfeil: Nach dem Halten darf bei Rot vorsichtig rechts abgebogen werden</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>1002-10.png</string>
+		<key>text</key>
+		<string>Verlauf der Vorfahrtstraße an Kreuzungen</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>1052-38.png</string>
+		<key>text</key>
+		<string>Schlechter Fahrbahnrand</string>
+	</dict>
+</array>
+</plist>

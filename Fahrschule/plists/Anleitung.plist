@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ipad</key>
+	<array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Behalte den Überblick, wie viele Fragen du aus dem gesamten Fragenkatalog (blau) bereits richtig (grün) bzw. falsch (rot) beantwortet hast.</string>
+				<key>x</key>
+				<integer>686</integer>
+				<key>y</key>
+				<integer>355</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Die „1“ signalisiert dir, dass noch eine angefangene Prüfung offen ist.</string>
+				<key>x</key>
+				<integer>477</integer>
+				<key>y</key>
+				<integer>709</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Nutze das „Markierte“-Fragenarchiv, um die von dir dort abgelegten Fragen gezielt zu lernen.
+
+Jede Führerscheinklasse hat ein separates „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>195</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle „Abfragen“, um eine Serie von Fragen deiner Wahl zu beantworten. Die Abfrage umfasst nur den jeweiligen Bereich.</string>
+				<key>x</key>
+				<integer>278</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Gebe Stichtworte ein, um Fragen zu suchen.</string>
+				<key>x</key>
+				<integer>22</integer>
+				<key>y</key>
+				<integer>66</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Der Fortschrittsbalken zeigt dir, wie viele Fragen du in dem jeweiligen Bereich bereits bearbeitet hast.</string>
+				<key>x</key>
+				<integer>255</integer>
+				<key>y</key>
+				<integer>263</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Nutze das Prüfungsarchiv, um die Lösungen abgelegter Prüfungen noch einmal durchzugehen.
+
+Jede Führerscheinklasse und jeder Erwerbstyp hat ein separates Prüfungs- archiv.</string>
+				<key>x</key>
+				<integer>153</integer>
+				<key>y</key>
+				<integer>110</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Die Statistik listet deine letzten zehn Prüfungen auf und zeigt dir, ob du bestanden hast oder nicht.</string>
+				<key>x</key>
+				<integer>478</integer>
+				<key>y</key>
+				<integer>310</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle Statistik und du kannst dir alle Prüfungsergebnisse in einem Graphen anzeigen lassen.</string>
+				<key>x</key>
+				<integer>975</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Zeigt die Fehlerpunktzahl der jeweiligen Frage an.</string>
+				<key>x</key>
+				<integer>703</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere Fragen, die du später noch einmal üben möchtest. Diese Fragen findest du dann im „Markierte“-Fragenarchiv.
+
+Jede Führerscheinklasse hat ein separates „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>975</integer>
+				<key>y</key>
+				<integer>67</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Haken bzw. Kreuze markieren die richten bzw. falschen Antworten.</string>
+				<key>x</key>
+				<integer>365</integer>
+				<key>y</key>
+				<integer>630</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle „Lösung“ und du erhälst die korrekten Antworten.</string>
+				<key>x</key>
+				<integer>985</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere die korrekten Antworten, indem du sie eindrückst.</string>
+				<key>x</key>
+				<integer>604</integer>
+				<key>y</key>
+				<integer>630</integer>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>icon_drehen.png</string>
+				<key>text</key>
+				<string>Drehe dein Gerät, um vergrößerte Darstellungen sehen zu können.</string>
+				<key>x</key>
+				<integer>678</integer>
+				<key>y</key>
+				<integer>335</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Zeigt die verbleibende Prüfungszeit an.</string>
+				<key>x</key>
+				<integer>985</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Kennzeichnung einer sog. „Mutterfrage&quot;. Zu dieser Frage kann in der offiziellen Prüfung eine Bild-Variante mit anderen Hintergründen und anderen Verkehrsteilnehmern angezeigt werden.</string>
+				<key>x</key>
+				<integer>738</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere Fragen, die du später noch einmal üben möchtest. Diese Fragen findest du dann im „Markierte“-Fragenarchiv.
+
+Jede Führerscheinklasse hat ein separates „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>975</integer>
+				<key>y</key>
+				<integer>67</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere die korrekten Antworten, indem du sie eindrückst.</string>
+				<key>x</key>
+				<integer>604</integer>
+				<key>y</key>
+				<integer>633</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle „Abgeben“ und erhalte dein Prüfungsergebnis.</string>
+				<key>x</key>
+				<integer>908</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>icon_drehen.png</string>
+				<key>text</key>
+				<string>Drehe dein Gerät, um vergrößerte Darstellungen sehen zu können.</string>
+				<key>x</key>
+				<integer>678</integer>
+				<key>y</key>
+				<integer>335</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Wähle die Wetterbedingungen aus.</string>
+				<key>x</key>
+				<integer>673</integer>
+				<key>y</key>
+				<integer>101</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Schiebe den Regler, um die Geschwindigkeit anzupassen.</string>
+				<key>x</key>
+				<integer>668</integer>
+				<key>y</key>
+				<integer>528</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Bitte beachte: jede Führerscheinklasse und jeder Erwerbstyp verfügt über ein separates Prüfungsarchiv inklusive Statistik. Jede Führerscheinklasse hat zudem ein eigenes „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>31</integer>
+				<key>y</key>
+				<integer>101</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Der „Erwerbstyp“ hat Auswirkungen auf die Prüfung. Wähle „Ersterwerb“, wenn es dein erster Führerschein ist. Über „Erweiterung“ kannst du zu deinem Führerschein eine weitere Klasse prüfen.</string>
+				<key>x</key>
+				<integer>31</integer>
+				<key>y</key>
+				<integer>144</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Aktiviere „Gastmodus“, wenn deine persönlichen Statistiken nicht durch andere Nutzer der App beeinflußt werden sollen.</string>
+				<key>x</key>
+				<integer>236</integer>
+				<key>y</key>
+				<integer>235</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Aktiviere das „offizielle Prüfungslayout“ und du erhälst ein Layout, das der Theorieprüfung des TÜV entspricht.
+
+Achtung: Eine hier markierte Frage wird NICHT in den Markierte-Ordner des Lernmodus übernommen.</string>
+				<key>x</key>
+				<integer>236</integer>
+				<key>y</key>
+				<integer>280</integer>
+			</dict>
+		</array>
+	</array>
+	<key>iphone</key>
+	<array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Behalte den Überblick, wie viele Fragen du aus dem gesamten Fragenkatalog (blau) bereits richtig (grün) bzw. falsch (rot) beantwortet hast.</string>
+				<key>x</key>
+				<integer>170</integer>
+				<key>y</key>
+				<integer>187</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Die „1“ signalisiert dir, dass noch eine angefangene Prüfung offen ist.</string>
+				<key>x</key>
+				<integer>140</integer>
+				<key>y</key>
+				<integer>422</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Nutze das „Markierte“-Fragenarchiv, um die von dir dort abgelegten Fragen gezielt zu lernen.
+
+Jede Führerscheinklasse hat ein separates „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>195</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle „Abfragen“, um eine Serie von Fragen deiner Wahl zu beantworten. Die Abfrage umfasst nur den jeweiligen Bereich.</string>
+				<key>x</key>
+				<integer>278</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Gebe Stichtworte ein, um Fragen zu suchen.</string>
+				<key>x</key>
+				<integer>22</integer>
+				<key>y</key>
+				<integer>66</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Der Fortschrittsbalken zeigt dir, wie viele Fragen du in dem jeweiligen Bereich bereits bearbeitet hast.</string>
+				<key>x</key>
+				<integer>255</integer>
+				<key>y</key>
+				<integer>263</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Zeigt die Fehlerpunktzahl der jeweiligen Frage an.</string>
+				<key>x</key>
+				<integer>186</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere Fragen, die du später noch einmal üben möchtest. Diese Fragen findest du dann im „Markierte“-Fragenarchiv.
+
+Jede Führerscheinklasse hat ein separates „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>300</integer>
+				<key>y</key>
+				<integer>64</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Haken bzw. Kreuze markieren die richten bzw. falschen Antworten.</string>
+				<key>x</key>
+				<integer>19</integer>
+				<key>y</key>
+				<integer>320</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle „Lösung“ und du erhälst die korrekten Antworten.</string>
+				<key>x</key>
+				<integer>164</integer>
+				<key>y</key>
+				<integer>439</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere die korrekten Antworten, indem du sie eindrückst.</string>
+				<key>x</key>
+				<integer>115</integer>
+				<key>y</key>
+				<integer>320</integer>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>icon_drehen.png</string>
+				<key>text</key>
+				<string>Drehe dein Gerät, um vergrößerte Darstellungen sehen zu können.</string>
+				<key>x</key>
+				<integer>160</integer>
+				<key>y</key>
+				<integer>210</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Nutze das Prüfungsarchiv, um die Lösungen abgelegter Prüfungen noch einmal durchzugehen.
+
+Jede Führerscheinklasse und jeder Erwerbstyp hat ein separates Prüfungs- archiv.</string>
+				<key>x</key>
+				<integer>190</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Die Statistik listet deine letzten sechs Prüfungen auf und zeigt dir, ob du bestanden hast oder nicht.</string>
+				<key>x</key>
+				<integer>108</integer>
+				<key>y</key>
+				<integer>110</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Drehe dein Gerät, um ausführlichere Statistiken zu erhalten.</string>
+				<key>x</key>
+				<integer>282</integer>
+				<key>y</key>
+				<integer>225</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Zeigt die verbleibende Prüfungszeit an.</string>
+				<key>x</key>
+				<integer>286</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Kennzeichnung einer sog. „Mutterfrage&quot;. Zu dieser Frage kann in der offiziellen Prüfung eine Bild-Variante mit anderen Hintergründen und anderen Verkehrsteilnehmern angezeigt werden.</string>
+				<key>x</key>
+				<integer>236</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere Fragen, die du später noch einmal üben möchtest. Diese Fragen findest du dann im „Markierte“-Fragenarchiv.
+
+Jede Führerscheinklasse hat ein separates „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>300</integer>
+				<key>y</key>
+				<integer>64</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere die korrekten Antworten, indem du sie eindrückst.</string>
+				<key>x</key>
+				<integer>115</integer>
+				<key>y</key>
+				<integer>320</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle „Abgeben“ und erhalte dein Prüfungsergebnis.</string>
+				<key>x</key>
+				<integer>163</integer>
+				<key>y</key>
+				<integer>439</integer>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>icon_drehen.png</string>
+				<key>text</key>
+				<string>Drehe dein Gerät, um vergrößerte Darstellungen sehen zu können.</string>
+				<key>x</key>
+				<integer>160</integer>
+				<key>y</key>
+				<integer>210</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Wähle die Wetterbedingungen aus.</string>
+				<key>x</key>
+				<integer>160</integer>
+				<key>y</key>
+				<integer>70</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Schiebe den Regler, um die Geschwindigkeit anzupassen.</string>
+				<key>x</key>
+				<integer>157</integer>
+				<key>y</key>
+				<integer>380</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Bitte beachte: jede Führerscheinklasse und jeder Erwerbstyp verfügt über ein separates Prüfungsarchiv inklusive Statistik. Jede Führerscheinklasse hat zudem ein eigenes „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>31</integer>
+				<key>y</key>
+				<integer>112</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Der „Erwerbstyp“ hat Auswirkungen auf die Prüfung. Wähle „Ersterwerb“, wenn es dein erster Führerschein ist. Über „Erweiterung“ kannst du zu deinem Führerschein eine weitere Klasse prüfen.</string>
+				<key>x</key>
+				<integer>31</integer>
+				<key>y</key>
+				<integer>156</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Aktiviere „Gastmodus“, wenn deine persönlichen Statistiken nicht durch andere Nutzer der App beeinflußt werden sollen.</string>
+				<key>x</key>
+				<integer>236</integer>
+				<key>y</key>
+				<integer>249</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Aktiviere das „offizielle Prüfungslayout“ und du erhälst ein Layout, das der Theorieprüfung des TÜV entspricht.
+
+Achtung: Eine hier markierte Frage wird NICHT in den Markierte-Ordner des Lernmodus übernommen.</string>
+				<key>x</key>
+				<integer>236</integer>
+				<key>y</key>
+				<integer>293</integer>
+			</dict>
+		</array>
+	</array>
+	<key>iphone5</key>
+	<array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Behalte den Überblick, wie viele Fragen du aus dem gesamten Fragenkatalog (blau) bereits richtig (grün) bzw. falsch (rot) beantwortet hast.</string>
+				<key>x</key>
+				<integer>170</integer>
+				<key>y</key>
+				<integer>222</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Die „1“ signalisiert dir, dass noch eine angefangene Prüfung offen ist.</string>
+				<key>x</key>
+				<integer>140</integer>
+				<key>y</key>
+				<integer>520</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Nutze das „Markierte“-Fragenarchiv, um die von dir dort abgelegten Fragen gezielt zu lernen.
+
+Jede Führerscheinklasse hat ein separates „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>195</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle „Abfragen“, um eine Serie von Fragen deiner Wahl zu beantworten. Die Abfrage umfasst nur den jeweiligen Bereich.</string>
+				<key>x</key>
+				<integer>278</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Gebe Stichtworte ein, um Fragen zu suchen.</string>
+				<key>x</key>
+				<integer>22</integer>
+				<key>y</key>
+				<integer>66</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Der Fortschrittsbalken zeigt dir, wie viele Fragen du in dem jeweiligen Bereich bereits bearbeitet hast.</string>
+				<key>x</key>
+				<integer>255</integer>
+				<key>y</key>
+				<integer>263</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Zeigt die Fehlerpunktzahl der jeweiligen Frage an.</string>
+				<key>x</key>
+				<integer>186</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere Fragen, die du später noch einmal üben möchtest. Diese Fragen findest du dann im „Markierte“-Fragenarchiv.
+
+Jede Führerscheinklasse hat ein separates „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>300</integer>
+				<key>y</key>
+				<integer>64</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Haken bzw. Kreuze markieren die richten bzw. falschen Antworten.</string>
+				<key>x</key>
+				<integer>19</integer>
+				<key>y</key>
+				<integer>405</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle „Lösung“ und du erhälst die korrekten Antworten.</string>
+				<key>x</key>
+				<integer>164</integer>
+				<key>y</key>
+				<integer>523</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere die korrekten Antworten, indem du sie eindrückst.</string>
+				<key>x</key>
+				<integer>115</integer>
+				<key>y</key>
+				<integer>405</integer>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>icon_drehen.png</string>
+				<key>text</key>
+				<string>Drehe dein Gerät, um vergrößerte Darstellungen sehen zu können.</string>
+				<key>x</key>
+				<integer>160</integer>
+				<key>y</key>
+				<integer>250</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Nutze das Prüfungsarchiv, um die Lösungen abgelegter Prüfungen noch einmal durchzugehen.
+
+Jede Führerscheinklasse und jeder Erwerbstyp hat ein separates Prüfungs- archiv.</string>
+				<key>x</key>
+				<integer>190</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Die Statistik listet deine letzten sechs Prüfungen auf und zeigt dir, ob du bestanden hast oder nicht.</string>
+				<key>x</key>
+				<integer>108</integer>
+				<key>y</key>
+				<integer>165</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Drehe dein Gerät, um ausführlichere Statistiken zu erhalten.</string>
+				<key>x</key>
+				<integer>282</integer>
+				<key>y</key>
+				<integer>270</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Zeigt die verbleibende Prüfungszeit an.</string>
+				<key>x</key>
+				<integer>286</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Kennzeichnung einer sog. „Mutterfrage&quot;. Zu dieser Frage kann in der offiziellen Prüfung eine Bild-Variante mit anderen Hintergründen und anderen Verkehrsteilnehmern angezeigt werden.</string>
+				<key>x</key>
+				<integer>236</integer>
+				<key>y</key>
+				<integer>22</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere Fragen, die du später noch einmal üben möchtest. Diese Fragen findest du dann im „Markierte“-Fragenarchiv.
+
+Jede Führerscheinklasse hat ein separates „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>300</integer>
+				<key>y</key>
+				<integer>64</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Markiere die korrekten Antworten, indem du sie eindrückst.</string>
+				<key>x</key>
+				<integer>115</integer>
+				<key>y</key>
+				<integer>405</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Wähle „Abgeben“ und erhalte dein Prüfungsergebnis.</string>
+				<key>x</key>
+				<integer>163</integer>
+				<key>y</key>
+				<integer>523</integer>
+			</dict>
+			<dict>
+				<key>icon</key>
+				<string>icon_drehen.png</string>
+				<key>text</key>
+				<string>Drehe dein Gerät, um vergrößerte Darstellungen sehen zu können.</string>
+				<key>x</key>
+				<integer>160</integer>
+				<key>y</key>
+				<integer>250</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Wähle die Wetterbedingungen aus.</string>
+				<key>x</key>
+				<integer>160</integer>
+				<key>y</key>
+				<integer>70</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Schiebe den Regler, um die Geschwindigkeit anzupassen.</string>
+				<key>x</key>
+				<integer>157</integer>
+				<key>y</key>
+				<integer>380</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>text</key>
+				<string>Bitte beachte: jede Führerscheinklasse und jeder Erwerbstyp verfügt über ein separates Prüfungsarchiv inklusive Statistik. Jede Führerscheinklasse hat zudem ein eigenes „Markierte“-Fragenarchiv.</string>
+				<key>x</key>
+				<integer>31</integer>
+				<key>y</key>
+				<integer>112</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Der „Erwerbstyp“ hat Auswirkungen auf die Prüfung. Wähle „Ersterwerb“, wenn es dein erster Führerschein ist. Über „Erweiterung“ kannst du zu deinem Führerschein eine weitere Klasse prüfen.</string>
+				<key>x</key>
+				<integer>31</integer>
+				<key>y</key>
+				<integer>156</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Aktiviere „Gastmodus“, wenn deine persönlichen Statistiken nicht durch andere Nutzer der App beeinflußt werden sollen.</string>
+				<key>x</key>
+				<integer>236</integer>
+				<key>y</key>
+				<integer>249</integer>
+			</dict>
+			<dict>
+				<key>text</key>
+				<string>Aktiviere das „offizielle Prüfungslayout“ und du erhälst ein Layout, das der Theorieprüfung des TÜV entspricht.
+
+Achtung: Eine hier markierte Frage wird NICHT in den Markierte-Ordner des Lernmodus übernommen.</string>
+				<key>x</key>
+				<integer>236</integer>
+				<key>y</key>
+				<integer>293</integer>
+			</dict>
+		</array>
+	</array>
+</dict>
+</plist>

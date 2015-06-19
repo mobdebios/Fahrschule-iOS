@@ -1,0 +1,12 @@
+
+/* Class = "UINavigationItem"; title = "Pocket Fahrschule"; ObjectID = "BKH-SV-dOS"; */
+"BKH-SV-dOS.title" = "Pocket Fahrschule";
+
+/* Class = "UITabBarItem"; title = "Lernen"; ObjectID = "PUe-Ga-wxU"; */
+"PUe-Ga-wxU.title" = "Lernen";
+
+/* Class = "UIButton"; normalTitle = "Zum Fragenkatalog"; ObjectID = "q3h-YV-3vr"; */
+"q3h-YV-3vr.normalTitle" = "Zum Fragenkatalog";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "uc8-kn-g6w"; */
+"uc8-kn-g6w.title" = "Item 2";

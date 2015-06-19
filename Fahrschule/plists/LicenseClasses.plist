@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<dict>
+		<key>class</key>
+		<string>A</string>
+		<key>desc</key>
+		<string>unbeschränkt</string>
+		<key>image</key>
+		<string>motorrad.png</string>
+		<key>shortname</key>
+		<string>A (Motorrad)</string>
+		<key>title</key>
+		<string>Motorräder</string>
+	</dict>
+	<key>1024</key>
+	<dict>
+		<key>class</key>
+		<string>L</string>
+		<key>desc</key>
+		<string>beschränkt und unbeschränkt</string>
+		<key>image</key>
+		<string>traktor.png</string>
+		<key>shortname</key>
+		<string>L (Traktoren)</string>
+		<key>title</key>
+		<string>Traktoren</string>
+	</dict>
+	<key>128</key>
+	<dict>
+		<key>class</key>
+		<string>D1</string>
+		<key>desc</key>
+		<string>mit 9 bis 16 Sitzplätzen</string>
+		<key>image</key>
+		<string>bus.png</string>
+		<key>shortname</key>
+		<string>D1 (Bus)</string>
+		<key>title</key>
+		<string>Kleinere Busse</string>
+	</dict>
+	<key>16</key>
+	<dict>
+		<key>class</key>
+		<string>C1</string>
+		<key>desc</key>
+		<string>von 3,5 t - 7,5 t</string>
+		<key>image</key>
+		<string>lkw.png</string>
+		<key>shortname</key>
+		<string>C1 (Lkw)</string>
+		<key>title</key>
+		<string>Leichtere Lkw</string>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>class</key>
+		<string>A1</string>
+		<key>desc</key>
+		<string>bis 125 ccm und 11 kW</string>
+		<key>image</key>
+		<string>motorrad.png</string>
+		<key>shortname</key>
+		<string>A1 (Motorrad)</string>
+		<key>title</key>
+		<string>Leichtkrafträder</string>
+	</dict>
+	<key>2048</key>
+	<dict>
+		<key>class</key>
+		<string>M</string>
+		<key>desc</key>
+		<string>bis 50 ccm und 45 km/h</string>
+		<key>image</key>
+		<string>motorrad.png</string>
+		<key>shortname</key>
+		<string>M (Kleinkrafträder)</string>
+		<key>title</key>
+		<string>Kleinkrafträder</string>
+	</dict>
+	<key>256</key>
+	<dict>
+		<key>class</key>
+		<string>S</string>
+		<key>desc</key>
+		<string>bis 45 km/h und 350 kg</string>
+		<key>image</key>
+		<string>trike.png</string>
+		<key>shortname</key>
+		<string>S (Trike)</string>
+		<key>title</key>
+		<string>Trikes, Quads</string>
+	</dict>
+	<key>32</key>
+	<dict>
+		<key>class</key>
+		<string>CE</string>
+		<key>desc</key>
+		<string>über 3,5 t</string>
+		<key>image</key>
+		<string>lkw.png</string>
+		<key>shortname</key>
+		<string>CE (Lkw)</string>
+		<key>title</key>
+		<string>Schwere Lastzüge</string>
+	</dict>
+	<key>4</key>
+	<dict>
+		<key>class</key>
+		<string>B</string>
+		<key>desc</key>
+		<string>bis 3,5 t</string>
+		<key>image</key>
+		<string>auto.png</string>
+		<key>shortname</key>
+		<string>B (Pkw)</string>
+		<key>title</key>
+		<string>Pkw</string>
+	</dict>
+	<key>4096</key>
+	<dict>
+		<key>class</key>
+		<string>MOFA</string>
+		<key>desc</key>
+		<string>bis 50 ccm und 25 km/h</string>
+		<key>image</key>
+		<string>motorrad.png</string>
+		<key>shortname</key>
+		<string>MOFA</string>
+		<key>title</key>
+		<string>Mofa</string>
+	</dict>
+	<key>512</key>
+	<dict>
+		<key>class</key>
+		<string>T</string>
+		<key>desc</key>
+		<string>beschränkt und unbeschränkt</string>
+		<key>image</key>
+		<string>traktor.png</string>
+		<key>shortname</key>
+		<string>T (Traktoren)</string>
+		<key>title</key>
+		<string>Traktoren</string>
+	</dict>
+	<key>64</key>
+	<dict>
+		<key>class</key>
+		<string>D</string>
+		<key>desc</key>
+		<string>mit mehr als 16 Sitzplätzen</string>
+		<key>image</key>
+		<string>bus.png</string>
+		<key>shortname</key>
+		<string>D (Bus)</string>
+		<key>title</key>
+		<string>Busse</string>
+	</dict>
+	<key>8</key>
+	<dict>
+		<key>class</key>
+		<string>C</string>
+		<key>desc</key>
+		<string>über 3,5 t</string>
+		<key>image</key>
+		<string>lkw.png</string>
+		<key>shortname</key>
+		<string>C (Lkw)</string>
+		<key>title</key>
+		<string>Schwere Lkw</string>
+	</dict>
+	<key>8192</key>
+	<dict>
+		<key>class</key>
+		<string>A2</string>
+		<key>desc</key>
+		<string>bis 35 kW</string>
+		<key>image</key>
+		<string>motorrad.png</string>
+		<key>shortname</key>
+		<string>A2 (Motorrad)</string>
+		<key>title</key>
+		<string>Krafträder</string>
+	</dict>
+	<key>16384</key>
+	<dict>
+		<key>class</key>
+		<string>AM</string>
+		<key>desc</key>
+		<string>bis 4 kW und 45 km/h</string>
+		<key>image</key>
+		<string>motorrad.png</string>
+		<key>shortname</key>
+		<string>AM (Kleinkrafträder)</string>
+		<key>title</key>
+		<string>Kleinkrafträder</string>
+	</dict>
+</dict>
+</plist>

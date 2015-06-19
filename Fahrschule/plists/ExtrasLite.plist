@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>image</key>
+		<string>icon_kaufen.png</string>
+		<key>title</key>
+		<string>Vollversion kaufen</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>anleitung.png</string>
+		<key>title</key>
+		<string>Anleitung</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>formelsammlung.png</string>
+		<key>title</key>
+		<string>Formelsammlung</string>
+	</dict>
+    <dict>
+		<key>image</key>
+		<string>bremsberechner.png</string>
+		<key>title</key>
+		<string>Bremswegberechner</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>verkehrszeichen.png</string>
+		<key>title</key>
+		<string>Verkehrszeichen</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>StVO.png</string>
+		<key>title</key>
+		<string>StVO</string>
+	</dict>
+    <dict>
+		<key>image</key>
+		<string>icon_bewerten.png</string>
+		<key>title</key>
+		<string>App bewerten</string>
+	</dict>
+</array>
+</plist>
