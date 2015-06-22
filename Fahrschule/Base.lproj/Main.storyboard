@@ -519,7 +519,7 @@
         <image name="zurück" width="12" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sRF-O0-CLU"/>
+        <segue reference="IBR-Tf-KQr"/>
         <segue reference="Vck-KF-2sV"/>
     </inferredMetricsTieBreakers>
 </document>

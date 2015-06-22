@@ -28,9 +28,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+#if !(TARGET_IPHONE_SIMULATOR)
     [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"be13ffc7e91b767e0cb3438bda8917f8"];
     [[BITHockeyManager sharedHockeyManager] startManager];
     [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
+#endif
+    
     
     
     [Appearance customizeAppearance];

@@ -11,10 +11,14 @@ import UIKit
 class QuestionCatalogTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var managedObjectContext: NSManagedObjectContext!
-    var lastUpdate: NSDate!
+    var lastUpdate = NSDate()
     var mainGroupArray: [MainGroup]!
     var dataSource: [MainGroup]!
     var numberOfThemes = [0, 0]
+    var progressDict = [Int: ProgressItem]()
+    var localObservers = [AnyObject]()
+    
+    var resultSearchController: UISearchController!
     
     /// TODO: - Check neccessity
     var isSearching: Bool = false
@@ -31,13 +35,11 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
 //    MARK: Initialization
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("tagQuestion"), name: "tagQuestion", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("licenseClassChanged"), name: "licenseClassChanged", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didChangeAnswersGiven:"), name: "didChangeAnswersGiven", object: nil)
+        self.registerObservers();
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        self.unregisterObservers()
     }
     
     
@@ -49,6 +51,19 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
         self.segmentedControl.setEnabled(false, forSegmentAtIndex: 1)
 
         // TableView settings
+        
+        self.resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+//            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            
+            self.tableView.tableHeaderView = controller.searchBar
+            
+            return controller
+        })()
+        
+        
         self.tableView.registerNib(UINib(nibName: "ProgressCell", bundle: nil), forCellReuseIdentifier: progressCellIdentifier)
         self.tableView.estimatedRowHeight = 44.0
         
@@ -79,22 +94,82 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
         if let indexPath = self.tableView.indexPathForSelectedRow() {
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
         
-//        var statisticsLastUpdated = NSDate.distantPast() as! NSDate
-//        if let stat = LearningStatistic.latestStatistic(self.managedObjectContext) {
-//            statisticsLastUpdated = stat.date
-//        }
-//        
+        var statisticsLastUpdated = NSDate.distantPast() as! NSDate
+        let stat = LearningStatistic.latestStatistic(self.managedObjectContext)
+        if  stat != nil {
+            statisticsLastUpdated = stat.date
+        }
+        
 //        if self.isLearningMode == false {
 //            if self.isCatalogSelected() {
 //                
 //            }
 //        }
         
+        if statisticsLastUpdated.earlierDate(self.lastUpdate).compare(self.lastUpdate) == .OrderedSame || stat == nil {
+            self.progressDict.removeAll(keepCapacity: false)
+            self.lastUpdate = NSDate()
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if self.mainGroupArray.count != self.progressDict.count {
+            for (i, element) in enumerate(self.mainGroupArray) {
+                if self.progressDict[i] == nil {
+                    self.progressItemForMainGroupAtIndex(i)
+                }
+            }
+        }
+        
+    }
+    
+    //    MARK: - Observers
+    private func registerObservers() {
+        let center = NSNotificationCenter.defaultCenter()
+        let queue = NSOperationQueue.mainQueue()
+        
+        
+        self.localObservers.append(center.addObserverForName("tagQuestion", object: nil, queue: queue) {
+            [weak self] _ in
+            if let weakSelf = self {
+                let questions = Question.taggedQuestionsInManagedObjectContext(weakSelf.managedObjectContext)
+                if questions.count > 0 {
+                    weakSelf.segmentedControl.setEnabled(true, forSegmentAtIndex: 1)
+                } else {
+                    weakSelf.segmentedControl.setEnabled(false, forSegmentAtIndex: 1)
+                }
+            }
+            })
+        
+        
+        self.localObservers.append(center.addObserverForName("licenseClassChanged", object: nil, queue: queue) {
+            [weak self] _ in
+            if let weakSelf = self {
+                println("\(__FUNCTION__) not emplemented yet licenseClassChanged")
+            }
+            })
+        
+        self.localObservers.append(center.addObserverForName("didChangeAnswersGiven", object: nil, queue: queue) {
+            [weak self] note in
+            if let weakSelf = self {
+                println("\(__FUNCTION__) not emplemented yet didChangeAnswersGiven")
+            }
+            })
+        
+    }
+    
+    private func unregisterObservers() {
+        let center = NSNotificationCenter.defaultCenter()
+        for observer in self.localObservers {
+            center.removeObserver(observer)
+        }
     }
     
 
@@ -140,6 +215,12 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
         cell.titleLabel.text = mainGroup.name
         cell.iconImageView.image = mainGroup.mainGroupImage()
         
+        var item = self.progressDict[idx]
+        if item == nil  {
+            item = self.progressItemForMainGroupAtIndex(idx)
+        }
+        cell.progressView.progressItem = item!
+        
         return cell
     }
     
@@ -152,21 +233,18 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     
     
 //    MARK: - Private Functions
-    func licenseClassChanged() {
+    private func progressItemForMainGroupAtIndex(index: Int)->ProgressItem {
+        let mainGroup = self.mainGroupArray[index]
+        let item = ProgressItem()
         
-    }
-    
-    func tagQuestion() {
-        let questions = Question.taggedQuestionsInManagedObjectContext(self.managedObjectContext)
-        if questions.count > 0 {
-            self.segmentedControl.setEnabled(true, forSegmentAtIndex: 1)
-        } else {
-            self.segmentedControl.setEnabled(false, forSegmentAtIndex: 1)
+        item.numOfQuestions = UInt(Question.countQuestionsInRelationsTo(mainGroup, inManagedObjectContext: self.managedObjectContext))
+        if item.numOfQuestions > 0 {
+            item.correctAnswers = LearningStatistic.countStatisticsInRelationsTo(mainGroup, inManagedObjectContext: self.managedObjectContext, showState: .CorrectAnswered)
+            item.faultyAnswers = LearningStatistic.countStatisticsInRelationsTo(mainGroup, inManagedObjectContext: self.managedObjectContext, showState: .FaultyAnswered)
         }
-    }
-    
-    func didChangeAnswersGiven(sender: AnyObject) {
         
+        self.progressDict[index] = item
+        return item
     }
     
     private func isCatalogSelected()->Bool {

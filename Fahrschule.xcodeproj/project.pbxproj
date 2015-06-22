@@ -399,6 +399,7 @@
 		FA494D511B2EEFA000DBCA04 /* InquirerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA494D501B2EEFA000DBCA04 /* InquirerController.swift */; };
 		FA6189431B334D1A00B3E46C /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6189421B334D1A00B3E46C /* QuestionsTableViewController.swift */; };
 		FA61C7CD1B349F5400351FDA /* ProgressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61C7CC1B349F5400351FDA /* ProgressItem.swift */; };
+		FA61C7CF1B34A88400351FDA /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61C7CE1B34A88400351FDA /* ProgressView.swift */; };
 		FAAC88561B2B667400804FEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88551B2B667400804FEB /* main.m */; };
 		FAAC885C1B2B667400804FEB /* Fahrschule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAAC885A1B2B667400804FEB /* Fahrschule.xcdatamodeld */; };
 		FAAC88621B2B667400804FEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAC88601B2B667400804FEB /* Main.storyboard */; };
@@ -859,6 +860,7 @@
 		FA494D501B2EEFA000DBCA04 /* InquirerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InquirerController.swift; path = Classes/InquirerController.swift; sourceTree = "<group>"; };
 		FA6189421B334D1A00B3E46C /* QuestionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionsTableViewController.swift; path = Classes/QuestionsTableViewController.swift; sourceTree = "<group>"; };
 		FA61C7CC1B349F5400351FDA /* ProgressItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressItem.swift; path = Classes/ProgressItem.swift; sourceTree = "<group>"; };
+		FA61C7CE1B34A88400351FDA /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressView.swift; path = Classes/ProgressView.swift; sourceTree = "<group>"; };
 		FAAC88501B2B667400804FEB /* Fahrschule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fahrschule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC88541B2B667400804FEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAAC88551B2B667400804FEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1545,10 +1547,12 @@
 		FAAC8C211B2B702500804FEB /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				FA29FB241B2CC41600689451 /* QuestionCell.swift */,
-				FA29FB191B2C807D00689451 /* SubgroupCell.swift */,
+				FA61C7CC1B349F5400351FDA /* ProgressItem.swift */,
+				FA61C7CE1B34A88400351FDA /* ProgressView.swift */,
 				FA29FB101B2C384B00689451 /* ProgressCell.swift */,
 				FA29FB111B2C384B00689451 /* ProgressCell.xib */,
+				FA29FB241B2CC41600689451 /* QuestionCell.swift */,
+				FA29FB191B2C807D00689451 /* SubgroupCell.swift */,
 				FAAC8C151B2B701E00804FEB /* Appearance.swift */,
 				FAAC8C161B2B701E00804FEB /* CircularChartView.swift */,
 				FAAC8C171B2B701E00804FEB /* CircularCounterView.swift */,
@@ -1589,7 +1593,6 @@
 				FAAC8C3E1B2B732600804FEB /* QuestionModel.m */,
 				FAAC8C3F1B2B732600804FEB /* Settings.h */,
 				FAAC8C401B2B732600804FEB /* Settings.m */,
-				FA61C7CC1B349F5400351FDA /* ProgressItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2189,6 +2192,7 @@
 				FA2EDC261B302DBE00CFAACF /* InquirerTableCell.swift in Sources */,
 				FAAC8C391B2B722800804FEB /* SubGroup.m in Sources */,
 				FA494D511B2EEFA000DBCA04 /* InquirerController.swift in Sources */,
+				FA61C7CF1B34A88400351FDA /* ProgressView.swift in Sources */,
 				FAAC8C331B2B722800804FEB /* ExamQuestion.m in Sources */,
 				FA29FB121B2C384B00689451 /* ProgressCell.swift in Sources */,
 				FA494D4C1B2EC7F300DBCA04 /* ExamViewController.m in Sources */,

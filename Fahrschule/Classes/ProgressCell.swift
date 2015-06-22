@@ -13,8 +13,9 @@ class ProgressCell: UITableViewCell {
     
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var progressView: ProgressView!
     
-    @IBOutlet weak var progressView: UIView!
+    
     
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var horizontalMarginConstraint: NSLayoutConstraint!
