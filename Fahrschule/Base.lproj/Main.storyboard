@@ -26,6 +26,41 @@
             </objects>
             <point key="canvasLocation" x="-1388" y="-643"/>
         </scene>
+        <!--License Class Select View Controller-->
+        <scene sceneID="oJT-7b-ff8">
+            <objects>
+                <collectionViewController storyboardIdentifier="LicenseClassSelectViewController" id="c4v-Zf-6yE" customClass="LicenseClassSelectViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rdS-yC-qVC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kL2-ub-hle">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ioh-6o-0y9">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="c4v-Zf-6yE" id="ZHe-Eg-zpG"/>
+                            <outlet property="delegate" destination="c4v-Zf-6yE" id="Lco-9U-53b"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="zXs-EC-Byd"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQD-QA-kNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="503"/>
+        </scene>
         <!--Pocket Fahrschule-->
         <scene sceneID="ocM-Vc-pY5">
             <objects>
@@ -314,7 +349,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2A-O8-ztn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="473"/>
+            <point key="canvasLocation" x="1784" y="269"/>
         </scene>
         <!--Ergebnis-->
         <scene sceneID="Efk-Bq-DFT">
@@ -401,35 +436,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apv-k5-0B2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2255" y="473"/>
+            <point key="canvasLocation" x="2619" y="269"/>
         </scene>
         <!--Question Catalog Table View Controller-->
         <scene sceneID="DBw-Zf-D3L">
             <objects>
-                <viewController storyboardIdentifier="QuestionCatalogTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KeP-zP-vBQ" customClass="QuestionCatalogTableViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionCatalogTableViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KeP-zP-vBQ" customClass="QuestionCatalogTableViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="74O-8z-yKG"/>
                         <viewControllerLayoutGuide type="bottom" id="57C-9J-vA4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pFu-Pg-pcs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="QuestionCatalogTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="TMT-TN-Exz">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ell-Pn-1Fs" userLabel="Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="KeP-zP-vBQ" id="t6D-kB-4ma"/>
-                                    <outlet property="delegate" destination="KeP-zP-vBQ" id="UhW-YS-GSm"/>
-                                </connections>
-                            </tableView>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="CKh-Rc-xXi">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="OQN-va-Tr5">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OQN-va-Tr5" id="Pma-vd-WQ1">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="KeP-zP-vBQ" id="arK-ed-5s1"/>
+                                            <outlet property="delegate" destination="KeP-zP-vBQ" id="3T0-dt-f3v"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="CKh-Rc-xXi" firstAttribute="leading" secondItem="ell-Pn-1Fs" secondAttribute="leading" id="KzM-g3-cHL"/>
+                                    <constraint firstItem="CKh-Rc-xXi" firstAttribute="top" secondItem="ell-Pn-1Fs" secondAttribute="top" id="eBW-mp-aYG"/>
+                                    <constraint firstAttribute="trailing" secondItem="CKh-Rc-xXi" secondAttribute="trailing" id="iSo-Nu-Ull"/>
+                                    <constraint firstAttribute="bottom" secondItem="CKh-Rc-xXi" secondAttribute="bottom" id="qI4-X2-8LT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TMT-TN-Exz" firstAttribute="leading" secondItem="pFu-Pg-pcs" secondAttribute="leading" id="1WJ-rn-4Y5"/>
-                            <constraint firstAttribute="bottom" secondItem="TMT-TN-Exz" secondAttribute="bottom" id="9Eq-i2-LpJ"/>
-                            <constraint firstAttribute="trailing" secondItem="TMT-TN-Exz" secondAttribute="trailing" id="X8e-At-dLN"/>
-                            <constraint firstItem="TMT-TN-Exz" firstAttribute="top" secondItem="pFu-Pg-pcs" secondAttribute="top" id="fqJ-1X-cPG"/>
+                            <constraint firstItem="ell-Pn-1Fs" firstAttribute="top" secondItem="pFu-Pg-pcs" secondAttribute="top" id="1BA-VM-Bk0"/>
+                            <constraint firstAttribute="bottom" secondItem="ell-Pn-1Fs" secondAttribute="bottom" id="BiI-RJ-htu"/>
+                            <constraint firstItem="ell-Pn-1Fs" firstAttribute="leading" secondItem="pFu-Pg-pcs" secondAttribute="leading" id="XeC-k3-NC2"/>
+                            <constraint firstAttribute="trailing" secondItem="ell-Pn-1Fs" secondAttribute="trailing" id="zvx-pf-2XK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ipb-KM-YQX">
@@ -442,13 +498,22 @@
                                 <segment title="Katalog"/>
                                 <segment title="Markierte"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentedControlValueChanged:" destination="KeP-zP-vBQ" eventType="valueChanged" id="8ZG-mg-iWc"/>
+                            </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="J72-Lr-HRf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Abfragen" id="J72-Lr-HRf">
+                            <connections>
+                                <action selector="didTapButtonQuery:" destination="KeP-zP-vBQ" id="7zZ-08-PUU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="containerView" destination="ell-Pn-1Fs" id="nHu-Iz-pdL"/>
                         <outlet property="segmentedControl" destination="r0w-OR-vlu" id="b5P-r9-4qg"/>
-                        <outlet property="tableView" destination="TMT-TN-Exz" id="P2a-rT-Ih8"/>
+                        <outlet property="tableView" destination="CKh-Rc-xXi" id="vWV-fo-p1n"/>
                         <segue destination="7OO-eO-t0A" kind="show" identifier="SubGroupTableViewController" id="z15-o2-Rao"/>
+                        <segue destination="qAv-4W-19N" kind="presentation" identifier="QuestionSheetViewController" id="t6u-3P-n5A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOQ-77-bwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -509,7 +574,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DF1-T2-eOC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="-351"/>
+            <point key="canvasLocation" x="972" y="-555"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="m0t-XV-TAD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6WX-Wi-Erg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dyk-YY-J22">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c4v-Zf-6yE" kind="relationship" relationship="rootViewController" id="VpC-3L-FY7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z92-7j-CzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-504" y="503"/>
         </scene>
     </scenes>
     <resources>
@@ -519,7 +602,7 @@
         <image name="zurück" width="12" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IBR-Tf-KQr"/>
-        <segue reference="Vck-KF-2sV"/>
+        <segue reference="t6u-3P-n5A"/>
+        <segue reference="Wvb-ev-O25"/>
     </inferredMetricsTieBreakers>
 </document>

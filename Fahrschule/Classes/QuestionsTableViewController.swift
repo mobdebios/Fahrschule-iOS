@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class QuestionsTableViewController: UITableViewController {
+class QuestionsTableViewController: UITableViewController, UISearchResultsUpdating {
 
     var managedObjectContext: NSManagedObjectContext!
     var currentIndexPath: NSIndexPath?
@@ -106,12 +106,9 @@ class QuestionsTableViewController: UITableViewController {
 
 //    MARK: - Outlet functions
     @IBAction func didTapButtonQuery(sender: AnyObject) {
-//        println("\(NSStringFromClass(QuestionsController)) \(__FUNCTION__)")
-        
+
         let title = NSLocalizedString("Was soll abgefragt werden?", comment: "")
-        
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
-        
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Abbrechen", comment: ""), style: .Cancel, handler: nil))
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Alle Fragen", comment: ""), style: .Default, handler: { (alertAction) -> Void in
@@ -191,6 +188,20 @@ class QuestionsTableViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+//   MARK:  - UISearchResultsUpdating
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        // updateSearchResultsForSearchController(_:) is called when the controller is being dismissed to allow those who are using the controller they are search as the results controller a chance to reset their state. No need to update anything if we're being dismissed.
+        if !searchController.active {
+            return
+        }
+        
+        let searchString = searchController.searchBar.text
+        let questions = Question.questionsForSearchString(searchString, inManagedObjectContext: self.managedObjectContext) as? [Question]
+        self.dataSource = QuestionModel.modelsForQuestions(questions) as? [QuestionModel]
+        self.tableView.reloadData()
+        
     }
     
 
