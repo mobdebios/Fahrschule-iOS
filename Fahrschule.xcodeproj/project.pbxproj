@@ -10,7 +10,6 @@
 		A675AD0A8C719742018B4910 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 269DCE109E0575703524C6F9 /* libPods.a */; };
 		FA1BA08A1B341213008840BF /* SubGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */; };
 		FA1BA08C1B34216B008840BF /* QuestionCatalogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */; };
-		FA2895731B3836D100123796 /* LicenseClassSelectViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2895711B3836D100123796 /* LicenseClassSelectViewControllerOld.m */; };
 		FA2895751B384F3500123796 /* LicenseClassSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */; };
 		FA29FB121B2C384B00689451 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB101B2C384B00689451 /* ProgressCell.swift */; };
 		FA29FB131B2C384B00689451 /* ProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA29FB111B2C384B00689451 /* ProgressCell.xib */; };
@@ -409,7 +408,6 @@
 		FAAC88671B2B667400804FEB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAC88651B2B667400804FEB /* LaunchScreen.xib */; };
 		FAAC88731B2B667400804FEB /* FahrschuleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88721B2B667400804FEB /* FahrschuleTests.m */; };
 		FAAC88851B2B695D00804FEB /* SNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88821B2B695D00804FEB /* SNAppDelegate.m */; };
-		FAAC8C101B2B6C4200804FEB /* LearningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C0F1B2B6C4200804FEB /* LearningViewController.m */; };
 		FAAC8C1B1B2B701E00804FEB /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C151B2B701E00804FEB /* Appearance.swift */; };
 		FAAC8C1C1B2B701E00804FEB /* CircularChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C161B2B701E00804FEB /* CircularChartView.swift */; };
 		FAAC8C1D1B2B701E00804FEB /* CircularCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C171B2B701E00804FEB /* CircularCounterView.swift */; };
@@ -444,10 +442,10 @@
 		FAAC8C741B2B77D100804FEB /* new_questions.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C641B2B77D100804FEB /* new_questions.sql */; };
 		FAAC8C751B2B77D100804FEB /* new_questions_20131101.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C651B2B77D100804FEB /* new_questions_20131101.sql */; };
 		FAAC8C761B2B77D100804FEB /* new_questions_2013_04_01.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C661B2B77D100804FEB /* new_questions_2013_04_01.sql */; };
-		FAAC8C791B2B843D00804FEB /* QuestionCatalogTableViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C781B2B843D00804FEB /* QuestionCatalogTableViewControllerOld.m */; };
 		FAAC8C7C1B2B85FD00804FEB /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C7B1B2B85FD00804FEB /* Checksum.m */; };
 		FAD0D4DD1B39C15E00415D8C /* ModalSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0D4DC1B39C15E00415D8C /* ModalSegue.swift */; };
 		FAD2BD731B3865780010EBF0 /* LicenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2BD721B3865780010EBF0 /* LicenseCell.swift */; };
+		FAEE2F871B3ACFF5003A98FB /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE2F861B3ACFF5003A98FB /* LearningViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -466,8 +464,6 @@
 		CA86E95A39E490B7C04FFBC4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubGroupTableViewController.swift; path = Classes/SubGroupTableViewController.swift; sourceTree = "<group>"; };
 		FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionCatalogTableViewController.swift; path = Classes/QuestionCatalogTableViewController.swift; sourceTree = "<group>"; };
-		FA2895701B3836D100123796 /* LicenseClassSelectViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LicenseClassSelectViewControllerOld.h; path = Classes/LicenseClassSelectViewControllerOld.h; sourceTree = "<group>"; };
-		FA2895711B3836D100123796 /* LicenseClassSelectViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LicenseClassSelectViewControllerOld.m; path = Classes/LicenseClassSelectViewControllerOld.m; sourceTree = "<group>"; };
 		FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseClassSelectViewController.swift; path = Classes/LicenseClassSelectViewController.swift; sourceTree = "<group>"; };
 		FA29FB101B2C384B00689451 /* ProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressCell.swift; path = Classes/ProgressCell.swift; sourceTree = "<group>"; };
 		FA29FB111B2C384B00689451 /* ProgressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProgressCell.xib; path = Classes/ProgressCell.xib; sourceTree = "<group>"; };
@@ -881,8 +877,6 @@
 		FAAC887C1B2B669C00804FEB /* Fahrschule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fahrschule-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAAC88811B2B695D00804FEB /* SNAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNAppDelegate.h; path = Classes/SNAppDelegate.h; sourceTree = "<group>"; };
 		FAAC88821B2B695D00804FEB /* SNAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNAppDelegate.m; path = Classes/SNAppDelegate.m; sourceTree = "<group>"; };
-		FAAC8C0E1B2B6C4200804FEB /* LearningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LearningViewController.h; path = Classes/LearningViewController.h; sourceTree = "<group>"; };
-		FAAC8C0F1B2B6C4200804FEB /* LearningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LearningViewController.m; path = Classes/LearningViewController.m; sourceTree = "<group>"; };
 		FAAC8C111B2B6E4500804FEB /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FAAC8C151B2B701E00804FEB /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Appearance.swift; path = Classes/Appearance.swift; sourceTree = "<group>"; };
 		FAAC8C161B2B701E00804FEB /* CircularChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularChartView.swift; path = Classes/CircularChartView.swift; sourceTree = "<group>"; };
@@ -933,12 +927,11 @@
 		FAAC8C641B2B77D100804FEB /* new_questions.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new_questions.sql; sourceTree = "<group>"; };
 		FAAC8C651B2B77D100804FEB /* new_questions_20131101.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new_questions_20131101.sql; sourceTree = "<group>"; };
 		FAAC8C661B2B77D100804FEB /* new_questions_2013_04_01.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new_questions_2013_04_01.sql; sourceTree = "<group>"; };
-		FAAC8C771B2B843D00804FEB /* QuestionCatalogTableViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionCatalogTableViewControllerOld.h; path = Classes/QuestionCatalogTableViewControllerOld.h; sourceTree = "<group>"; };
-		FAAC8C781B2B843D00804FEB /* QuestionCatalogTableViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionCatalogTableViewControllerOld.m; path = Classes/QuestionCatalogTableViewControllerOld.m; sourceTree = "<group>"; };
 		FAAC8C7A1B2B85FD00804FEB /* Checksum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Checksum.h; path = Classes/Checksum.h; sourceTree = "<group>"; };
 		FAAC8C7B1B2B85FD00804FEB /* Checksum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Checksum.m; path = Classes/Checksum.m; sourceTree = "<group>"; };
 		FAD0D4DC1B39C15E00415D8C /* ModalSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalSegue.swift; path = Classes/ModalSegue.swift; sourceTree = "<group>"; };
 		FAD2BD721B3865780010EBF0 /* LicenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseCell.swift; path = Classes/LicenseCell.swift; sourceTree = "<group>"; };
+		FAEE2F861B3ACFF5003A98FB /* LearningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LearningViewController.swift; path = Classes/LearningViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -981,8 +974,6 @@
 		FA28956D1B38369400123796 /* License Class */ = {
 			isa = PBXGroup;
 			children = (
-				FA2895701B3836D100123796 /* LicenseClassSelectViewControllerOld.h */,
-				FA2895711B3836D100123796 /* LicenseClassSelectViewControllerOld.m */,
 				FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */,
 			);
 			name = "License Class";
@@ -1376,8 +1367,7 @@
 		FA494D3A1B2EC70D00DBCA04 /* Learning */ = {
 			isa = PBXGroup;
 			children = (
-				FAAC8C0E1B2B6C4200804FEB /* LearningViewController.h */,
-				FAAC8C0F1B2B6C4200804FEB /* LearningViewController.m */,
+				FAEE2F861B3ACFF5003A98FB /* LearningViewController.swift */,
 			);
 			name = Learning;
 			sourceTree = "<group>";
@@ -1385,8 +1375,6 @@
 		FA494D3B1B2EC71B00DBCA04 /* Question Catalog */ = {
 			isa = PBXGroup;
 			children = (
-				FAAC8C771B2B843D00804FEB /* QuestionCatalogTableViewControllerOld.h */,
-				FAAC8C781B2B843D00804FEB /* QuestionCatalogTableViewControllerOld.m */,
 				FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */,
 			);
 			name = "Question Catalog";
@@ -2202,7 +2190,6 @@
 				FAAC8C421B2B732600804FEB /* Settings.m in Sources */,
 				FAAC88561B2B667400804FEB /* main.m in Sources */,
 				FAAC8C1B1B2B701E00804FEB /* Appearance.swift in Sources */,
-				FAAC8C791B2B843D00804FEB /* QuestionCatalogTableViewControllerOld.m in Sources */,
 				FA494D4D1B2EC7F300DBCA04 /* GraphDiagramController.m in Sources */,
 				FAAC885C1B2B667400804FEB /* Fahrschule.xcdatamodeld in Sources */,
 				FA494D331B2EBF4F00DBCA04 /* FahrschuleNavigationController.m in Sources */,
@@ -2219,17 +2206,16 @@
 				FAAC8C331B2B722800804FEB /* ExamQuestion.m in Sources */,
 				FA29FB121B2C384B00689451 /* ProgressCell.swift in Sources */,
 				FA494D4C1B2EC7F300DBCA04 /* ExamViewController.m in Sources */,
+				FAEE2F871B3ACFF5003A98FB /* LearningViewController.swift in Sources */,
 				FAAC8C351B2B722800804FEB /* LearningStatistic.m in Sources */,
 				FA494D4B1B2EC7F300DBCA04 /* ExamResultViewController.m in Sources */,
 				FAAC88851B2B695D00804FEB /* SNAppDelegate.m in Sources */,
-				FA2895731B3836D100123796 /* LicenseClassSelectViewControllerOld.m in Sources */,
 				FAAC8C1D1B2B701E00804FEB /* CircularCounterView.swift in Sources */,
 				FAAC8C321B2B722800804FEB /* Answer.m in Sources */,
 				FA29FB251B2CC41600689451 /* QuestionCell.swift in Sources */,
 				FA6189431B334D1A00B3E46C /* QuestionsTableViewController.swift in Sources */,
 				FA3D41B01B2F4A7300011C5C /* UIViewController+Extension.swift in Sources */,
 				FA29FB1A1B2C807D00689451 /* SubgroupCell.swift in Sources */,
-				FAAC8C101B2B6C4200804FEB /* LearningViewController.m in Sources */,
 				FA3F31081B316F2100BD5566 /* LearningResultViewController.swift in Sources */,
 				FA3D41B31B2F57A200011C5C /* InquirerCollectionCell.swift in Sources */,
 				FAD0D4DD1B39C15E00415D8C /* ModalSegue.swift in Sources */,
@@ -2327,7 +2313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_MODULE_NAME = Fahrschule;
@@ -2368,7 +2354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_MODULE_NAME = Fahrschule;
 				SDKROOT = iphoneos;
@@ -2385,10 +2371,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Fahrschule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Fahrschule/Fahrschule-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2400,9 +2388,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Fahrschule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Fahrschule/Fahrschule-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

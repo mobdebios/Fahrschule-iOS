@@ -16,6 +16,7 @@
 - (void)setLicenseClass:(LicenseClass)licenseClass
 {
 	[self.userDefaults setValue:[NSNumber numberWithInt:licenseClass] forKey:@"licenseClass"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"licenseClassChanged" object:nil];
     
     if ([self getCurrentLicenseClassTeachingTypeState] != kUnknownTeachingType) {
@@ -272,16 +273,13 @@
 
 static Settings *sharedInstance = nil;
 
-+ (void)initialize
-{
-    if (sharedInstance == nil)
-        sharedInstance = [[self alloc] init];
-}
-
-+ (id)sharedSettings
-{
-    //Already set by +initialize.
-    return sharedInstance;
++ (id)sharedSettings {
+    static Settings *__instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __instance = [[Settings alloc] init];
+    });
+    return __instance;
 }
 
 + (id)allocWithZone:(NSZone*)zone
@@ -302,12 +300,10 @@ static Settings *sharedInstance = nil;
 {
     //If sharedInstance is nil, +initialize is our caller, so initialize the instance.
     //If it is not nil, simply return the instance without re-initializing it.
-    if (sharedInstance == nil) {
-        self = [super init];
-        if (self) {
-            self.userDefaults = [NSUserDefaults standardUserDefaults];
-            _examSheetDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ExamSheet" ofType:@"plist"]];
-        }
+    self = [super init];
+    if (self) {
+        self.userDefaults = [NSUserDefaults standardUserDefaults];
+        _examSheetDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ExamSheet" ofType:@"plist"]];
     }
     return self;
 }

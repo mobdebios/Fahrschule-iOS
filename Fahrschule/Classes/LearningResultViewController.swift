@@ -90,7 +90,13 @@ class LearningResultViewController: UIViewController {
             //        BuyFullVersionViewController *bfvvc = [[BuyFullVersionViewController alloc] initWithOfficialView:NO];
             //        [self.navigationController pushViewController:bfvvc animated:YES];
         #else
-            self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+            
+            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+                self.navigationController?.popToRootViewControllerAnimated(true)
+            } else {
+                self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
         #endif
         
     }

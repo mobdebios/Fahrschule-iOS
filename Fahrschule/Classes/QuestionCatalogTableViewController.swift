@@ -114,6 +114,10 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
 //        self.searchController.searchBar.delegate = self; // so we can monitor text changes + others
         self.definesPresentationContext = true;  // know where you want UISearchController to be displayed
         
+        // Configure for iPad
+//        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+//            self.navigationItem.leftBarButtonItem = nil
+//        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -182,6 +186,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
             [weak self] note in
             if let weakSelf = self {
                 println("\(__FUNCTION__) not emplemented yet didChangeAnswersGiven")
+                self?.tableView.reloadData()
             }
             })
         

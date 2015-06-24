@@ -76,7 +76,7 @@ class CircularChartView: UIView {
         if remainingLayer == nil {
             remainingLayer = CAShapeLayer();
             
-            remainingLayer.path = path.CGPath
+            
             remainingLayer.fillColor = UIColor.clearColor().CGColor
             remainingLayer.lineWidth = lineWidth
             remainingLayer.borderColor = nil
@@ -85,13 +85,14 @@ class CircularChartView: UIView {
             
         }
         
-        remainingLayer.frame = bounds
+        remainingLayer.path = path.CGPath
+        remainingLayer.frame = self.bounds
         
         if falseLayer == nil {
             falseLayer = CAShapeLayer();
             layer.addSublayer(falseLayer);
             
-            falseLayer.path = path.CGPath
+            
             falseLayer.fillColor = UIColor.clearColor().CGColor
             falseLayer.lineWidth = lineWidth
             falseLayer.strokeColor = UIColor.roseAshesColor().CGColor
@@ -101,13 +102,14 @@ class CircularChartView: UIView {
             falseLayer.strokeStart = 0.0
         }
         
-        falseLayer.frame = bounds
+        falseLayer.path = path.CGPath
+        falseLayer.frame = self.bounds
         
         if trueLayer == nil {
             trueLayer = self.chartLayer(UIColor.lemonColor());
             layer.addSublayer(trueLayer)
-            
         }
+        trueLayer.path = path.CGPath
         trueLayer.frame = bounds
         
 //        Title Label

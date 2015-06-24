@@ -38,53 +38,22 @@
     
     [Appearance customizeAppearance];
     
-    [Settings initialize];
-    
-    [self updateTabBarController];
-    
-    Settings *settings = [Settings sharedSettings];
-    if (settings.licenseClass == kUnknownLicenseClass) {
-        UIStoryboard *storyboard = self.window.rootViewController.storyboard;
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LicenseClassSelectViewController"];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
-        [self.window makeKeyAndVisible];
-        [self.window.rootViewController presentViewController:navController animated:NO completion:NULL];
-    }
+//    Settings *settings = [Settings sharedSettings];
+//    
+//    if (settings.licenseClass == kUnknownLicenseClass) {
+//        UIStoryboard *storyboard = self.window.rootViewController.storyboard;
+//        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LicenseClassSelectViewController"];
+//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+//        [self.window makeKeyAndVisible];
+//        [self.window.rootViewController presentViewController:navController animated:NO completion:NULL];
+//    }
     
     
     
     return YES;
 }
 
-- (void)updateTabBarController {
-    if (UI_USER_INTERFACE_IDIOM() ==  UIUserInterfaceIdiomPad) {
-        
-        NSMutableArray *array = [NSMutableArray new];
-        
-        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-        UIStoryboard *storyboard = tabBarController.storyboard;
-        
-        UIViewController *master = [storyboard instantiateViewControllerWithIdentifier:@"QuestionCatalogTableViewController"];
-        UINavigationController *masterNav = [[UINavigationController alloc] initWithRootViewController:master];
-        
-        UINavigationController *detailNav = tabBarController.viewControllers.firstObject;
-        UISplitViewController *split = [[UISplitViewController alloc] init];
-        split.tabBarItem = tabBarController.tabBar.items[0];
-        split.viewControllers = @[masterNav, detailNav];
-        split.preferredDisplayMode = UISplitViewControllerDisplayModeAutomatic;
-        detailNav.topViewController.navigationItem.leftBarButtonItem = [split displayModeButtonItem];
-        split.delegate = self;
-        
-        [array addObject:split];
-        
-        
-        tabBarController.viewControllers = array;
-        
-        
-        
-        
-    }
-}
+
 
 #pragma mark - Split View Controller Delegate
 //- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
@@ -115,27 +84,24 @@
 }
 
 #pragma mark - State Preservation and Restoration
-- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
-    return NO;
-    
-//    Settings *settings = [Settings sharedSettings];
-//    if (settings.licenseClass == kUnknownLicenseClass) {
-//        return NO;
-//    } else {
-//        return YES;
-//        
-//    }
-}
-
-- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
-    return NO;
-//    Settings *settings = [Settings sharedSettings];
-//    if (settings.licenseClass == kUnknownLicenseClass) {
-//        return NO;
-//    } else {
-//        return YES;
-//    }
-}
+//- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
+////    Settings *settings = [Settings sharedSettings];
+////    if (settings.licenseClass == kUnknownLicenseClass) {
+////        return NO;
+////    } else {
+////        return YES;
+////        
+////    }
+//}
+//
+//- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
+////    Settings *settings = [Settings sharedSettings];
+////    if (settings.licenseClass == kUnknownLicenseClass) {
+////        return NO;
+////    } else {
+////        return YES;
+////    }
+//}
 
 #pragma mark - Public Methods
 + (SNAppDelegate *)sharedDelegate {

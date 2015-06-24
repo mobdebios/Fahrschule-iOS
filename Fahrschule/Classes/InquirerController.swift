@@ -78,8 +78,10 @@ class InquirerController: UICollectionViewController, UICollectionViewDelegateFl
         }
         
         if self.isIPAD() {
-            
+//            self.under
         }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

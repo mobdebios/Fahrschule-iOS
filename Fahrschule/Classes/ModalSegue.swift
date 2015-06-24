@@ -15,15 +15,21 @@ class ModalSegue: UIStoryboardSegue {
         print("\(__FUNCTION__)")
         
         let sourceViewController = self.sourceViewController as! UIViewController
-        let destinationViewController = self.destinationViewController as! UIViewController
+        let destinationViewController = self.destinationViewController as! UINavigationController
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             sourceViewController.presentViewController(destinationViewController, animated: true, completion: nil)
         } else {
             // Select current tab
+            
+            println("\(__FUNCTION__) par: \(sourceViewController.parentViewController?.parentViewController)")
+            
             let tabBarController = SNAppDelegate.sharedDelegate().window.rootViewController as! UITabBarController
             let splitController = tabBarController.selectedViewController as! UISplitViewController
-            splitController.showDetailViewController(destinationViewController, sender: self)
+            if let navController = splitController.viewControllers.last as? UINavigationController {
+                navController.popToRootViewControllerAnimated(false)
+                navController.pushViewController(destinationViewController.topViewController, animated: true)
+            }
             
         }
     }

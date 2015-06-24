@@ -102,7 +102,7 @@ class LicenseClassSelectViewController: UICollectionViewController, UICollection
             }
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+//        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
