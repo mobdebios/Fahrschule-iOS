@@ -18,8 +18,8 @@
     NSUInteger count = [shuffledArray count];
     for (NSUInteger i = 0; i < count; ++i) {
         // Select a random element between i and end of array to swap with.
-        int nElements = count - i;
-        int n = (arc4random() % nElements) + i;
+        NSInteger nElements = count - i;
+        NSInteger n = (arc4random() % nElements) + i;
         [shuffledArray exchangeObjectAtIndex:i withObjectAtIndex:n];
     }
     

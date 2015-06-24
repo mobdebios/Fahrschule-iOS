@@ -10,6 +10,29 @@ import UIKit
 
 class QuestionCatalogTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+//    MARK: - Types
+    struct MainStoryboard {
+        struct ViewControllerTitle {
+            static let questionnaire = NSLocalizedString("Fragenkatalog", comment: "")
+            static let marked = NSLocalizedString("Markierte", comment: "")
+        }
+        
+        struct TableViewCellIdentifiers {
+            static let progressCellIdentifier = "progressCellIdentifier"
+        }
+        
+        struct TableViewDatasource {
+            static let numberOfSections: Int = 2
+        }
+        
+        struct SegueIdentifiers {
+            static let showListSubSubgroup = "SubGroupTableViewController"
+            static let showQuestionnaire = "QuestionSheetViewController"
+        }
+    }
+    
+//   MARK: - Properties
+    
     var managedObjectContext: NSManagedObjectContext!
     var lastUpdate = NSDate()
     var mainGroupArray: [MainGroup]!
@@ -20,26 +43,18 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     var questionsController: UIViewController?
     
     
-    
-//    var searchSourceController: QuestionsTableViewController?
-//    var resultSearchController: UISearchController!
-    
     var searchController = UISearchController()
     
     /// TODO: - Check neccessity
-    var isSearching: Bool = false
     var isLearningMode: Bool = false
     
-    // Outlets
+//    MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
     
-    // Constatns
-    let progressCellIdentifier = "progressCellIdentifier"
-    let NUM_OF_SECTIONS = 2
     
-//    MARK: Initialization
+//    MARK: - Initialization
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.registerObservers();
@@ -54,8 +69,10 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = NSLocalizedString("Fragenkatalog", comment: "")
+        
         // TableView settings       
-        self.tableView.registerNib(UINib(nibName: "ProgressCell", bundle: nil), forCellReuseIdentifier: progressCellIdentifier)
+        self.tableView.registerNib(UINib(nibName: "ProgressCell", bundle: nil), forCellReuseIdentifier: MainStoryboard.TableViewCellIdentifiers.progressCellIdentifier)
         self.tableView.estimatedRowHeight = 44.0
         
         // Grouprs
@@ -161,13 +178,6 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
             })
         
         
-        self.localObservers.append(center.addObserverForName("licenseClassChanged", object: nil, queue: queue) {
-            [weak self] _ in
-            if let weakSelf = self {
-                println("\(__FUNCTION__) not emplemented yet licenseClassChanged")
-            }
-            })
-        
         self.localObservers.append(center.addObserverForName("didChangeAnswersGiven", object: nil, queue: queue) {
             [weak self] note in
             if let weakSelf = self {
@@ -196,7 +206,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
             vc.mainGroup = mainGroup
             vc.title = mainGroup.name
         }
-        else if segue.identifier == "QuestionSheetViewController" {
+        else if segue.identifier == MainStoryboard.SegueIdentifiers.showQuestionnaire {
             if let navController = segue.destinationViewController as? UINavigationController {
                 if let qsvc = navController.topViewController as? InquirerController {
                     qsvc.managedObjectContext = self.managedObjectContext
@@ -215,6 +225,8 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
         let side1Visible = self.segmentedControl.selectedSegmentIndex == 1
         
         if side1Visible {
+            
+            self.title = MainStoryboard.ViewControllerTitle.questionnaire
             
             // Show QuestionsTableViewController with Tagged Questions
             let qtvc: QuestionsTableViewController = self.storyboard!.instantiateViewControllerWithIdentifier("QuestionsTableViewController") as! QuestionsTableViewController
@@ -240,6 +252,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
             }, completion: nil)
             
         } else {
+            self.title = MainStoryboard.ViewControllerTitle.marked
             
             let options = UIViewAnimationOptions.BeginFromCurrentState | UIViewAnimationOptions.TransitionFlipFromLeft
             
@@ -258,7 +271,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     }
 
     
-    @IBAction func didTapButtonQuery(sender: AnyObject) {
+    @IBAction func didTapButtonQuery(sender: UIBarButtonItem) {
         
         let title = NSLocalizedString("Was soll abgefragt werden?", comment: "")
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
@@ -278,7 +291,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
             
             let models = QuestionModel.modelsForQuestions(questions) as! [QuestionModel]
             if questions.count > 0 {
-                self.performSegueWithIdentifier("QuestionSheetViewController", sender: models)
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showQuestionnaire, sender: models)
             }
             
         }))
@@ -294,7 +307,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
             
             let models = QuestionModel.modelsForQuestions(questions) as! [QuestionModel]
             if questions.count > 0 {
-                self.performSegueWithIdentifier("QuestionSheetViewController", sender: models)
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showQuestionnaire, sender: models)
             }
             
         }))
@@ -310,7 +323,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
             
             let models = QuestionModel.modelsForQuestions(questions) as! [QuestionModel]
             if questions.count > 0 {
-                self.performSegueWithIdentifier("QuestionSheetViewController", sender: models)
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showQuestionnaire, sender: models)
             }
             
         }))
@@ -329,14 +342,15 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
             var models = QuestionModel.modelsForQuestions(questions) as! [QuestionModel]
             
             if questions.count > 0 {
-                self.performSegueWithIdentifier("QuestionSheetViewController", sender: models)
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showQuestionnaire, sender: models)
             }
             
         }))
         
-        
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.barButtonItem = sender
+        }
         self.presentViewController(alertController, animated: true, completion: nil)
-        
     }
     
     
@@ -344,8 +358,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     
 //    MARK: - Table View datasource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return self.isCatalogSelected()
-        return NUM_OF_SECTIONS
+        return MainStoryboard.TableViewDatasource.numberOfSections
         
     }
     
@@ -365,7 +378,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(progressCellIdentifier) as! ProgressCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier(MainStoryboard.TableViewCellIdentifiers.progressCellIdentifier) as! ProgressCell
         let idx = indexPath.section * numberOfThemes[0] + indexPath.row
         let mainGroup = self.dataSource[idx]
         cell.titleLabel.text = mainGroup.name
@@ -382,8 +395,8 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     
 //    MARK: - Table View delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if self.isCatalogSelected() && !self.isSearching {
-            self.performSegueWithIdentifier("SubGroupTableViewController", sender: self)
+        if self.isCatalogSelected() {
+            self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showListSubSubgroup, sender: self)
         }
     }
     

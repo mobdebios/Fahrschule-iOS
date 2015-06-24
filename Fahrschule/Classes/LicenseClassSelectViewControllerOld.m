@@ -6,13 +6,13 @@
 //  Copyright 2011 freenet. All rights reserved.
 //
 
-#import "LicenseClassSelectViewController.h"
+#import "LicenseClassSelectViewControllerOld.h"
 //#import "GroupedCellBackgroundView.h"
 //#import "LicenseClassTableViewCell.h"
 //#import "UIColor+ColorWithHexString.h"
 
 
-@implementation LicenseClassSelectViewController
+@implementation LicenseClassSelectViewControllerOld
 
 @synthesize licenseClassesDict=_licenseClassesDict;
 @synthesize keyList=_keyList;

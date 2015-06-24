@@ -8,30 +8,24 @@
 
 import UIKit
 
+class LicenseClassSelectViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-class LicenseClassSelectViewController: UICollectionViewController {
-    let reuseIdentifier = "Cell"
-    
     var licenseClassesDict:  NSDictionary?
-    var keyList: NSArray?
+    var keyList = ["1", "2", "8192", "16384", "4", "8", "16", "32", "64", "128", "512", "1024", "4096"]
+    let checkedImage = UIImage(named: "bestanden")
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+
+        self.clearsSelectionOnViewWillAppear = false
+
         let path = NSBundle.mainBundle().pathForResource("LicenseClasses", ofType: "plist")
         self.licenseClassesDict = NSDictionary(contentsOfFile: path!)
         
-        println("\(licenseClassesDict)")
         
-
-        // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = true
-
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,66 +33,84 @@ class LicenseClassSelectViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
+//    MARK: - Table view data source
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    override func  collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.keyList.count
     }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 0
-    }
-
-
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
-    }
-
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! LicenseCell
+        
+        let licenseClass = self.keyList[indexPath.row]
+        let dict: NSDictionary = self.licenseClassesDict?.objectForKey(licenseClass) as! NSDictionary
+        cell.titleLabel?.text = dict["title"] as? String
+        cell.subtitleLabel?.text = dict["desc"] as? String
+        cell.classLabel?.text = dict["class"] as? String
+        
+        
+        let imageName: String = dict["image"] as! String
+        let image = UIImage(named: imageName)
+        
+        if image != nil {
+            cell.imageView?.image = image
+        } else {
+            cell.imageView?.image = nil
+            println("\(imageName)")
+        }
+        
+//        let settings = Settings.sharedSettings() as! Settings
+//        let lc = settings.licenseClass as LicenseClass
+        
+        
+        if licenseClass.toInt() == Settings.sharedSettings()!.licenseClass.rawValue {
+            cell.iconImageView.image = checkedImage
+        } else {
+            cell.iconImageView.image = nil
+        }
+        
+        
+        
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
     
+//    MARK: Collection View Delegate
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let settings = Settings.sharedSettings() as! Settings
+        let oldValue = settings.licenseClass as LicenseClass
+        let newValue: Int = self.keyList[indexPath.item].toInt()!
+        if newValue != oldValue.rawValue {
+            settings.licenseClass = LicenseClass(rawValue: newValue)!
+            
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! LicenseCell
+            cell.iconImageView.image = checkedImage
+            
+            if let idx = find(self.keyList, String(oldValue.rawValue)) {
+                let oldIndexPath = NSIndexPath(forItem: idx, inSection: 0)
+                if let oldCell = collectionView.cellForItemAtIndexPath(oldIndexPath) as? LicenseCell  {
+                    oldCell.iconImageView.image = nil
+                }
+            }
+                        
+            if settings.licenseClass == .LicenseClassC1 || settings.licenseClass == .LicenseClassC || settings.licenseClass == LicenseClass.LicenseClassCE || settings.licenseClass == .LicenseClassD1 || settings.licenseClass == .LicenseClassD {
+                
+                settings.teachingType = .AdditionalLicense
+            }
+            else if settings.licenseClass == .LicenseClassMOFA {
+                settings.teachingType = .FirstTimeLicense
+            }
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
-    */
+    
+//    MARK: - Collection View Flowlayout delegate
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let width = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? CGRectGetWidth(collectionView.bounds) : CGRectGetWidth(collectionView.bounds) / 2.0
+        return CGSizeMake(width, 44.0)
+    }
+
 
 }

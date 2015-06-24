@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+
+typedef NS_ENUM(NSInteger, TeachingType) {
     kFirstTimeLicense = 1,
     kAdditionalLicense = 2,
     kUnknownTeachingType = 4
-} TeachingType;
-
+    
+};
 
 
 typedef NS_ENUM(NSInteger, LicenseClass) {

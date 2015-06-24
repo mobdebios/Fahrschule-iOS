@@ -19,7 +19,7 @@
 #import <CommonCrypto/CommonDigest.h>
 
 
-@interface SNAppDelegate ()
+@interface SNAppDelegate () <UISplitViewControllerDelegate>
 
 @end
 
@@ -39,10 +39,57 @@
     [Appearance customizeAppearance];
     
     [Settings initialize];
-    [Settings sharedSettings];
+    
+    [self updateTabBarController];
+    
+    Settings *settings = [Settings sharedSettings];
+    if (settings.licenseClass == kUnknownLicenseClass) {
+        UIStoryboard *storyboard = self.window.rootViewController.storyboard;
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LicenseClassSelectViewController"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self.window makeKeyAndVisible];
+        [self.window.rootViewController presentViewController:navController animated:NO completion:NULL];
+    }
+    
+    
     
     return YES;
 }
+
+- (void)updateTabBarController {
+    if (UI_USER_INTERFACE_IDIOM() ==  UIUserInterfaceIdiomPad) {
+        
+        NSMutableArray *array = [NSMutableArray new];
+        
+        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+        UIStoryboard *storyboard = tabBarController.storyboard;
+        
+        UIViewController *master = [storyboard instantiateViewControllerWithIdentifier:@"QuestionCatalogTableViewController"];
+        UINavigationController *masterNav = [[UINavigationController alloc] initWithRootViewController:master];
+        
+        UINavigationController *detailNav = tabBarController.viewControllers.firstObject;
+        UISplitViewController *split = [[UISplitViewController alloc] init];
+        split.tabBarItem = tabBarController.tabBar.items[0];
+        split.viewControllers = @[masterNav, detailNav];
+        split.preferredDisplayMode = UISplitViewControllerDisplayModeAutomatic;
+        detailNav.topViewController.navigationItem.leftBarButtonItem = [split displayModeButtonItem];
+        split.delegate = self;
+        
+        [array addObject:split];
+        
+        
+        tabBarController.viewControllers = array;
+        
+        
+        
+        
+    }
+}
+
+#pragma mark - Split View Controller Delegate
+//- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+//    return YES;
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -69,11 +116,25 @@
 
 #pragma mark - State Preservation and Restoration
 - (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
-    return YES;
+    return NO;
+    
+//    Settings *settings = [Settings sharedSettings];
+//    if (settings.licenseClass == kUnknownLicenseClass) {
+//        return NO;
+//    } else {
+//        return YES;
+//        
+//    }
 }
 
 - (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
-    return YES;
+    return NO;
+//    Settings *settings = [Settings sharedSettings];
+//    if (settings.licenseClass == kUnknownLicenseClass) {
+//        return NO;
+//    } else {
+//        return YES;
+//    }
 }
 
 #pragma mark - Public Methods
@@ -345,7 +406,7 @@
     if(uuid) {
         unsigned char digest[16];
         NSData *data = [uuid dataUsingEncoding:NSASCIIStringEncoding];
-        CC_MD5([data bytes], [data length], digest);
+        CC_MD5([data bytes], (CC_LONG)[data length], digest);
         
         result = [NSString stringWithFormat: @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
                   digest[0], digest[1],

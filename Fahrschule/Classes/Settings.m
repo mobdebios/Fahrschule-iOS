@@ -130,12 +130,12 @@
 
 - (void)setCurrentLicenseClassTeachingTypeState
 {
-    [self.userDefaults setValue:[NSNumber numberWithInt:self.teachingType] forKey:[NSString stringWithFormat:@"LicenseClassState%d", self.licenseClass]];
+    [self.userDefaults setValue:[NSNumber numberWithInt:self.teachingType] forKey:[NSString stringWithFormat:@"LicenseClassState%zd", self.licenseClass]];
 }
 
 - (TeachingType)getCurrentLicenseClassTeachingTypeState
 {
-    NSNumber *ret = [self.userDefaults valueForKey:[NSString stringWithFormat:@"LicenseClassState%d", self.licenseClass]];
+    NSNumber *ret = [self.userDefaults valueForKey:[NSString stringWithFormat:@"LicenseClassState%zd", self.licenseClass]];
     return ret ? (TeachingType) [ret integerValue] : kUnknownTeachingType;
 }
 
@@ -212,8 +212,8 @@
 
 - (NSInteger)numberOfAdditionalQuestionsExam
 {
-    return [[[[[self.examSheetDictionary objectForKey:[NSString stringWithFormat:@"%d", self.licenseClass]]
-                           objectForKey:[NSString stringWithFormat:@"%d", self.teachingType]] objectForKey:@"Zusatzstoff"] objectForKey:@"totalquestions"] integerValue];
+    return [[[[[self.examSheetDictionary objectForKey:[NSString stringWithFormat:@"%zd", self.licenseClass]]
+                           objectForKey:[NSString stringWithFormat:@"%zd", self.teachingType]] objectForKey:@"Zusatzstoff"] objectForKey:@"totalquestions"] integerValue];
 }
 
 - (NSString *)licenseClassString

@@ -9,7 +9,7 @@
 
 
 
-@interface LicenseClassSelectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface LicenseClassSelectViewControllerOld : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     
 }
 

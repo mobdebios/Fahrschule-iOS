@@ -10,6 +10,24 @@ import UIKit
 
 class SubGroupTableViewController: UITableViewController {
     
+//    MARK: - Types
+    struct MainStoryboard {
+        
+        struct TableViewCellIdentifiers {
+            static let subgroupCellIdentifier = "Cell"
+        }
+        
+        
+        struct SegueIdentifiers {
+            static let showQuestionnaire = "QuestionSheetViewController"
+        }
+        
+        struct Restoration {
+            static let managedObjectID = "managedObjectID"
+        }
+    }
+    
+//    MARK: - Properties
     var managedObjectContext: NSManagedObjectContext!
     var dataSource: [SubGroup]!
     var mainGroup: MainGroup! {
@@ -18,13 +36,12 @@ class SubGroupTableViewController: UITableViewController {
         }
     }
     
-    //    Constatns
-    let MANAGED_OBJ_ID = "MANAGED_OBJ_ID"
+    
     
 //    MARK: State Save and Preservation
     override func encodeRestorableStateWithCoder(coder: NSCoder) {
         super.encodeRestorableStateWithCoder(coder)
-        coder.encodeObject(self.mainGroup.objectID.URIRepresentation(), forKey: MANAGED_OBJ_ID)
+        coder.encodeObject(self.mainGroup.objectID.URIRepresentation(), forKey: MainStoryboard.Restoration.managedObjectID)
     }
     
     override func decodeRestorableStateWithCoder(coder: NSCoder) {
@@ -33,7 +50,7 @@ class SubGroupTableViewController: UITableViewController {
         //        Restore Subgroup
         self.managedObjectContext = SNAppDelegate.sharedDelegate().managedObjectContext
         
-        let objURI = coder.decodeObjectForKey(MANAGED_OBJ_ID) as! NSURL
+        let objURI = coder.decodeObjectForKey(MainStoryboard.Restoration.managedObjectID) as! NSURL
         let objID: NSManagedObjectID = self.managedObjectContext.persistentStoreCoordinator!.managedObjectIDForURIRepresentation(objURI)!
         self.mainGroup = self.managedObjectContext.objectWithID(objID) as! MainGroup
         
@@ -84,7 +101,7 @@ class SubGroupTableViewController: UITableViewController {
     }
     
 //    MARK: Outlet functions
-    @IBAction func didTapButtonQuery(sender: AnyObject) {
+    @IBAction func didTapButtonQuery(sender: UIBarButtonItem) {
         let title = NSLocalizedString("Was soll abgefragt werden?", comment: "");
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
         
@@ -119,7 +136,10 @@ class SubGroupTableViewController: UITableViewController {
         }))
         
         
-        self .presentViewController(alertController, animated: true, completion: nil)
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.barButtonItem = sender
+        }
+        self.presentViewController(alertController, animated: true, completion: nil)
         
     }
     
@@ -129,7 +149,7 @@ class SubGroupTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SubgroupCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(MainStoryboard.TableViewCellIdentifiers.subgroupCellIdentifier, forIndexPath: indexPath) as! SubgroupCell
         let subGroup = self.dataSource[indexPath.row]
         cell.numberLabel.text = subGroup.number
         cell.titleLabel.text =  subGroup.name
@@ -140,7 +160,7 @@ class SubGroupTableViewController: UITableViewController {
     private func openQuestionSheetController(questions: [Question]) {
         if let models = QuestionModel.modelsForQuestions(questions) as? [QuestionModel] {
             if models.count > 0 {
-                self.performSegueWithIdentifier("QuestionSheetViewController", sender: models)
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showQuestionnaire, sender: models)
             }
         }
     }
