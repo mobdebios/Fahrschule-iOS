@@ -10,8 +10,29 @@ import UIKit
 
 
 
-class QuestionsTableViewController: UITableViewController, UISearchResultsUpdating {
+class QuestionsTableViewController: UITableViewController, UISearchResultsUpdating, UISplitViewControllerDelegate {
 
+//    MARK: - Types
+    struct MainStoryboard {
+        struct SegueIdentifiers {
+            static let showTestQuestions = "showTestQuestions"
+            static let showExamQuestions = "showExamQuestions"
+        }
+        
+        struct Restoration {
+            static let subGroupKey = "SUBGROUP_STORE_KEY"
+            static let titleKey = "QTVC_TITLE_KEY"
+        }
+        
+        struct CellIdentifier {
+            static let Learning = "Cell"
+            static let Exam = "ExamCell"
+        }
+    }
+    
+//    MARK: Properties
+    var detailNavigationController: UINavigationController?
+    var questionSheetType: QuestionSheetType = .Learning
     var managedObjectContext: NSManagedObjectContext!
     var currentIndexPath: NSIndexPath?
     var dataSource: [QuestionModel]!
@@ -24,16 +45,19 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         }
     }
     
-//    Constatns
-    let SUBGROUP_STORE_KEY = "SUBGROUP_STORE_KEY"
-    let QTVC_TITLE_KEY = "QTVC_TITLE_KEY"
+    var localObservers = [AnyObject]()
+    
+//    MARK: - Initialization & Delocation
+    deinit {
+        unregisterObservers()
+    }
     
   
-//    MARK: State Save and Preservation
+//    MARK: - State Save and Preservation
     override func encodeRestorableStateWithCoder(coder: NSCoder) {
         super.encodeRestorableStateWithCoder(coder)
-        coder.encodeObject(self.subGroup.objectID.URIRepresentation(), forKey: SUBGROUP_STORE_KEY)
-        coder.encodeObject(self.title, forKey: QTVC_TITLE_KEY)
+        coder.encodeObject(self.subGroup.objectID.URIRepresentation(), forKey: MainStoryboard.Restoration.subGroupKey)
+        coder.encodeObject(self.title, forKey: MainStoryboard.Restoration.titleKey)
     }
     
     override func decodeRestorableStateWithCoder(coder: NSCoder) {
@@ -42,12 +66,12 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
 //        Restore Subgroup
         self.managedObjectContext = SNAppDelegate.sharedDelegate().managedObjectContext
         
-        let objURI = coder.decodeObjectForKey(SUBGROUP_STORE_KEY) as! NSURL
+        let objURI = coder.decodeObjectForKey(MainStoryboard.Restoration.subGroupKey) as! NSURL
         let objID: NSManagedObjectID = self.managedObjectContext.persistentStoreCoordinator!.managedObjectIDForURIRepresentation(objURI)!
         self.subGroup = self.managedObjectContext.objectWithID(objID) as! SubGroup
         
 //        Restore controller title
-        self.title = coder.decodeObjectForKey(QTVC_TITLE_KEY) as? String
+        self.title = coder.decodeObjectForKey(MainStoryboard.Restoration.titleKey) as? String
         
     }
     
@@ -57,7 +81,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         super.viewDidLoad()
 
         // Observers
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didChangeAnswersGiven"), name: "didChangeAnswersGiven", object: nil)
+        regisgerObservers()
         
         // TableView settings
         self.clearsSelectionOnViewWillAppear = true
@@ -70,38 +94,113 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         self.tableView.reloadData()
     }
     
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+//    MARK: - Observers
+    func regisgerObservers() {
+        let center = NSNotificationCenter.defaultCenter()
+        let queue = NSOperationQueue.mainQueue()
+        
+        
+        // Highlight answered question
+        localObservers.append(center.addObserverForName(SettingsNotificationDidChangeAnswersGiven, object: nil, queue: queue, usingBlock: {
+            [weak self] note in
+            
+            if let model = note.object as? QuestionModel {
+                
+                if let array = self?.dataSource {
+                    if let idx = find(array, model ) {
+                        let indexPath = NSIndexPath(forRow: idx, inSection: 0)
+                        if let cell = self?.tableView.cellForRowAtIndexPath(indexPath) as? QuestionCell {
+                            cell.setAnswerGiven(true, animated: true)
+                        }
+                    }
+                }
+            }
+        }))
+
+        
+        // Select current question
+        localObservers.append(center.addObserverForName(SettingsNotificationDidSelectQuestion, object: nil, queue: queue, usingBlock: {
+            [weak self] note in
+            
+            if let indexPath = note.object as? NSIndexPath {
+                let arr = self?.tableView.indexPathsForVisibleRows() as! [NSIndexPath]
+                
+                var scrollPosition: UITableViewScrollPosition = .None
+                
+                if indexPath.compare(arr.first!) == .OrderedAscending {
+                    scrollPosition = .Top
+                }
+                else if indexPath.compare(arr.last!) == .OrderedDescending {
+                    scrollPosition = .Bottom
+                }
+                
+                self?.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: scrollPosition)
+
+            }
+            
+        }))
+        
+        
+        
+    }
+    
+    func unregisterObservers() {
+        let center = NSNotificationCenter.defaultCenter()
+        for observer in self.localObservers {
+            center.removeObserver(observer)
+        }
     }
     
 //    MARK: - Private functions
-    func didChangeAnswersGiven() {
-        println("\(NSStringFromClass(QuestionsTableViewController.self)) \(__FUNCTION__)")
+    func didChangeAnswersGiven(note: NSNotification) {
+        
+        
+        
     }
     
 //    MARK: - Navigation
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            if identifier == MainStoryboard.SegueIdentifiers.showExamQuestions || identifier == MainStoryboard.SegueIdentifiers.showTestQuestions  {
+                if detailNavigationController != nil {
+                    if detailNavigationController?.topViewController is QuestionSheetViewController {
+                        let qsvc = detailNavigationController?.topViewController as! QuestionSheetViewController
+//                        qsvc.currentIndexPath = self.tableView.indexPathForSelectedRow()!
+                        qsvc.showQuestionAtIndexPath(self.tableView.indexPathForSelectedRow()!)
+                        return false
+                    }
+                }
+            }
+        }
+        
+        return true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "QuestionSheetViewController" {
-            if let navController = segue.destinationViewController as? UINavigationController {
-                if let qsvc = navController.topViewController as? InquirerController {
-                    qsvc.managedObjectContext = self.managedObjectContext
-                    
+        if let navController = segue.destinationViewController as? UINavigationController {
+            if let qsvc = navController.topViewController as? QuestionSheetViewController {
+                qsvc.managedObjectContext = self.managedObjectContext
+                
+                if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
                     for model in self.dataSource {
                         model.givenAnswers = nil
                         model.hasSolutionBeenShown = false
                     }
-                    
-                    if let cell = sender as? UITableViewCell {
-                        qsvc.questionModels = self.dataSource
-                        qsvc.currentIndexPath = self.tableView.indexPathForSelectedRow()!
-                    }
-                    else if let arr = sender as? [QuestionModel] {
-                        qsvc.questionModels = arr
-                    }
-                    
                 }
+                
+                if let cell = sender as? UITableViewCell {
+                    qsvc.questionModels = self.dataSource
+                    qsvc.currentIndexPath = self.tableView.indexPathForSelectedRow()!
+                }
+                else if let arr = sender as? [QuestionModel] {
+                    qsvc.questionModels = arr
+                }
+                
+                qsvc.questionSheetType = self.questionSheetType
+                
             }
         }
+
     }
 
 //    MARK: - Outlet functions
@@ -114,7 +213,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Alle Fragen", comment: ""), style: .Default, handler: { (alertAction) -> Void in
             let questions = Question.questionsInRelationsTo(self.subGroup, inManagedObjectContext: self.managedObjectContext)
             let models = QuestionModel.modelsForQuestions(questions) as! [QuestionModel]
-            self.performSegueWithIdentifier("QuestionSheetViewController", sender: models)
+            self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showTestQuestions, sender: models)
             
         }))
         
@@ -122,7 +221,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
             let questions = Question.questionsInRelationsTo(self.subGroup, state: .FaultyAnswered, inManagedObjectContext: self.managedObjectContext)
             let models = QuestionModel.modelsForQuestions(questions) as! [QuestionModel]
             if models.count > 0 {
-                self.performSegueWithIdentifier("QuestionSheetViewController", sender: models)
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showTestQuestions, sender: models)
             }
             
         }))
@@ -133,7 +232,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
             let models = QuestionModel.modelsForQuestions(questions) as! [QuestionModel]
             
             if models.count > 0 {
-                self.performSegueWithIdentifier("QuestionSheetViewController", sender: models)
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showTestQuestions, sender: models)
             }
             
         }))
@@ -144,7 +243,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
             let lessQuestions = Question.questionsInRelationsTo(self.subGroup, state: .StateLess, inManagedObjectContext: self.managedObjectContext)
             models += QuestionModel.modelsForQuestions(lessQuestions) as! [QuestionModel]
             if models.count > 0 {
-                self.performSegueWithIdentifier("QuestionSheetViewController", sender: models)
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showTestQuestions, sender: models)
             }
         }))
         
@@ -163,14 +262,24 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! QuestionCell
-        let model = self.dataSource[indexPath.row]
-        let q = model.question
-        cell.numberLabel.text = q.number
-        cell.titleLabel.text = q.text
         
-        if q.learnStats != nil && q.learnStats.count > 0 {
-            var set = q.learnStats as NSSet
+        let model = self.dataSource[indexPath.row]
+        let question = model.question
+        
+        var cell: QuestionCell
+        
+        if self.questionSheetType != .Exam {
+            cell = tableView.dequeueReusableCellWithIdentifier(MainStoryboard.CellIdentifier.Learning, forIndexPath: indexPath) as! QuestionCell
+            cell.numberLabel.text = question.number
+        } else {
+            cell = tableView.dequeueReusableCellWithIdentifier(MainStoryboard.CellIdentifier.Exam, forIndexPath: indexPath) as! QuestionCell
+            cell.answerGiven = model.isAnAnswerGiven()
+        }
+        
+        cell.titleLabel.text = question.text
+        
+        if question.learnStats != nil && question.learnStats.count > 0 && self.questionSheetType != .Exam {
+            var set = question.learnStats as NSSet
             let arr = set.allObjects
             for learnStat in arr {
                 let state = learnStat.state as NSNumber
@@ -186,11 +295,13 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         } else {
             cell.iconImageView.image = nil
         }
-
+        
+        
         return cell
+        
     }
     
-//   MARK:  - UISearchResultsUpdating
+//   MARK:  - Search Results Updating delegate
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         // updateSearchResultsForSearchController(_:) is called when the controller is being dismissed to allow those who are using the controller they are search as the results controller a chance to reset their state. No need to update anything if we're being dismissed.
         if !searchController.active {
@@ -203,6 +314,5 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         self.tableView.reloadData()
         
     }
-    
 
 }

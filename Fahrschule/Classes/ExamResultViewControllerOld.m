@@ -6,7 +6,7 @@
 //  Copyright 2011 freenet. All rights reserved.
 //
 
-#import "ExamResultViewController.h"
+#import "ExamResultViewControllerOld.h"
 #import "ExamStatistic.h"
 #import "Question.h"
 #import "QuestionModel.h"
@@ -23,33 +23,13 @@
 #endif
 
 
-@implementation ExamResultViewController
+@implementation ExamResultViewControllerOld
 
-/*
-- (Settings *)userSettings
-{
-    return [Settings sharedSettings];
-}
 
-- (UIColor *)correctColor
-{
-    return [UIColor colorWithRGBHex:0x006600];
-}
-
-- (UIColor *)incorrectColor
-{
-    return [UIColor colorWithRGBHex:0x9d0300];
-}
-
-- (UIColor *)titleBackgrondColor
-{
-    return [UIColor colorWithRGBHex:0x003f83];
-}
- */
 
 - (id)initInManagedObjectContext:(NSManagedObjectContext *)context withModels:(NSArray *)models
 {
-    NSString *nibName = self.userSettings.officialQuestionViewMode ? @"OfficialExamResultView" : @"ExamResultViewController";
+    NSString *nibName = self.userSettings.officialQuestionViewMode ? @"OfficialExamResultView" : @"ExamResultViewControllerOld";
     self = [super initWithNibName:nibName inManagedObjectContext:context];
     if (self) {
         self.questionModels = models;
@@ -95,34 +75,7 @@
                 numFivePointsQuestionFalse++;
             }
         }
-        
-        if (self.userSettings.officialQuestionViewMode) {
-            if ([qm.question.containedIn.containedIn.baseMaterial boolValue]) {
-                
-                if (!qm.hasAnsweredCorrectly) {
-                    mainGroupPoints += [qm.question.points intValue];
-                }
-                
-                if ([mainGroupDict valueForKey:qm.question.containedIn.containedIn.name]) {
-                    NSMutableArray *array = (NSMutableArray *)[mainGroupDict valueForKey:qm.question.containedIn.containedIn.name];
-                    [array addObject:qm];
-                }
-                else {
-                    [mainGroupDict setValue:[NSMutableArray arrayWithObject:qm] forKey:qm.question.containedIn.containedIn.name];
-                    [sortedGroupArray addObject:qm.question.containedIn.containedIn.name];
-                }
-            }
-            else {
-                if ([additionalGroupDict valueForKey:qm.question.containedIn.containedIn.name]) {
-                    NSMutableArray *array = (NSMutableArray *)[additionalGroupDict valueForKey:qm.question.containedIn.containedIn.name];
-                    [array addObject:qm];
-                }
-                else {
-                    [additionalGroupDict setValue:[NSMutableArray arrayWithObject:qm] forKey:qm.question.containedIn.containedIn.name];
-                    [sortedGroupArray addObject:qm.question.containedIn.containedIn.name];
-                }
-            }
-        }
+ 
     }
     
     if ([self.managedObjectContext hasChanges]) {
@@ -130,151 +83,7 @@
         [self.managedObjectContext save:&error];
     }
     
-    if (self.userSettings.officialQuestionViewMode) { // Setup the official question layout.
-        self.numberOfFaultsLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Klasse %@ - %d Fehlerpunkte", @""), self.userSettings.licenseClassString, points];
-        
-        if (points > self.maxPoints || (numFivePointsQuestionFalse == 2 && points == 10 && self.maxPoints == 10)) {
-            self.mascotFeedbackLabel.text = NSLocalizedString(@"nicht bestanden", @"");
-            self.mascotFeedbackLabel.backgroundColor = self.incorrectColor;
-        }
-        else {
-            self.mascotFeedbackLabel.text = NSLocalizedString(@"bestanden", @"");
-            self.mascotFeedbackLabel.backgroundColor = self.correctColor;
-        }
-        
-        NSInteger boxerPerRow = self.iPad ? 8 : 4;
-        CGFloat boxStartX = self.iPad ? 647.0 : 270.0;
-        CGFloat width = self.iPad ? 1016.0 : 472.0;
-        if ([[UIScreen mainScreen] bounds].size.height == 568 ) {
-            width = 560.0;
-        }
-        CGFloat currentYCoord = self.mascotFeedbackLabel.frame.origin.y + self.mascotFeedbackLabel.frame.size.height + 4.0;
-        UILabel *mainGroupTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(4.0, currentYCoord, width, 29.0)];
-        mainGroupTitleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Grundstoff - %d Fehlerpunkte", @""), mainGroupPoints];
-        mainGroupTitleLabel.textAlignment = NSTextAlignmentCenter;
-        mainGroupTitleLabel.textColor = [UIColor whiteColor];
-        mainGroupTitleLabel.backgroundColor = self.titleBackgrondColor;
-        [self.contentScrollView addSubview:mainGroupTitleLabel];
-        currentYCoord += mainGroupTitleLabel.frame.size.height + 5.0;
-
-        
-        // Adding a section for every present subgroup in 'Grundstoff'
-        for (int i = 0;i < [mainGroupDict count];i++) {
-            NSString *key = [sortedGroupArray objectAtIndex:i];
-            
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(4.0, currentYCoord, self.iPad ? 577.0 : 200.0, 40.0)];
-            label.text = key;
-            label.textColor = [UIColor blackColor];
-            if ([key length] > 24 && !self.iPad) {
-                label.font = [UIFont systemFontOfSize:14.0];
-            }
-            label.backgroundColor = [UIColor clearColor];
-            label.numberOfLines = 2;
-            label.lineBreakMode = NSLineBreakByWordWrapping;
-            [self.contentScrollView addSubview:label];
-
-            
-            // Add question squares for 'Grundstoff'
-            NSMutableArray *array = (NSMutableArray *)[mainGroupDict valueForKey:key];
-            NSInteger correct = 0;
-            NSInteger index = 0;
-            CGFloat loopYCoord = currentYCoord;
-            for (QuestionModel *model in array) {
-                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                btn.frame = CGRectMake(boxStartX + 47.0 * (index % boxerPerRow), loopYCoord, 43.0, 40.0);
-                btn.tag = model.index;
-                index++;
-                if (index % boxerPerRow == 0 && index != [array count]) {
-                    loopYCoord += btn.frame.size.height + 5.0;
-                }
-                
-                if (model.hasAnsweredCorrectly) {
-                    correct++;
-                    btn.backgroundColor = self.correctColor;
-                }
-                else {
-                    btn.backgroundColor = self.incorrectColor;
-                }
-                
-                [btn addTarget:self action:@selector(questionSelected:) forControlEvents:UIControlEventTouchUpInside];
-                
-                [self.contentScrollView addSubview:btn];
-            }
-            
-            label = [[UILabel alloc] initWithFrame:CGRectMake(self.iPad ? 597.0 : 220.0, currentYCoord, 50.0, 40.0)];
-            label.text = [NSString stringWithFormat:@"%d/%d", correct, [array count]];
-            label.textColor = [UIColor blackColor];
-            label.backgroundColor = [UIColor clearColor];
-            [self.contentScrollView addSubview:label];
-            currentYCoord = loopYCoord + label.frame.size.height + (i + 1 == [mainGroupDict count] ? 5.0 : 13.0);
-
-        }
-        
-        UILabel *subGroupTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(4.0, currentYCoord, width, 29.0)];
-        subGroupTitleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Zusatzstoff Klasse %@ - %d Fehlerpunkte", @""),
-                                   self.userSettings.licenseClassString, points - mainGroupPoints];
-        subGroupTitleLabel.textAlignment = NSTextAlignmentCenter;
-        subGroupTitleLabel.textColor = [UIColor whiteColor];
-        subGroupTitleLabel.backgroundColor = self.titleBackgrondColor;
-        [self.contentScrollView addSubview:subGroupTitleLabel];
-        currentYCoord += subGroupTitleLabel.frame.size.height + 5.0;
-
-        
-        // Adding a section for every present subgroup in 'Zusatzstoff'
-        for (int i = [mainGroupDict count];i < [sortedGroupArray count];i++) {
-            NSString *key = [sortedGroupArray objectAtIndex:i];
-            
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(4.0, currentYCoord, self.iPad ? 577.0 : 200.0, 40.0)];
-            label.text = key;
-            label.textColor = [UIColor blackColor];
-            if ([key length] > 24 && !self.iPad) {
-                label.font = [UIFont systemFontOfSize:14.0];
-            }
-            label.backgroundColor = [UIColor clearColor];
-            label.numberOfLines = 2;
-            label.lineBreakMode = NSLineBreakByWordWrapping;
-            [self.contentScrollView addSubview:label];
-
-        
-            // Add question squares for 'Zusatzstoff'
-            NSMutableArray *array = (NSMutableArray *)[additionalGroupDict valueForKey:key];
-            NSInteger correct = 0;
-            NSInteger index = 0;
-            CGFloat loopYCoord = currentYCoord;
-            for (QuestionModel *model in array) {
-                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                btn.frame = CGRectMake(boxStartX + 47.0 * (index % boxerPerRow), loopYCoord, 43.0, 40.0);
-                btn.tag = model.index;
-                index++;
-                if (index % boxerPerRow == 0 && index != [array count]) {
-                    loopYCoord += btn.frame.size.height + 5.0;
-                }
-                
-                if (model.hasAnsweredCorrectly) {
-                    correct++;
-                    btn.backgroundColor = self.correctColor;
-                }
-                else {
-                    btn.backgroundColor = self.incorrectColor;
-                }
-                
-                [btn addTarget:self action:@selector(questionSelected:) forControlEvents:UIControlEventTouchUpInside];
-                
-                [self.contentScrollView addSubview:btn];
-            }
-            
-            label = [[UILabel alloc] initWithFrame:CGRectMake(self.iPad ? 597.0 : 220.0, currentYCoord, 50.0, 40.0)];
-            label.text = [NSString stringWithFormat:@"%d/%d", correct, [array count]];
-            label.textColor = [UIColor blackColor];
-            label.backgroundColor = [UIColor clearColor];
-            [self.contentScrollView addSubview:label];
-            currentYCoord = loopYCoord + label.frame.size.height + (i + 1 == [sortedGroupArray count] ? 5.0 : 13.0);
-
-        }
-        
-        self.contentScrollView.contentSize = CGSizeMake(self.contentScrollView.frame.size.width, currentYCoord);
-    }
-    else { // Setup the original question layout.
+    { // Setup the original question layout.
         if (points > self.maxPoints || (numFivePointsQuestionFalse == 2 && points == 10 && self.maxPoints == 10)) {
             self.mascotImageView.image = [UIImage imageNamed:@"image_endpruefung_nichtBestanden.png"];
         }

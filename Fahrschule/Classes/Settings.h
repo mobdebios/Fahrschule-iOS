@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXTERN NSString * const SettingsLicenseClassKey;
+FOUNDATION_EXTERN NSString * const SettingsTeachingTypeKey;
+
+FOUNDATION_EXTERN NSString * const SettingsNotificationDidChangeAnswersGiven;
+FOUNDATION_EXTERN NSString * const SettingsNotificationDidSelectQuestion;
+FOUNDATION_EXTERN NSString * const SettingsNotificationUpdateBadgeValue;
+
+
+
+
+
 
 typedef NS_ENUM(NSInteger, TeachingType) {
     kFirstTimeLicense = 1,

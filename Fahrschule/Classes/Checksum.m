@@ -29,7 +29,7 @@
     
     while (!finished) {
         NSData* fileData = [handle readDataToEndOfFile];
-        CC_SHA1_Update(&sha1, [fileData bytes], [fileData length]);
+        CC_SHA1_Update(&sha1, [fileData bytes], (CC_LONG)[fileData length]);
         if([fileData length] == 0)
             finished = YES;
     }

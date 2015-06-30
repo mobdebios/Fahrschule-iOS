@@ -36,7 +36,7 @@ class LearningResultViewController: UIViewController {
         if self.questionModels.count == 1 {
             self.titleLabel.text = NSLocalizedString("Du hast 1 Frage bearbeitet.", comment: "")
         } else {
-            self.titleLabel.text = NSLocalizedString("Du hast \(self.questionModels.count) Fragen bearbeitet.", comment: "")
+            self.titleLabel.text = String.localizedStringWithFormat(NSLocalizedString("Du hast %d Fragen bearbeitet.", comment: ""), self.questionModels.count)
         }
         
         self.errorButton.enabled = self.numQuestionsNotCorrectAnswered > 0
@@ -53,7 +53,7 @@ class LearningResultViewController: UIViewController {
 //    MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if let qsvc = segue.destinationViewController as? InquirerController {
+        if let qsvc = segue.destinationViewController as? QuestionSheetViewController {
             
             var questionsModels = self.questionModels
             

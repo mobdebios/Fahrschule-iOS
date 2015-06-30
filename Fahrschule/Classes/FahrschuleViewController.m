@@ -8,7 +8,7 @@
 
 #import "FahrschuleViewController.h"
 #import "QuestionViewController.h"
-#import "ExamResultViewController.h"
+#import "ExamResultViewControllerOld.h"
 
 
 @implementation FahrschuleViewController
@@ -71,7 +71,7 @@
 
     self.preferredContentSize = CGSizeMake(320.0, 460.0);
     
-    if ((![self isKindOfClass:[QuestionViewController class]] && ![self isKindOfClass:[ExamResultViewController class]]) || !self.userSettings.officialQuestionViewMode) {
+    if ((![self isKindOfClass:[QuestionViewController class]] && ![self isKindOfClass:[ExamResultViewControllerOld class]]) || !self.userSettings.officialQuestionViewMode) {
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_mitGitter"]];
     }
 }

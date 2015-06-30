@@ -8,6 +8,12 @@
 
 #import "Settings.h"
 
+NSString * const SettingsLicenseClassKey = @"licenseClass";
+NSString * const SettingsTeachingTypeKey = @"teachingType";
+NSString * const SettingsNotificationDidChangeAnswersGiven = @"didChangeAnswersGiven";
+NSString * const SettingsNotificationDidSelectQuestion = @"didSelectetQuestion";
+NSString * const SettingsNotificationUpdateBadgeValue = @"updateBadgeValue";
+
 
 @implementation Settings
 
@@ -15,9 +21,8 @@
 
 - (void)setLicenseClass:(LicenseClass)licenseClass
 {
-	[self.userDefaults setValue:[NSNumber numberWithInt:licenseClass] forKey:@"licenseClass"];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"licenseClassChanged" object:nil];
+	[self.userDefaults setValue:[NSNumber numberWithInt:licenseClass] forKey:SettingsLicenseClassKey];
+    [self.userDefaults synchronize];
     
     if ([self getCurrentLicenseClassTeachingTypeState] != kUnknownTeachingType) {
         self.teachingType = [self getCurrentLicenseClassTeachingTypeState];
@@ -33,13 +38,13 @@
 
 - (LicenseClass)licenseClass
 {
-    NSNumber *ret = [self.userDefaults valueForKey:@"licenseClass"];
+    NSNumber *ret = [self.userDefaults valueForKey:SettingsLicenseClassKey];
 	return ret ? [ret intValue] : kUnknownLicenseClass;
 }
 
 - (void)setTeachingType:(TeachingType)teachingType
 {
-    [self.userDefaults setValue:[NSNumber numberWithInt:teachingType] forKey:@"teachingType"];
+    [self.userDefaults setValue:[NSNumber numberWithInt:teachingType] forKey:SettingsTeachingTypeKey];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"teachingTypeChanged" object:nil];
     
     [self setCurrentLicenseClassTeachingTypeState];

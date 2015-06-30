@@ -29,7 +29,7 @@
         points += [examQ faultyPoints];
     }
     
-    self.faultyPoints = [NSNumber numberWithInt:points];
+    self.faultyPoints = [NSNumber numberWithInteger:points];
 }
 
 + (NSURL *)applicationDocumentsDirectory
@@ -116,7 +116,7 @@
     NSString *dbPath = [[[ExamStatistic applicationDocumentsDirectory] URLByAppendingPathComponent:@"Fahrschule.sqlite"] path];
     if (sqlite3_open([dbPath UTF8String], &database) == SQLITE_OK) {
         
-        NSString *query = [[NSString stringWithFormat:@"SELECT MIN(ZDATE) FROM ZEXAMSTATISTIC WHERE ZTEACHINGTYPE = %d AND ZLICENSECLASS = %d AND ZSTATE = %d",
+        NSString *query = [[NSString stringWithFormat:@"SELECT MIN(ZDATE) FROM ZEXAMSTATISTIC WHERE ZTEACHINGTYPE = %zd AND ZLICENSECLASS = %zd AND ZSTATE = %zd",
                             settings.teachingType, settings.licenseClass, kFinishedExam]
                            stringByAppendingString:@" GROUP BY strftime('%Y%m', strftime('%s', ZDATE, 'unixepoch') + 978307200, 'unixepoch');"];
         
@@ -232,7 +232,7 @@
             }
             
             examQ.whatExam = self;
-            examQ.order = [NSNumber numberWithInt:model.index];
+            examQ.order = [NSNumber numberWithInteger:model.index];
             examQ.whatQuestion = model.question;
         }
 		
@@ -283,8 +283,8 @@
 - (BOOL)hasPassed
 {
     Settings *settings = [Settings sharedSettings];
-    NSInteger maxPoints = [[[[settings.examSheetDictionary objectForKey:[NSString stringWithFormat:@"%d", settings.licenseClass]]
-                                       objectForKey:[NSString stringWithFormat:@"%d", settings.teachingType]] objectForKey:@"MaxPoints"] intValue];
+    NSInteger maxPoints = [[[[settings.examSheetDictionary objectForKey:[NSString stringWithFormat:@"%zd", settings.licenseClass]]
+                                       objectForKey:[NSString stringWithFormat:@"%zd", settings.teachingType]] objectForKey:@"MaxPoints"] intValue];
     if (maxPoints == 10 && [self.faultyPoints intValue] == 10) {
         NSArray *arr = [[self.whatQuestions allObjects] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"whatQuestion.points = 5"]];
         int numFalse = 0;

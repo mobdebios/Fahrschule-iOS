@@ -9,7 +9,7 @@
 #import "FahrschuleViewController.h"
 
 
-@interface ExamResultViewController : FahrschuleViewController {
+@interface ExamResultViewControllerOld : FahrschuleViewController {
     
 }
 

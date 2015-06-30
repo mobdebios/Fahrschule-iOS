@@ -129,7 +129,7 @@ class InquirerCollectionCell: UICollectionViewCell, UITableViewDataSource, UITab
         self.questionModel.givenAnswers.addObject(answer)
         self.questionModel.numGivenAnswers++
         if (UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
-            NSNotificationCenter.defaultCenter().postNotificationName("didChangeAnswersGiven", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName(SettingsNotificationDidChangeAnswersGiven, object: self.questionModel)
         }
     }
     

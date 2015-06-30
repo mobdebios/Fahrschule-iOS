@@ -34,23 +34,32 @@
     [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
 #endif
     
+    NSString *s = @"Prüfung wiederholen";
+    NSLog(@"%@", s.uppercaseString);
     
-    
+    [self registerDefaults];
     [Appearance customizeAppearance];
     
-//    Settings *settings = [Settings sharedSettings];
-//    
-//    if (settings.licenseClass == kUnknownLicenseClass) {
-//        UIStoryboard *storyboard = self.window.rootViewController.storyboard;
-//        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LicenseClassSelectViewController"];
-//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
-//        [self.window makeKeyAndVisible];
-//        [self.window.rootViewController presentViewController:navController animated:NO completion:NULL];
-//    }
+    Settings *settings = [Settings sharedSettings];
+    if (settings.licenseClass == kUnknownLicenseClass) {
+        UIStoryboard *storyboard = self.window.rootViewController.storyboard;
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LicenseClassSelectViewController"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self.window makeKeyAndVisible];
+        [self.window.rootViewController presentViewController:navController animated:NO completion:NULL];
+    }
     
     
     
     return YES;
+}
+
+- (void)registerDefaults {
+    NSDictionary *defaults = @{
+                               SettingsTeachingTypeKey : @(kFirstTimeLicense)
+                               };
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+    
 }
 
 
@@ -75,7 +84,28 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//    Settings *settings = [Settings sharedSettings];
+//    if (settings.licenseClass == kUnknownLicenseClass) {
+//        
+//        settings.teachingType = kFirstTimeLicense;
+//        
+////        HelpViewController *helpViewController = [[HelpViewController alloc] init];
+////        helpViewController.firstTimeView = YES;
+////        [self.tabBarController presentViewController:helpViewController animated:NO completion:nil];
+////        
+////        UINavigationController *navcon = [[UINavigationController alloc] init];
+////        LicenseClassSelectViewController *lcsvc = [[LicenseClassSelectViewController alloc] initInManagedObjectContext:self.managedObjectContext];
+////        [navcon pushViewController:lcsvc animated:NO];
+////        [navcon setTitle:NSLocalizedString(@"Führerscheinklasse", @"")];
+////        [helpViewController presentViewController:navcon animated:NO completion:nil];
+//    }
+//    else if (settings.licenseClass == kLicenseClassS || settings.licenseClass == kLicenseClassM) {
+////        UINavigationController *navcon = [[UINavigationController alloc] init];
+////        LicenseClassSelectViewController *lcsvc = [[LicenseClassSelectViewController alloc] initInManagedObjectContext:self.managedObjectContext];
+////        [navcon pushViewController:lcsvc animated:NO];
+////        [navcon setTitle:NSLocalizedString(@"Führerscheinklasse", @"")];
+////        [self.tabBarController presentViewController:navcon animated:NO completion:nil];
+//    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -84,24 +114,26 @@
 }
 
 #pragma mark - State Preservation and Restoration
-//- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
-////    Settings *settings = [Settings sharedSettings];
-////    if (settings.licenseClass == kUnknownLicenseClass) {
-////        return NO;
-////    } else {
-////        return YES;
-////        
-////    }
-//}
-//
-//- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
-////    Settings *settings = [Settings sharedSettings];
-////    if (settings.licenseClass == kUnknownLicenseClass) {
-////        return NO;
-////    } else {
-////        return YES;
-////    }
-//}
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
+    return YES;
+//    Settings *settings = [Settings sharedSettings];
+//    if (settings.licenseClass == kUnknownLicenseClass) {
+//        return NO;
+//    } else {
+//        return YES;
+//        
+//    }
+}
+
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
+    return YES;
+//    Settings *settings = [Settings sharedSettings];
+//    if (settings.licenseClass == kUnknownLicenseClass) {
+//        return NO;
+//    } else {
+//        return YES;
+//    }
+}
 
 #pragma mark - Public Methods
 + (SNAppDelegate *)sharedDelegate {

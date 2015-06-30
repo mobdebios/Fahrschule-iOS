@@ -10,6 +10,8 @@
 #import "Settings.h"
 #import "SubGroup.h"
 #import "MainGroup.h"
+#import "ExamStatistic.h"
+#import "ExamQuestion.h"
 
 
 

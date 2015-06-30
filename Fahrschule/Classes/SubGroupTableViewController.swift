@@ -27,7 +27,7 @@ class SubGroupTableViewController: UITableViewController {
         }
     }
     
-//    MARK: - Properties
+//    MARK: Properties
     var managedObjectContext: NSManagedObjectContext!
     var dataSource: [SubGroup]!
     var mainGroup: MainGroup! {
@@ -38,7 +38,7 @@ class SubGroupTableViewController: UITableViewController {
     
     
     
-//    MARK: State Save and Preservation
+//    MARK: - State Save and Preservation
     override func encodeRestorableStateWithCoder(coder: NSCoder) {
         super.encodeRestorableStateWithCoder(coder)
         coder.encodeObject(self.mainGroup.objectID.URIRepresentation(), forKey: MainStoryboard.Restoration.managedObjectID)
@@ -87,7 +87,7 @@ class SubGroupTableViewController: UITableViewController {
         }
         else if let models = sender as? [QuestionModel] {
             if let navController = segue.destinationViewController as? UINavigationController {
-                if let qsvc = navController.topViewController as? InquirerController {
+                if let qsvc = navController.topViewController as? QuestionSheetViewController {
                     qsvc.managedObjectContext = self.managedObjectContext
                     for model in models {
                         model.givenAnswers = nil
@@ -100,7 +100,7 @@ class SubGroupTableViewController: UITableViewController {
         }
     }
     
-//    MARK: Outlet functions
+//    MARK: - Outlet functions
     @IBAction func didTapButtonQuery(sender: UIBarButtonItem) {
         let title = NSLocalizedString("Was soll abgefragt werden?", comment: "");
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)

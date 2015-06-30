@@ -213,7 +213,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
         }
         else if segue.identifier == MainStoryboard.SegueIdentifiers.showQuestionnaire {
             if let navController = segue.destinationViewController as? UINavigationController {
-                if let qsvc = navController.topViewController as? InquirerController {
+                if let qsvc = navController.topViewController as? QuestionSheetViewController {
                     qsvc.managedObjectContext = self.managedObjectContext
                     if let arr = sender as? [QuestionModel] {
                         qsvc.questionModels = arr

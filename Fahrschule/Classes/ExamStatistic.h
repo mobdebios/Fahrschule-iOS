@@ -11,11 +11,12 @@
 
 @class QuestionModel;
 
-typedef enum {
+
+typedef NS_ENUM(NSInteger, ExamState) {
     kFinishedExam = 0,
     kCanceledExam = 1,
     kStateLessExam = 2
-} ExamState;
+};
 
 @interface ExamStatistic :  NSManagedObject  
 {

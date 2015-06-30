@@ -3,16 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "pruefung.png"
+      "filename" : "prüfung.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "pruefung@2x.png"
+      "filename" : "prüfung@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "prüfung@3x.png"
     }
   ],
   "info" : {

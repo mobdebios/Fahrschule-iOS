@@ -27,7 +27,7 @@
                                 <state key="selected" image="merkenactive"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhg-Oy-VAC">
-                                <rect key="frame" x="8" y="8" width="423" height="16"/>
+                                <rect key="frame" x="12" y="12" width="415" height="16"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -35,12 +35,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xhg-Oy-VAC" firstAttribute="leading" secondItem="p5V-Yt-91D" secondAttribute="leading" constant="8" id="8v7-UH-po4"/>
+                            <constraint firstItem="xhg-Oy-VAC" firstAttribute="leading" secondItem="p5V-Yt-91D" secondAttribute="leading" constant="12" id="8v7-UH-po4"/>
                             <constraint firstAttribute="trailing" secondItem="Fxa-H5-2L9" secondAttribute="trailing" constant="8" id="NOs-sN-xKP"/>
-                            <constraint firstItem="xhg-Oy-VAC" firstAttribute="top" secondItem="p5V-Yt-91D" secondAttribute="top" constant="8" id="R7a-3M-xkB"/>
+                            <constraint firstItem="xhg-Oy-VAC" firstAttribute="top" secondItem="p5V-Yt-91D" secondAttribute="top" constant="12" id="R7a-3M-xkB"/>
                             <constraint firstAttribute="height" constant="94" id="dmW-aN-Mk2"/>
                             <constraint firstItem="Fxa-H5-2L9" firstAttribute="top" secondItem="p5V-Yt-91D" secondAttribute="top" constant="8" id="omJ-kF-ihv"/>
-                            <constraint firstItem="Fxa-H5-2L9" firstAttribute="leading" secondItem="xhg-Oy-VAC" secondAttribute="trailing" constant="8" id="qkL-JL-7hG"/>
+                            <constraint firstItem="Fxa-H5-2L9" firstAttribute="leading" secondItem="xhg-Oy-VAC" secondAttribute="trailing" constant="12" id="qkL-JL-7hG"/>
                         </constraints>
                     </view>
                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_3_01_006_B.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rms-iB-Llm">

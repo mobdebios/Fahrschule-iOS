@@ -10,6 +10,7 @@
 		A675AD0A8C719742018B4910 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 269DCE109E0575703524C6F9 /* libPods.a */; };
 		FA1BA08A1B341213008840BF /* SubGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */; };
 		FA1BA08C1B34216B008840BF /* QuestionCatalogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */; };
+		FA1BBAD01B3C28BD0024E846 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BBACF1B3C28BD0024E846 /* ExamViewController.swift */; };
 		FA2895751B384F3500123796 /* LicenseClassSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */; };
 		FA29FB121B2C384B00689451 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB101B2C384B00689451 /* ProgressCell.swift */; };
 		FA29FB131B2C384B00689451 /* ProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA29FB111B2C384B00689451 /* ProgressCell.xib */; };
@@ -393,14 +394,12 @@
 		FA494D361B2EBF8300DBCA04 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D351B2EBF8300DBCA04 /* QuestionViewController.m */; };
 		FA494D391B2EC52C00DBCA04 /* TimerBarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D381B2EC52C00DBCA04 /* TimerBarButtonView.m */; };
 		FA494D401B2EC76500DBCA04 /* IntelligentSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D3F1B2EC76500DBCA04 /* IntelligentSplitViewController.m */; };
-		FA494D4A1B2EC7F300DBCA04 /* ExamArchiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D431B2EC7F300DBCA04 /* ExamArchiveViewController.m */; };
-		FA494D4B1B2EC7F300DBCA04 /* ExamResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D451B2EC7F300DBCA04 /* ExamResultViewController.m */; };
-		FA494D4C1B2EC7F300DBCA04 /* ExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D471B2EC7F300DBCA04 /* ExamViewController.m */; };
-		FA494D4D1B2EC7F300DBCA04 /* GraphDiagramController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D491B2EC7F300DBCA04 /* GraphDiagramController.m */; };
-		FA494D511B2EEFA000DBCA04 /* InquirerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA494D501B2EEFA000DBCA04 /* InquirerController.swift */; };
+		FA494D4B1B2EC7F300DBCA04 /* ExamResultViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D451B2EC7F300DBCA04 /* ExamResultViewControllerOld.m */; };
+		FA494D511B2EEFA000DBCA04 /* QuestionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA494D501B2EEFA000DBCA04 /* QuestionSheetViewController.swift */; };
 		FA6189431B334D1A00B3E46C /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6189421B334D1A00B3E46C /* QuestionsTableViewController.swift */; };
 		FA61C7CD1B349F5400351FDA /* ProgressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61C7CC1B349F5400351FDA /* ProgressItem.swift */; };
 		FA61C7CF1B34A88400351FDA /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61C7CE1B34A88400351FDA /* ProgressView.swift */; };
+		FA87CC271B41B2C4009C6A6D /* ExamResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87CC261B41B2C4009C6A6D /* ExamResultViewController.swift */; };
 		FAAC88561B2B667400804FEB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88551B2B667400804FEB /* main.m */; };
 		FAAC885C1B2B667400804FEB /* Fahrschule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAAC885A1B2B667400804FEB /* Fahrschule.xcdatamodeld */; };
 		FAAC88621B2B667400804FEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAC88601B2B667400804FEB /* Main.storyboard */; };
@@ -464,6 +463,7 @@
 		CA86E95A39E490B7C04FFBC4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubGroupTableViewController.swift; path = Classes/SubGroupTableViewController.swift; sourceTree = "<group>"; };
 		FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionCatalogTableViewController.swift; path = Classes/QuestionCatalogTableViewController.swift; sourceTree = "<group>"; };
+		FA1BBACF1B3C28BD0024E846 /* ExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamViewController.swift; path = Classes/ExamViewController.swift; sourceTree = "<group>"; };
 		FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseClassSelectViewController.swift; path = Classes/LicenseClassSelectViewController.swift; sourceTree = "<group>"; };
 		FA29FB101B2C384B00689451 /* ProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressCell.swift; path = Classes/ProgressCell.swift; sourceTree = "<group>"; };
 		FA29FB111B2C384B00689451 /* ProgressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProgressCell.xib; path = Classes/ProgressCell.xib; sourceTree = "<group>"; };
@@ -852,18 +852,13 @@
 		FA494D381B2EC52C00DBCA04 /* TimerBarButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerBarButtonView.m; path = Classes/TimerBarButtonView.m; sourceTree = "<group>"; };
 		FA494D3E1B2EC76500DBCA04 /* IntelligentSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntelligentSplitViewController.h; path = Classes/IntelligentSplitViewController.h; sourceTree = "<group>"; };
 		FA494D3F1B2EC76500DBCA04 /* IntelligentSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntelligentSplitViewController.m; path = Classes/IntelligentSplitViewController.m; sourceTree = "<group>"; };
-		FA494D421B2EC7F300DBCA04 /* ExamArchiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamArchiveViewController.h; path = Classes/ExamArchiveViewController.h; sourceTree = "<group>"; };
-		FA494D431B2EC7F300DBCA04 /* ExamArchiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExamArchiveViewController.m; path = Classes/ExamArchiveViewController.m; sourceTree = "<group>"; };
-		FA494D441B2EC7F300DBCA04 /* ExamResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamResultViewController.h; path = Classes/ExamResultViewController.h; sourceTree = "<group>"; };
-		FA494D451B2EC7F300DBCA04 /* ExamResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExamResultViewController.m; path = Classes/ExamResultViewController.m; sourceTree = "<group>"; };
-		FA494D461B2EC7F300DBCA04 /* ExamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamViewController.h; path = Classes/ExamViewController.h; sourceTree = "<group>"; };
-		FA494D471B2EC7F300DBCA04 /* ExamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExamViewController.m; path = Classes/ExamViewController.m; sourceTree = "<group>"; };
-		FA494D481B2EC7F300DBCA04 /* GraphDiagramController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphDiagramController.h; path = Classes/GraphDiagramController.h; sourceTree = "<group>"; };
-		FA494D491B2EC7F300DBCA04 /* GraphDiagramController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphDiagramController.m; path = Classes/GraphDiagramController.m; sourceTree = "<group>"; };
-		FA494D501B2EEFA000DBCA04 /* InquirerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InquirerController.swift; path = Classes/InquirerController.swift; sourceTree = "<group>"; };
+		FA494D441B2EC7F300DBCA04 /* ExamResultViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamResultViewControllerOld.h; path = Classes/ExamResultViewControllerOld.h; sourceTree = "<group>"; };
+		FA494D451B2EC7F300DBCA04 /* ExamResultViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExamResultViewControllerOld.m; path = Classes/ExamResultViewControllerOld.m; sourceTree = "<group>"; };
+		FA494D501B2EEFA000DBCA04 /* QuestionSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionSheetViewController.swift; path = Classes/QuestionSheetViewController.swift; sourceTree = "<group>"; };
 		FA6189421B334D1A00B3E46C /* QuestionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionsTableViewController.swift; path = Classes/QuestionsTableViewController.swift; sourceTree = "<group>"; };
 		FA61C7CC1B349F5400351FDA /* ProgressItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressItem.swift; path = Classes/ProgressItem.swift; sourceTree = "<group>"; };
 		FA61C7CE1B34A88400351FDA /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressView.swift; path = Classes/ProgressView.swift; sourceTree = "<group>"; };
+		FA87CC261B41B2C4009C6A6D /* ExamResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamResultViewController.swift; path = Classes/ExamResultViewController.swift; sourceTree = "<group>"; };
 		FAAC88501B2B667400804FEB /* Fahrschule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fahrschule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC88541B2B667400804FEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAAC88551B2B667400804FEB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1391,6 +1386,7 @@
 		FA494D3D1B2EC73200DBCA04 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				FA29FB241B2CC41600689451 /* QuestionCell.swift */,
 				FA6189421B334D1A00B3E46C /* QuestionsTableViewController.swift */,
 			);
 			name = Questions;
@@ -1408,14 +1404,11 @@
 		FA494D4E1B2EC7F800DBCA04 /* Exam */ = {
 			isa = PBXGroup;
 			children = (
-				FA494D421B2EC7F300DBCA04 /* ExamArchiveViewController.h */,
-				FA494D431B2EC7F300DBCA04 /* ExamArchiveViewController.m */,
-				FA494D441B2EC7F300DBCA04 /* ExamResultViewController.h */,
-				FA494D451B2EC7F300DBCA04 /* ExamResultViewController.m */,
-				FA494D461B2EC7F300DBCA04 /* ExamViewController.h */,
-				FA494D471B2EC7F300DBCA04 /* ExamViewController.m */,
-				FA494D481B2EC7F300DBCA04 /* GraphDiagramController.h */,
-				FA494D491B2EC7F300DBCA04 /* GraphDiagramController.m */,
+				FA1BBACF1B3C28BD0024E846 /* ExamViewController.swift */,
+				FA3F31071B316F2100BD5566 /* LearningResultViewController.swift */,
+				FA494D441B2EC7F300DBCA04 /* ExamResultViewControllerOld.h */,
+				FA494D451B2EC7F300DBCA04 /* ExamResultViewControllerOld.m */,
+				FA87CC261B41B2C4009C6A6D /* ExamResultViewController.swift */,
 			);
 			name = Exam;
 			sourceTree = "<group>";
@@ -1438,8 +1431,7 @@
 		FA494D871B2EF33B00DBCA04 /* Inquirer */ = {
 			isa = PBXGroup;
 			children = (
-				FA494D501B2EEFA000DBCA04 /* InquirerController.swift */,
-				FA3F31071B316F2100BD5566 /* LearningResultViewController.swift */,
+				FA494D501B2EEFA000DBCA04 /* QuestionSheetViewController.swift */,
 			);
 			name = Inquirer;
 			sourceTree = "<group>";
@@ -1561,7 +1553,6 @@
 				FA61C7CE1B34A88400351FDA /* ProgressView.swift */,
 				FA29FB101B2C384B00689451 /* ProgressCell.swift */,
 				FA29FB111B2C384B00689451 /* ProgressCell.xib */,
-				FA29FB241B2CC41600689451 /* QuestionCell.swift */,
 				FAAC8C151B2B701E00804FEB /* Appearance.swift */,
 				FAAC8C161B2B701E00804FEB /* CircularChartView.swift */,
 				FAAC8C171B2B701E00804FEB /* CircularCounterView.swift */,
@@ -2187,10 +2178,10 @@
 			files = (
 				FAAC8C341B2B722800804FEB /* ExamStatistic.m in Sources */,
 				FAAC8C1E1B2B701E00804FEB /* NSString+Extension.swift in Sources */,
+				FA87CC271B41B2C4009C6A6D /* ExamResultViewController.swift in Sources */,
 				FAAC8C421B2B732600804FEB /* Settings.m in Sources */,
 				FAAC88561B2B667400804FEB /* main.m in Sources */,
 				FAAC8C1B1B2B701E00804FEB /* Appearance.swift in Sources */,
-				FA494D4D1B2EC7F300DBCA04 /* GraphDiagramController.m in Sources */,
 				FAAC885C1B2B667400804FEB /* Fahrschule.xcdatamodeld in Sources */,
 				FA494D331B2EBF4F00DBCA04 /* FahrschuleNavigationController.m in Sources */,
 				FA61C7CD1B349F5400351FDA /* ProgressItem.swift in Sources */,
@@ -2201,19 +2192,19 @@
 				FA2EDC261B302DBE00CFAACF /* InquirerTableCell.swift in Sources */,
 				FAD2BD731B3865780010EBF0 /* LicenseCell.swift in Sources */,
 				FAAC8C391B2B722800804FEB /* SubGroup.m in Sources */,
-				FA494D511B2EEFA000DBCA04 /* InquirerController.swift in Sources */,
+				FA494D511B2EEFA000DBCA04 /* QuestionSheetViewController.swift in Sources */,
 				FA61C7CF1B34A88400351FDA /* ProgressView.swift in Sources */,
 				FAAC8C331B2B722800804FEB /* ExamQuestion.m in Sources */,
 				FA29FB121B2C384B00689451 /* ProgressCell.swift in Sources */,
-				FA494D4C1B2EC7F300DBCA04 /* ExamViewController.m in Sources */,
 				FAEE2F871B3ACFF5003A98FB /* LearningViewController.swift in Sources */,
 				FAAC8C351B2B722800804FEB /* LearningStatistic.m in Sources */,
-				FA494D4B1B2EC7F300DBCA04 /* ExamResultViewController.m in Sources */,
+				FA494D4B1B2EC7F300DBCA04 /* ExamResultViewControllerOld.m in Sources */,
 				FAAC88851B2B695D00804FEB /* SNAppDelegate.m in Sources */,
 				FAAC8C1D1B2B701E00804FEB /* CircularCounterView.swift in Sources */,
 				FAAC8C321B2B722800804FEB /* Answer.m in Sources */,
 				FA29FB251B2CC41600689451 /* QuestionCell.swift in Sources */,
 				FA6189431B334D1A00B3E46C /* QuestionsTableViewController.swift in Sources */,
+				FA1BBAD01B3C28BD0024E846 /* ExamViewController.swift in Sources */,
 				FA3D41B01B2F4A7300011C5C /* UIViewController+Extension.swift in Sources */,
 				FA29FB1A1B2C807D00689451 /* SubgroupCell.swift in Sources */,
 				FA3F31081B316F2100BD5566 /* LearningResultViewController.swift in Sources */,
@@ -2226,7 +2217,6 @@
 				FAAC8C201B2B701E00804FEB /* UIFont+Extension.swift in Sources */,
 				FA2895751B384F3500123796 /* LicenseClassSelectViewController.swift in Sources */,
 				FA1BA08A1B341213008840BF /* SubGroupTableViewController.swift in Sources */,
-				FA494D4A1B2EC7F300DBCA04 /* ExamArchiveViewController.m in Sources */,
 				FAAC8C411B2B732600804FEB /* QuestionModel.m in Sources */,
 				FAAC8C381B2B722800804FEB /* QuestionTags.m in Sources */,
 				FAAC8C7C1B2B85FD00804FEB /* Checksum.m in Sources */,
@@ -2317,6 +2307,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_MODULE_NAME = Fahrschule;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2357,6 +2348,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_MODULE_NAME = Fahrschule;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

@@ -26,10 +26,10 @@ class LearningViewController: UIViewController {
         }
     }
     
-//    MARK: - Properties
+//    MARK: Properties
     var managedObjectContext = SNAppDelegate.sharedDelegate().managedObjectContext!
     
-//    MARK: - Outlets
+//    MARK: Outlets
     @IBOutlet weak var succeedView: CircularCounterView!
     @IBOutlet weak var failedView: CircularCounterView!
     @IBOutlet weak var remainingView: CircularCounterView!
@@ -37,12 +37,7 @@ class LearningViewController: UIViewController {
     @IBOutlet weak var questionnaireButton: UIButton!
     
     
-//    MARK: - Initialization
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-    }
-    
+//    MARK: - Initialization & Delocation
     deinit {
         unregisterObservers()
     }
@@ -57,12 +52,6 @@ class LearningViewController: UIViewController {
         self.chartView.subtitle = NSLocalizedString("beantwortet", comment: "");
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-//            self.navigationItem.hidesBackButton = true
-//            if let splitController = self.parentViewController?.parentViewController as? UISplitViewController {
-//                self.navigationItem.leftBarButtonItem = splitController.displayModeButtonItem()
-//            }
-            println("\(self.parentViewController?.parentViewController)")
-            
             if self.parentViewController?.parentViewController is UISplitViewController {
                 self.questionnaireButton.hidden = true
             }
@@ -79,11 +68,19 @@ class LearningViewController: UIViewController {
     
 //    MARK: - Observers
     func regisgerObservers() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector(configureView()), name: "licenseClassChanged", object: nil)
+        NSUserDefaults.standardUserDefaults().addObserver(self, forKeyPath: SettingsLicenseClassKey, options: .New, context: nil)
     }
     
     func unregisterObservers() {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSUserDefaults.standardUserDefaults().removeObserver(self, forKeyPath: SettingsLicenseClassKey)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        if keyPath == SettingsLicenseClassKey {
+            configureView()
+        } else {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+        }
     }
 
 //    MARK: - Private functions

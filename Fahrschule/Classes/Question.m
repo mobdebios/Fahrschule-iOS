@@ -314,8 +314,8 @@
     NSArray *mainGroups = [MainGroup mainGroupsInManagedObjectContext:context];
 
     NSDictionary *examSheetDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ExamSheet" ofType:@"plist"]];
-    examSheetDictionary = [[examSheetDictionary objectForKey:[NSString stringWithFormat:@"%d", settings.licenseClass]]
-                           objectForKey:[NSString stringWithFormat:@"%d", settings.teachingType]];
+    examSheetDictionary = [examSheetDictionary objectForKey:[NSString stringWithFormat:@"%zd", settings.licenseClass]];
+    examSheetDictionary = [examSheetDictionary objectForKey:[NSString stringWithFormat:@"%zd", settings.teachingType]];
     
     for (MainGroup *mainGroup in mainGroups) {
         if ([examSheetDictionary objectForKey:mainGroup.name] && [mainGroup.baseMaterial boolValue]) {
