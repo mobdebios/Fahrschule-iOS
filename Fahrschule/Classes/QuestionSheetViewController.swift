@@ -32,30 +32,30 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
 //    MARK: Properties
     var managedObjectContext: NSManagedObjectContext!
     var currentIndex: Int = 0
-    var currentIndexPath: NSIndexPath = NSIndexPath(forItem: 0, inSection: 0)
+    var currentIndexPath: NSIndexPath!
     var questionModels: [QuestionModel]!
-    var isOfficialLayout: Bool = true
+    var questionSheetType: QuestionSheetType = .Learning
+    var masterViewController: QuestionsTableViewController?
     
     // Timer
-    var examTimer: NSTimer?
+    private var examTimer: NSTimer?
     var timeLeft: Int = 60 * 60
     
     
-    var tapRecoginezer: UITapGestureRecognizer!
-    var questionSheetType: QuestionSheetType = .Learning
+    private var tapRecoginezer: UITapGestureRecognizer!
     
     
     var solutionIsShown: Bool = false
-//    Old code
-//    var isExam: Bool = false
-    var retryExam: Bool = false
     
 //    MARK: Outlets
     @IBOutlet weak var prevBarButton: UIBarButtonItem!
     @IBOutlet weak var nextBarButton: UIBarButtonItem!
     @IBOutlet weak var titleBarButton: UIBarButtonItem!
-    @IBOutlet weak var solutionButton: UIBarButtonItem!
+    @IBOutlet var solutionButton: UIBarButtonItem!
+    
     @IBOutlet var interruptButton: UIBarButtonItem!
+    @IBOutlet var submitButton: UIBarButtonItem!
+    
     @IBOutlet weak var timerLabel: UILabel!
     
     
@@ -77,28 +77,25 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
         
 //        Configure
         self.navigationController?.toolbarHidden = false
+        configureView()
 
 //         Register cell classes
         let nameSpaceClassName = NSStringFromClass(InquirerCollectionCell.self)
         let className = nameSpaceClassName.componentsSeparatedByString(".").last! as String
         self.collectionView!.registerNib(UINib(nibName: className, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-
-//         Remove 'Solution' or add 'Abgeben' button
-        if (self.solutionIsShown) {
-            self.navigationItem.leftBarButtonItem = nil
-            self.solutionButton.enabled = true
-            var toolbarItems = self.toolbarItems as! [UIBarButtonItem]
-            if let idx = find(toolbarItems, self.solutionButton) {
-                toolbarItems.removeAtIndex(idx)
-                self.toolbarItems = toolbarItems
-            }
-        }
+        
+        
+        
         
         self.tapRecoginezer = UITapGestureRecognizer(target: self, action: Selector("showFullscreenImage:"))
         
 //        Navigation bar
         var barButtonTitle = ""
         if self.questionSheetType == .Exam && !self.solutionIsShown {
+            
+            startTimer()
+            self.timerLabel.text = timeLeftString()
+            
             self.navigationItem.leftBarButtonItem = self.interruptButton
         } else {
             self.navigationItem.rightBarButtonItem = nil
@@ -111,11 +108,8 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        self.configureView()
         let flowLayout = self.collectionView?.collectionViewLayout
         flowLayout?.invalidateLayout()
-        
         self.navigationController?.toolbarHidden = false
         
     }
@@ -123,12 +117,102 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        if self.currentIndexPath != nil {
+            showQuestionAtIndexPath(self.currentIndexPath)
+        }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(SettingsNotificationDidSelectQuestion, object: self.currentIndexPath)
+        
     }
     
 //    MARK: - Public functions
     func showQuestionAtIndexPath(indexPath: NSIndexPath) {
-        self.collectionView?.selectItemAtIndexPath(indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition.CenteredHorizontally)
+        self.collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: false)
         self.configureView()
+    }
+    
+    private func scrollToIndexPath(indexPath: NSIndexPath) {
+        let count: CGFloat = CGFloat(indexPath.item)
+        let width: CGFloat = CGRectGetWidth(self.collectionView!.bounds)
+        let offsetX =  count * width // CGFloat(indexPath.item)*CGRectGetWidth(self.collectionView?.bounds)
+        self.collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+        let delay = 0.25 * Double(NSEC_PER_SEC)
+        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) { _ in
+            self.currentIndex = Int(round(self.collectionView!.contentOffset.x / CGRectGetWidth(self.collectionView!.bounds)))
+            let indexPath = NSIndexPath(forRow: self.currentIndex, inSection: 0)
+            if self.currentIndexPath != nil {
+                if indexPath.compare(self.currentIndexPath) != .OrderedSame {
+                    self.currentIndexPath = indexPath
+                    NSNotificationCenter.defaultCenter().postNotificationName(SettingsNotificationDidSelectQuestion, object: indexPath)
+                }
+            } else {
+                self.currentIndexPath = indexPath
+                NSNotificationCenter.defaultCenter().postNotificationName(SettingsNotificationDidSelectQuestion, object: indexPath)
+            }
+            
+            self.configureView()
+        }
+        
+    }
+    
+    
+//    MARK: - Private functions
+    private func configureView() {
+        // NavigationItem.Title
+        
+        self.currentIndex = Int(round(self.collectionView!.contentOffset.x / CGRectGetWidth(self.collectionView!.bounds)))
+        
+        let model: QuestionModel = self.questionModels[self.currentIndex]
+        var title = "\(self.currentIndex + 1)/\(self.questionModels.count) |  \(model.question.points) Pkt."
+        if model.question.number.hasSuffix("-M") {
+            title += " | M"
+        }
+        self.navigationItem.title = title
+        
+        // Next & Prev buttons
+        self.prevBarButton.enabled = !(self.currentIndex == 0)
+        self.nextBarButton.enabled = (self.currentIndex + 1 < self.questionModels.count)
+        
+        // Solution button
+        if let btn = self.solutionButton {
+            btn.enabled = !model.hasSolutionBeenShown
+        }
+        
+        // Remove 'Solution' or add 'Abgeben' button
+        if (self.solutionIsShown) {
+            self.navigationItem.leftBarButtonItem = nil
+            self.solutionButton.enabled = true
+            var toolbarItems = self.toolbarItems as! [UIBarButtonItem]
+            if let idx = find(toolbarItems, self.solutionButton) {
+                toolbarItems.removeAtIndex(idx)
+                self.toolbarItems = toolbarItems
+            }
+        }
+        
+        
+        // Add Submit button
+        if self.questionSheetType == .Exam {
+            var toolbarItems = self.toolbarItems as! [UIBarButtonItem]
+            if contains(toolbarItems, self.submitButton) == false {
+                toolbarItems.insert(self.submitButton, atIndex: 2)
+            }
+            
+            if contains(toolbarItems, self.solutionButton) {
+                let idx = find(toolbarItems, self.solutionButton)
+                toolbarItems.removeAtIndex(idx!)
+            }
+            
+            self.toolbarItems = toolbarItems
+        }
+        
+        
+    }
+    
+    
+    
+    func showFullscreenImage(recognizer: UIGestureRecognizer) {
+        println("\(NSStringFromClass(QuestionSheetViewController.self)) \(__FUNCTION__)")
     }
     
     func examTimeLeft(sender: AnyObject) {
@@ -148,47 +232,77 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
     
     func timeLeftString()->String {
         let left = ceil(Double(self.timeLeft) / 60.0)
-        return self.timeLeft <= 60 ? "\(self.timeLeft)" : "\(Int(left))";
+        return self.timeLeft <= 60 ? "\(self.timeLeft)" : "\(Int(left)) min";
     }
     
     func handInExamAndShowResult() {
-        
         self.examTimer?.invalidate()
         self.examTimer = nil
         self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showExamResults, sender: self)
     }
+    
+    func startTimer() {
+        println("QuestionSheetViewController : \(__FUNCTION__)")
+        if self.examTimer == nil {
+            self.examTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("examTimeLeft:"), userInfo: nil, repeats: true)
+            println("started")
+        }
+    }
+    
+    func stopTimer() {
+        println("QuestionSheetViewController : \(__FUNCTION__)")
+        
+        if self.examTimer != nil {
+            println("stoped")
+            self.examTimer?.invalidate()
+            self.examTimer = nil
+        }
+    }
 
+    func numberOfAnsweredQuestions()->Int {
+        var qty: Int = 0;
+        for model in self.questionModels {
+            if model.isAnAnswerGiven() {
+                qty++;
+            }
+        }
+        return qty
+    }
     
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        // Check Timer
+        stopTimer()
+        
         if segue.destinationViewController is LearningResultViewController || segue.destinationViewController is ExamResultViewController {
-            
-            var index = 0
-            var numQuestionsNotCorrectAnswered = 0
-            var mutableArray = [QuestionModel]()
-            var questions = [Question]()
-            
-            for model in questionModels {
-                if model.isAnAnswerGiven() {
-                    let newModel = QuestionModel(question: model.question, atIndex: index++)
-                    newModel.givenAnswers = model.givenAnswers
-                    mutableArray.append(newModel)
-                    questions.append(newModel.question)
-                    
-                    var arr = model.givenAnswers as [AnyObject]
-                    if LearningStatistic.addStatistics(arr, forQuestion: model.question, inManagedObjectContext: self.managedObjectContext) == .FaultyAnswered {
-                        numQuestionsNotCorrectAnswered++
-                    }
-                }
-                
-                model.givenAnswers = nil
-                model.hasSolutionBeenShown = false
-                
-            }
-            
+
             if let resultsVC = segue.destinationViewController as? LearningResultViewController {
+                var index = 0
+                var numQuestionsNotCorrectAnswered = 0
+                var mutableArray = [QuestionModel]()
+                var questions = [Question]()
+                
+                for model in questionModels {
+                    if model.isAnAnswerGiven() {
+                        let newModel = QuestionModel(question: model.question, atIndex: index++)
+                        newModel.givenAnswers = model.givenAnswers
+                        mutableArray.append(newModel)
+                        questions.append(newModel.question)
+                        
+                        var arr = model.givenAnswers as [AnyObject]
+                        if LearningStatistic.addStatistics(arr, forQuestion: model.question, inManagedObjectContext: self.managedObjectContext) == .FaultyAnswered {
+                            numQuestionsNotCorrectAnswered++
+                        }
+                    }
+                    
+                    model.givenAnswers = nil
+                    model.hasSolutionBeenShown = false
+                    
+                }
+
+                
                 resultsVC.managedObjectContext = self.managedObjectContext
                 resultsVC.numQuestionsNotCorrectAnswered = numQuestionsNotCorrectAnswered
                 resultsVC.questionModels = mutableArray
@@ -196,9 +310,10 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
                 
             }
             else if let examResultVC = segue.destinationViewController as? ExamResultViewController {
+                masterViewController?.questionSheetType = QuestionSheetType.History
                 examResultVC.managedObjectContext = self.managedObjectContext
-                examResultVC.numQuestionsNotCorrectAnswered = numQuestionsNotCorrectAnswered
-                examResultVC.questionModels = mutableArray
+                examResultVC.questionModels = self.questionModels
+                examResultVC.timeLeft = self.timeLeft
             }
             
             SNAppDelegate.sharedDelegate().saveContext()
@@ -224,16 +339,13 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
         }
     }
     
-    private func scrollToIndexPath(indexPath: NSIndexPath) {
-        let count: CGFloat = CGFloat(indexPath.item)
-        let width: CGFloat = CGRectGetWidth(self.collectionView!.bounds)
-        let offsetX =  count * width // CGFloat(indexPath.item)*CGRectGetWidth(self.collectionView?.bounds)
-        self.collectionView?.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
-        let delay = 0.25 * Double(NSEC_PER_SEC)
-        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-            self.configureView()
-        }
+    func didTapButtonFavorites(sender: UIButton) {
+        sender.selected = !sender.selected
+        let center = self.collectionView!.convertPoint(sender.center, fromView: sender.superview) as CGPoint
+        let indexPath = self.collectionView!.indexPathForItemAtPoint(center)
+        let qModel: QuestionModel = self.questionModels[self.currentIndex]
+        qModel.question.setTagged(sender.selected, inManagedObjectContext: self.managedObjectContext)
+        NSNotificationCenter.defaultCenter().postNotificationName("tagQuestion", object: nil)
         
     }
     
@@ -256,43 +368,18 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
 
     }
     
-    @IBAction func didTapButtonClose(sender: AnyObject) {
+    @IBAction func didTapButtonInterrupt(sender: AnyObject) {
         
         if self.questionSheetType == .Exam && !self.solutionIsShown {
             
-//            self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showExamResults, sender: self)
-//            return
-            
             // Number of given answers
-            var numAnsweredQuestions: Int = 0;
-            for model in self.questionModels {
-                
-                if model.isAnAnswerGiven() {
-                    numAnsweredQuestions++;
-                }
-            }
+            var numAnsweredQuestions = numberOfAnsweredQuestions()
             
-            // Stop timer
-            self.examTimer?.invalidate()
-            self.examTimer = nil
             
             //  No answers have been given
             if numAnsweredQuestions == 0 {
                 self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
             } else {
-                
-                // Caluclate statistic
-                let examStat = ExamStatistic.insertNewStatistics(self.managedObjectContext, state: .CanceledExam)
-                examStat.index = self.currentIndex
-                examStat.timeLeft = self.timeLeft
-                
-                for model in self.questionModels {
-                    examStat.addStatisticsWithModel(model, inManagedObjectContext: self.managedObjectContext)
-                }
-                
-                // Store data into database
-                SNAppDelegate.sharedDelegate().saveContext()
-                
                 
                 // Show alert
                 let title = NSLocalizedString("Unterbrechen", comment: "")
@@ -301,42 +388,37 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
                 let yesBtn = NSLocalizedString("Ja",comment: "")
                 let noBtn = NSLocalizedString("Nein", comment: "")
                 
+                
+                // 'NO' action
                 alertController.addAction(UIAlertAction(title: noBtn, style: .Cancel, handler: nil))
                 
+                // 'YES' action
                 alertController.addAction(UIAlertAction(title: yesBtn, style: UIAlertActionStyle.Default, handler: { _ in
-                    NSNotificationCenter.defaultCenter().postNotificationName(SettingsNotificationUpdateBadgeValue, object: nil)
+                    // Stop timer
+                    self.stopTimer()
                     
-                    let answersToPass = self.questionModels.count - numAnsweredQuestions
-                    if answersToPass > 0 {
-                        
-                        let title = NSLocalizedString("Abgeben", comment: "")
-                        let msg = String.localizedStringWithFormat(NSLocalizedString("Du hast %d Fragen noch nicht beantwortet. Möchtest du trotzdem abgeben?", comment: ""), answersToPass)
-                        
-                        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-                        
-                        alertController.addAction(UIAlertAction(title: noBtn, style: .Cancel, handler: nil))
-                        alertController.addAction(UIAlertAction(title: yesBtn, style: .Default, handler: { _ in
-                            self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showExamResults, sender: self)
-                        }))
-                        
-                        self.presentViewController(alertController, animated: true, completion: nil)
-                        
-                    } else {
-                        self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showExamResults, sender: self)
+                    // Caluclate statistic
+                    let examStat = ExamStatistic.insertNewStatistics(self.managedObjectContext, state: .CanceledExam)
+                    examStat.index = self.currentIndex
+                    examStat.timeLeft = self.timeLeft
+                    
+                    for model in self.questionModels {
+                        examStat.addStatisticsWithModel(model, inManagedObjectContext: self.managedObjectContext)
                     }
-                }))
-                
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-                
-            }
+                    
+                    // Store data into database
+                    SNAppDelegate.sharedDelegate().saveContext()
+                    
+                    // Dismiss controller & update badge number
+                    self.dismissViewControllerAnimated(true, completion: { _ in
+                        NSNotificationCenter.defaultCenter().postNotificationName(SettingsNotificationUpdateBadgeValue, object: nil)
+                    })
 
-            
-            
-            
+                }))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
         }
         else if self.questionSheetType != .Exam && !Settings.sharedSettings().solutionMode {
-            
             var givenAnswersCount = 0
             for qm in self.questionModels {
                 if qm.isAnAnswerGiven() {
@@ -353,6 +435,57 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
         }
 
     }
+    
+    @IBAction func didTapButtonSubmit(sender: AnyObject) {
+        // Number of given answers
+        var numAnsweredQuestions = numberOfAnsweredQuestions()
+        
+        let answersToPass = self.questionModels.count - numAnsweredQuestions
+        if answersToPass > 0 {
+
+            let title = NSLocalizedString("Abgeben", comment: "")
+            let msg = String.localizedStringWithFormat(NSLocalizedString("Du hast %d Fragen noch nicht beantwortet. Möchtest du trotzdem abgeben?", comment: ""), answersToPass)
+            let yesBtn = NSLocalizedString("Ja",comment: "")
+            let noBtn = NSLocalizedString("Nein", comment: "")
+            
+            let alertController = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+
+            // 'NO' action
+            alertController.addAction(UIAlertAction(title: noBtn, style: .Cancel, handler: nil))
+            
+            // 'YES' action
+            alertController.addAction(UIAlertAction(title: yesBtn, style: .Default, handler: { _ in
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showExamResults, sender: self)
+            }))
+
+            self.presentViewController(alertController, animated: true, completion: nil)
+
+        } else {
+            self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showExamResults, sender: self)
+        }
+    }
+    
+    
+    @IBAction func didTapCloseButton(sender: AnyObject) {
+//        else if self.questionSheetType != .Exam && !Settings.sharedSettings().solutionMode {
+        
+            var givenAnswersCount = 0
+            for qm in self.questionModels {
+                if qm.isAnAnswerGiven() {
+                    givenAnswersCount++
+                }
+            }
+            
+            if givenAnswersCount > 0 {
+                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showTestResults, sender: self)
+            } else {
+                self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
+//        }
+    }
+    
+    
     
     
 
@@ -396,49 +529,11 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
 //    MARK: - Scroll View delegate
     override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         self.configureView()
+        self.currentIndexPath = NSIndexPath(forItem: self.currentIndex, inSection: 0)
+        NSNotificationCenter.defaultCenter().postNotificationName(SettingsNotificationDidSelectQuestion, object: self.currentIndexPath)
     }
     
-    // MARK: - Private functions
-    private func configureView() {
-//        NavigationItem.Title
-        
-        self.currentIndex = Int(round(self.collectionView!.contentOffset.x / CGRectGetWidth(self.collectionView!.bounds)))
-        let indexPath = NSIndexPath(forRow: self.currentIndex, inSection: 0)
-        if indexPath.compare(self.currentIndexPath) != .OrderedSame {
-            self.currentIndexPath = indexPath
-            NSNotificationCenter.defaultCenter().postNotificationName(SettingsNotificationDidSelectQuestion, object: indexPath)
-        }
-        
-        let model: QuestionModel = self.questionModels[self.currentIndex]
-        var title = "\(self.currentIndex + 1)/\(self.questionModels.count) |  \(model.question.points) Pkt."
-        if model.question.number.hasSuffix("-M") {
-            title += " | M"
-        }
-        self.navigationItem.title = title
-        
-//        Next & Prev buttons
-        self.prevBarButton.enabled = !(self.currentIndex == 0)
-        self.nextBarButton.enabled = (self.currentIndex + 1 < self.questionModels.count)
-        
-//        Solution button
-        if let btn = self.solutionButton {
-            btn.enabled = !model.hasSolutionBeenShown
-        }
-
-    }
     
-    func showFullscreenImage(recognizer: UIGestureRecognizer) {
-        println("\(NSStringFromClass(QuestionSheetViewController.self)) \(__FUNCTION__)")
-    }
     
-    func didTapButtonFavorites(sender: UIButton) {
-        sender.selected = !sender.selected
-        let center = self.collectionView!.convertPoint(sender.center, fromView: sender.superview) as CGPoint
-        let indexPath = self.collectionView!.indexPathForItemAtPoint(center)
-        let qModel: QuestionModel = self.questionModels[self.currentIndex]
-        qModel.question.setTagged(sender.selected, inManagedObjectContext: self.managedObjectContext)
-        NSNotificationCenter.defaultCenter().postNotificationName("tagQuestion", object: nil)
-        
-    }
     
 }

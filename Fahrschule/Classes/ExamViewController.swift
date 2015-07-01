@@ -70,17 +70,21 @@ class ExamViewController: UIViewController {
         
         if let splitController = segue.destinationViewController as? UISplitViewController {
             let navigationController = splitController.viewControllers.first as? UINavigationController
-            let qtvc = navigationController?.topViewController as! QuestionsTableViewController
+            let masterController = navigationController?.topViewController as! QuestionsTableViewController
             
             let secondaryNavigationController = splitController.viewControllers.last as! UINavigationController
-            let qsvc = secondaryNavigationController.topViewController as! QuestionSheetViewController
-            qtvc.detailNavigationController = secondaryNavigationController
+            let detailController = secondaryNavigationController.topViewController as! QuestionSheetViewController
+            
+            masterController.detailNavigationController = secondaryNavigationController
+            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+                detailController.masterViewController = masterController
+            }
             
             // Generate questions
             let models: [QuestionModel]
             if let examStat = ExamStatistic.statisticsInManagedObjectContext(managedObjectContext, fetchLimit: -1, state: .CanceledExam).last as? ExamStatistic {
-                qtvc.currentIndexPath = NSIndexPath(forRow: examStat.index.integerValue, inSection: 0)
-                qsvc.timeLeft = examStat.timeLeft.integerValue
+                masterController.currentIndexPath = NSIndexPath(forRow: examStat.index.integerValue, inSection: 0)
+                detailController.timeLeft = examStat.timeLeft.integerValue
                 models = examStat.questionModelsForExam() as! [QuestionModel]
             } else {
                 let questions = Question.examQuestionsInManagedObjectContext(managedObjectContext)
@@ -89,30 +93,26 @@ class ExamViewController: UIViewController {
                     model.givenAnswers = nil
                     model.hasSolutionBeenShown = false
                 }
-                qtvc.currentIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+                masterController.currentIndexPath = NSIndexPath(forRow: 0, inSection: 0)
             }
-            qsvc.currentIndexPath = qtvc.currentIndexPath!
             
+            detailController.currentIndexPath = masterController.currentIndexPath!
             
-            qtvc.title = NSLocalizedString("Fragenübersicht", comment: "")
-            qtvc.navigationItem.rightBarButtonItem = nil
-            qtvc.managedObjectContext = managedObjectContext
+            masterController.title = NSLocalizedString("Fragenübersicht", comment: "")
+            masterController.navigationItem.rightBarButtonItem = nil
+            masterController.managedObjectContext = managedObjectContext
 
+            masterController.dataSource = models
+            masterController.questionSheetType = .Exam
             
             
+            detailController.managedObjectContext = self.managedObjectContext;
+            detailController.questionModels = models
             
-            qtvc.dataSource = models
-            qtvc.questionSheetType = .Exam
-            
-            
-            qsvc.managedObjectContext = self.managedObjectContext;
-            qsvc.questionModels = models
-            
-            qsvc.questionSheetType = .Exam
-            qsvc.currentIndexPath = NSIndexPath(forItem: 0, inSection: 0)
-            qsvc.title = NSLocalizedString("Prüfung", comment: "")
-            splitController.delegate = qtvc
-            
+            detailController.questionSheetType = .Exam
+            detailController.title = NSLocalizedString("Prüfung", comment: "")
+            splitController.delegate = masterController
+
         }
     }
     
@@ -135,12 +135,18 @@ class ExamViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: NSLocalizedString("Neue Prüfung starten", comment: ""), style: .Default, handler: { _ in
                 // Delete previous exam stat
                 examStat.deleteExamInManagedObjectContext(self.managedObjectContext)
+                self.updateBadgeNumber()
+                
+                // show exam sheet
                 self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.StartExam, sender: sender)
             }))
             
+            
+            // Show alert controller
             self.presentViewController(alertController, animated: true, completion: nil)
             
         } else {
+            // show exam sheet
             self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.StartExam, sender: sender)
         }
     }

@@ -32,7 +32,12 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
     
 //    MARK: Properties
     var detailNavigationController: UINavigationController?
-    var questionSheetType: QuestionSheetType = .Learning
+    var questionSheetType: QuestionSheetType = .Learning {
+        didSet {
+            self.updateTableViewCells()
+        }
+    }
+
     var managedObjectContext: NSManagedObjectContext!
     var currentIndexPath: NSIndexPath?
     var dataSource: [QuestionModel]!
@@ -119,26 +124,29 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
 
         
         // Select current question
-        localObservers.append(center.addObserverForName(SettingsNotificationDidSelectQuestion, object: nil, queue: queue, usingBlock: {
-            [weak self] note in
-            
-            if let indexPath = note.object as? NSIndexPath {
-                let arr = self?.tableView.indexPathsForVisibleRows() as! [NSIndexPath]
-                
-                var scrollPosition: UITableViewScrollPosition = .None
-                
-                if indexPath.compare(arr.first!) == .OrderedAscending {
-                    scrollPosition = .Top
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            localObservers.append(center.addObserverForName(SettingsNotificationDidSelectQuestion, object: nil, queue: queue, usingBlock: {
+                [weak self] note in
+                if let indexPath = note.object as? NSIndexPath {
+                    let arr = self?.tableView.indexPathsForVisibleRows() as! [NSIndexPath]
+                    
+                    var scrollPosition: UITableViewScrollPosition = .None
+                    
+                    if indexPath.compare(arr.first!) == .OrderedAscending {
+                        scrollPosition = .Top
+                    }
+                    else if indexPath.compare(arr.last!) == .OrderedDescending {
+                        scrollPosition = .Bottom
+                    }
+                    
+                    self?.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: scrollPosition)
+                    
                 }
-                else if indexPath.compare(arr.last!) == .OrderedDescending {
-                    scrollPosition = .Bottom
-                }
                 
-                self?.tableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: scrollPosition)
-
-            }
-            
-        }))
+                }))
+        }
+        
         
         
         
@@ -153,8 +161,21 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
     
 //    MARK: - Private functions
     func didChangeAnswersGiven(note: NSNotification) {
+        println("QuestionSheetViewController : \(__FUNCTION__)")
+    }
+    
+    func updateTableViewCells() {
+        // There is no necessrity to update cell for first time
+        if self.questionSheetType == .Exam || self.questionSheetType == .Learning {
+            return
+        }
         
+        println("QuestionSheetViewController : \(__FUNCTION__) value \(self.questionSheetType.rawValue)")
         
+        let arr = self.tableView.indexPathsForVisibleRows()
+        if arr?.count > 0 {
+            self.tableView.reloadRowsAtIndexPaths(arr!, withRowAnimation: .Automatic)
+        }
         
     }
     
@@ -167,6 +188,8 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
                         let qsvc = detailNavigationController?.topViewController as! QuestionSheetViewController
 //                        qsvc.currentIndexPath = self.tableView.indexPathForSelectedRow()!
                         qsvc.showQuestionAtIndexPath(self.tableView.indexPathForSelectedRow()!)
+                        return false
+                    } else {
                         return false
                     }
                 }
@@ -268,34 +291,46 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         
         var cell: QuestionCell
         
-        if self.questionSheetType != .Exam {
+        if self.questionSheetType == .Learning {
             cell = tableView.dequeueReusableCellWithIdentifier(MainStoryboard.CellIdentifier.Learning, forIndexPath: indexPath) as! QuestionCell
             cell.numberLabel.text = question.number
+            
+            if question.learnStats != nil && question.learnStats.count > 0 && self.questionSheetType != .Exam  && self.questionSheetType != .History {
+                var set = question.learnStats as NSSet
+                let arr = set.allObjects
+                for learnStat in arr {
+                    let state = learnStat.state as NSNumber
+                    switch state.integerValue {
+                    case StatisticState.CorrectAnswered.rawValue:
+                        cell.iconImageView!.image = UIImage(named: "richtig")
+                    case StatisticState.FaultyAnswered.rawValue:
+                        cell.iconImageView!.image = UIImage(named: "falsch")
+                    default:
+                        cell.iconImageView!.image = nil
+                    }
+                }
+            } else {
+                cell.iconImageView.image = nil
+            }
+            
         } else {
             cell = tableView.dequeueReusableCellWithIdentifier(MainStoryboard.CellIdentifier.Exam, forIndexPath: indexPath) as! QuestionCell
             cell.answerGiven = model.isAnAnswerGiven()
+            
+            if self.questionSheetType == .History {
+                if model.hasAnsweredCorrectly() {
+                    cell.iconImageView.image = UIImage(named: "richtig")
+                } else {
+                    cell.iconImageView.image = UIImage(named: "falsch")
+                }
+            } else {
+                cell.iconImageView.image = nil
+            }
+            
+            
         }
         
         cell.titleLabel.text = question.text
-        
-        if question.learnStats != nil && question.learnStats.count > 0 && self.questionSheetType != .Exam {
-            var set = question.learnStats as NSSet
-            let arr = set.allObjects
-            for learnStat in arr {
-                let state = learnStat.state as NSNumber
-                switch state.integerValue {
-                case StatisticState.CorrectAnswered.rawValue:
-                    cell.iconImageView!.image = UIImage(named: "richtig")
-                case StatisticState.FaultyAnswered.rawValue:
-                    cell.iconImageView!.image = UIImage(named: "falsch")
-                default:
-                    cell.iconImageView!.image = nil
-                }
-            }
-        } else {
-            cell.iconImageView.image = nil
-        }
-        
         
         return cell
         

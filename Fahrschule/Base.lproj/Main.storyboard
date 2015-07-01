@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jxt-6C-JgI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jxt-6C-JgI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -478,16 +478,16 @@ Cg
                     <navigationItem key="navigationItem" id="8gy-Ay-bEN">
                         <barButtonItem key="leftBarButtonItem" title="Schließen" id="0uz-wa-3F8">
                             <connections>
-                                <action selector="didTapButtonClose:" destination="pkk-13-VKG" id="9EC-7S-4a3"/>
+                                <action selector="didTapCloseButton:" destination="pkk-13-VKG" id="nZp-Q7-C9R"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="aJM-3L-0N7">
                             <view key="customView" contentMode="scaleToFill" id="W41-cw-fL2">
-                                <rect key="frame" x="0.0" y="0.0" width="133" height="33"/>
+                                <rect key="frame" x="534" y="5" width="70" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gt9-tO-z0e">
-                                        <rect key="frame" x="0.0" y="0.0" width="133" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.92156862750000001" green="0.45882352939999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -509,6 +509,7 @@ Cg
                         <outlet property="nextBarButton" destination="hiH-eI-Oa2" id="mcE-Qr-yG4"/>
                         <outlet property="prevBarButton" destination="NfC-yE-Nwe" id="7Mn-kN-6X1"/>
                         <outlet property="solutionButton" destination="uYT-5K-j4e" id="wIA-HN-tBA"/>
+                        <outlet property="submitButton" destination="sgW-Yx-Eyu" id="LBW-VG-5F3"/>
                         <outlet property="timerLabel" destination="Gt9-tO-z0e" id="CqE-qS-7so"/>
                         <outlet property="titleBarButton" destination="uYT-5K-j4e" id="slp-7d-4Bk"/>
                         <segue destination="gV9-Ch-bQs" kind="show" identifier="LearningResultViewController" id="aqB-AT-vvz"/>
@@ -518,7 +519,12 @@ Cg
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2A-O8-ztn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <barButtonItem title="Unterbrechen" id="bS7-IU-E7s">
                     <connections>
-                        <action selector="didTapButtonClose:" destination="pkk-13-VKG" id="v6V-ND-HBc"/>
+                        <action selector="didTapButtonInterrupt:" destination="pkk-13-VKG" id="yge-UP-Xnk"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="Abgeben" id="sgW-Yx-Eyu">
+                    <connections>
+                        <action selector="didTapButtonSubmit:" destination="pkk-13-VKG" id="rzo-HZ-Vxo"/>
                     </connections>
                 </barButtonItem>
             </objects>
@@ -536,7 +542,7 @@ Cg
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yrR-dY-Lrh" customClass="CircularCounterView" customModule="Fahrschule" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrR-dY-Lrh" customClass="CircularCounterView" customModule="Fahrschule" customModuleProvider="target">
                                 <rect key="frame" x="185" y="254" width="110" height="110"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.75294117650000003" green="0.79215686269999996" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -545,20 +551,20 @@ Cg
                                     <constraint firstAttribute="height" constant="110" id="suC-1W-6ex"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uze-Nh-R1a" customClass="CircularCounterView" customModule="Fahrschule" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uze-Nh-R1a" customClass="CircularCounterView" customModule="Fahrschule" customModuleProvider="target">
                                 <rect key="frame" x="305" y="254" width="110" height="110"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uze-Nh-R1a" secondAttribute="height" multiplier="1:1" id="HAe-6m-YLh"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Du hast %d Fragen bearbeitet." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNV-yu-l4G">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du hast %d Fragen bearbeitet." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNV-yu-l4G">
                                 <rect key="frame" x="183" y="149" width="235" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNT-0O-Old">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNT-0O-Old">
                                 <rect key="frame" x="185" y="429" width="230" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="b6D-Hj-2SB"/>
@@ -574,7 +580,7 @@ Cg
                                     <segue destination="pkk-13-VKG" kind="show" id="Vck-KF-2sV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exP-Ts-vpM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exP-Ts-vpM">
                                 <rect key="frame" x="185" y="479" width="230" height="40"/>
                                 <state key="normal" title="FEHLER ANZEIGEN" backgroundImage="Btn-Bkg">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -663,7 +669,7 @@ Cg
                                     <color key="titleColor" red="0.92156862750000001" green="0.45882352939999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapButtonShowErrors:" destination="Pa4-3K-nvE" eventType="touchUpInside" id="qz7-qX-Xdv"/>
+                                    <segue destination="pkk-13-VKG" kind="show" identifier="showErrorQuestions" id="Cnx-Ap-pqf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZy-0T-Rrr">
@@ -676,7 +682,7 @@ Cg
                                     <color key="titleColor" red="0.92156862750000001" green="0.45882352939999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapButtonAllQuestions:" destination="Pa4-3K-nvE" eventType="touchUpInside" id="Oi3-5D-EP7"/>
+                                    <segue destination="pkk-13-VKG" kind="show" identifier="showAllQuestions" id="eIE-8e-YLG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2X-d0-wUi">
@@ -745,6 +751,7 @@ Cg
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="allQuestionsButton" destination="QZy-0T-Rrr" id="Fej-oV-WqR"/>
                         <outlet property="failedView" destination="CkQ-97-r1M" id="wam-JN-Kmm"/>
                         <outlet property="faultsButton" destination="Lye-GU-4bt" id="TPd-Wd-zOX"/>
                         <outlet property="imageView" destination="TyV-WG-yfn" id="J2Y-KR-YQv"/>

@@ -136,7 +136,9 @@ class InquirerCollectionCell: UICollectionViewCell, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let answer = self.answers[indexPath.row] as Answer
         self.questionModel.givenAnswers.removeObject(answer)
-        self.questionModel.numGivenAnswers--
+        if self.questionModel.numGivenAnswers > 0 {
+            self.questionModel.numGivenAnswers--
+        }
     }
     
     

@@ -34,9 +34,6 @@
     [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
 #endif
     
-    NSString *s = @"Prüfung wiederholen";
-    NSLog(@"%@", s.uppercaseString);
-    
     [self registerDefaults];
     [Appearance customizeAppearance];
     
