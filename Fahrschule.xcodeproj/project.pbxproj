@@ -393,7 +393,6 @@
 		FA494D331B2EBF4F00DBCA04 /* FahrschuleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D321B2EBF4F00DBCA04 /* FahrschuleNavigationController.m */; };
 		FA494D361B2EBF8300DBCA04 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D351B2EBF8300DBCA04 /* QuestionViewController.m */; };
 		FA494D391B2EC52C00DBCA04 /* TimerBarButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D381B2EC52C00DBCA04 /* TimerBarButtonView.m */; };
-		FA494D401B2EC76500DBCA04 /* IntelligentSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D3F1B2EC76500DBCA04 /* IntelligentSplitViewController.m */; };
 		FA494D4B1B2EC7F300DBCA04 /* ExamResultViewControllerOld.m in Sources */ = {isa = PBXBuildFile; fileRef = FA494D451B2EC7F300DBCA04 /* ExamResultViewControllerOld.m */; };
 		FA494D511B2EEFA000DBCA04 /* QuestionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA494D501B2EEFA000DBCA04 /* QuestionSheetViewController.swift */; };
 		FA6189431B334D1A00B3E46C /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6189421B334D1A00B3E46C /* QuestionsTableViewController.swift */; };
@@ -442,6 +441,7 @@
 		FAAC8C751B2B77D100804FEB /* new_questions_20131101.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C651B2B77D100804FEB /* new_questions_20131101.sql */; };
 		FAAC8C761B2B77D100804FEB /* new_questions_2013_04_01.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C661B2B77D100804FEB /* new_questions_2013_04_01.sql */; };
 		FAAC8C7C1B2B85FD00804FEB /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C7B1B2B85FD00804FEB /* Checksum.m */; };
+		FAC76E161B447CC900CC9B68 /* ExtrasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E151B447CC900CC9B68 /* ExtrasViewController.swift */; };
 		FAD0D4DD1B39C15E00415D8C /* ModalSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0D4DC1B39C15E00415D8C /* ModalSegue.swift */; };
 		FAD2BD731B3865780010EBF0 /* LicenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2BD721B3865780010EBF0 /* LicenseCell.swift */; };
 		FAEE2F871B3ACFF5003A98FB /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE2F861B3ACFF5003A98FB /* LearningViewController.swift */; };
@@ -850,8 +850,6 @@
 		FA494D351B2EBF8300DBCA04 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionViewController.m; path = Classes/QuestionViewController.m; sourceTree = "<group>"; };
 		FA494D371B2EC52C00DBCA04 /* TimerBarButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerBarButtonView.h; path = Classes/TimerBarButtonView.h; sourceTree = "<group>"; };
 		FA494D381B2EC52C00DBCA04 /* TimerBarButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerBarButtonView.m; path = Classes/TimerBarButtonView.m; sourceTree = "<group>"; };
-		FA494D3E1B2EC76500DBCA04 /* IntelligentSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntelligentSplitViewController.h; path = Classes/IntelligentSplitViewController.h; sourceTree = "<group>"; };
-		FA494D3F1B2EC76500DBCA04 /* IntelligentSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntelligentSplitViewController.m; path = Classes/IntelligentSplitViewController.m; sourceTree = "<group>"; };
 		FA494D441B2EC7F300DBCA04 /* ExamResultViewControllerOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExamResultViewControllerOld.h; path = Classes/ExamResultViewControllerOld.h; sourceTree = "<group>"; };
 		FA494D451B2EC7F300DBCA04 /* ExamResultViewControllerOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExamResultViewControllerOld.m; path = Classes/ExamResultViewControllerOld.m; sourceTree = "<group>"; };
 		FA494D501B2EEFA000DBCA04 /* QuestionSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionSheetViewController.swift; path = Classes/QuestionSheetViewController.swift; sourceTree = "<group>"; };
@@ -924,6 +922,7 @@
 		FAAC8C661B2B77D100804FEB /* new_questions_2013_04_01.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new_questions_2013_04_01.sql; sourceTree = "<group>"; };
 		FAAC8C7A1B2B85FD00804FEB /* Checksum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Checksum.h; path = Classes/Checksum.h; sourceTree = "<group>"; };
 		FAAC8C7B1B2B85FD00804FEB /* Checksum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Checksum.m; path = Classes/Checksum.m; sourceTree = "<group>"; };
+		FAC76E151B447CC900CC9B68 /* ExtrasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtrasViewController.swift; path = Classes/ExtrasViewController.swift; sourceTree = "<group>"; };
 		FAD0D4DC1B39C15E00415D8C /* ModalSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModalSegue.swift; path = Classes/ModalSegue.swift; sourceTree = "<group>"; };
 		FAD2BD721B3865780010EBF0 /* LicenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseCell.swift; path = Classes/LicenseCell.swift; sourceTree = "<group>"; };
 		FAEE2F861B3ACFF5003A98FB /* LearningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LearningViewController.swift; path = Classes/LearningViewController.swift; sourceTree = "<group>"; };
@@ -1392,15 +1391,6 @@
 			name = Questions;
 			sourceTree = "<group>";
 		};
-		FA494D411B2EC76A00DBCA04 /* Split */ = {
-			isa = PBXGroup;
-			children = (
-				FA494D3E1B2EC76500DBCA04 /* IntelligentSplitViewController.h */,
-				FA494D3F1B2EC76500DBCA04 /* IntelligentSplitViewController.m */,
-			);
-			name = Split;
-			sourceTree = "<group>";
-		};
 		FA494D4E1B2EC7F800DBCA04 /* Exam */ = {
 			isa = PBXGroup;
 			children = (
@@ -1527,7 +1517,6 @@
 		FAAC8C0D1B2B6BFF00804FEB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA494D411B2EC76A00DBCA04 /* Split */,
 				FA494D3A1B2EC70D00DBCA04 /* Learning */,
 				FA494D3B1B2EC71B00DBCA04 /* Question Catalog */,
 				FA494D3C1B2EC72600DBCA04 /* Sub group */,
@@ -1536,6 +1525,7 @@
 				FA494D871B2EF33B00DBCA04 /* Inquirer */,
 				FA494D4F1B2EC88600DBCA04 /* Temp */,
 				FA28956D1B38369400123796 /* License Class */,
+				FAC76E171B447CCE00CC9B68 /* Extra */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1651,6 +1641,14 @@
 				FAAC8C661B2B77D100804FEB /* new_questions_2013_04_01.sql */,
 			);
 			path = SQL;
+			sourceTree = "<group>";
+		};
+		FAC76E171B447CCE00CC9B68 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76E151B447CC900CC9B68 /* ExtrasViewController.swift */,
+			);
+			name = Extra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2188,7 +2186,6 @@
 				FA1BA08C1B34216B008840BF /* QuestionCatalogTableViewController.swift in Sources */,
 				FA494D361B2EBF8300DBCA04 /* QuestionViewController.m in Sources */,
 				FAAC8C361B2B722800804FEB /* MainGroup.m in Sources */,
-				FA494D401B2EC76500DBCA04 /* IntelligentSplitViewController.m in Sources */,
 				FA2EDC261B302DBE00CFAACF /* InquirerTableCell.swift in Sources */,
 				FAD2BD731B3865780010EBF0 /* LicenseCell.swift in Sources */,
 				FAAC8C391B2B722800804FEB /* SubGroup.m in Sources */,
@@ -2210,6 +2207,7 @@
 				FA3F31081B316F2100BD5566 /* LearningResultViewController.swift in Sources */,
 				FA3D41B31B2F57A200011C5C /* InquirerCollectionCell.swift in Sources */,
 				FAD0D4DD1B39C15E00415D8C /* ModalSegue.swift in Sources */,
+				FAC76E161B447CC900CC9B68 /* ExtrasViewController.swift in Sources */,
 				FAAC8C1C1B2B701E00804FEB /* CircularChartView.swift in Sources */,
 				FAAC8C371B2B722800804FEB /* Question.m in Sources */,
 				FAAC8C1F1B2B701E00804FEB /* UIColor+Extension.swift in Sources */,
