@@ -8,90 +8,111 @@
 
 import UIKit
 
-class ExtrasViewController: UITableViewController, UISplitViewControllerDelegate {
-
+class ExtrasViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+//    MARK: - Types
+    struct MainStoryboard {
+        struct SegueIdentifiers {
+            static let StartExam = "StartExam"
+        }
+        
+        struct CellIdentifiers {
+            static let mainCell = "Cell"
+        }
+        
+        struct IndexPath {
+            static let Instructions = NSIndexPath(forItem: 0, inSection: 0)
+            static let Rate = NSIndexPath(forItem: 5, inSection: 0)
+        }
+    }
+    
+//    MARK: Properties
+    var dataSource: [[String : String]]!
+    
+    
+//    MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = true
+        
+        let bundle = NSBundle.mainBundle()
+        #if FAHRSCHULE_LITE
+            let path = bundle.pathForResource("ExtrasLite", ofType: "plist")
+            #else
+            let path = bundle.pathForResource("Extras", ofType: "plist")
+        #endif
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.dataSource = NSArray(contentsOfFile: path!) as! [[String : String]]
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+//    MARK: - Navigation
+    @IBAction func exitToExtrasViewController(sender: UIStoryboardSegue) {}
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        
+        let indexPath = self.collectionView?.indexPathsForSelectedItems().first as! NSIndexPath
+        
+        switch indexPath {
+        case MainStoryboard.IndexPath.Instructions:
+            self.collectionView?.deselectItemAtIndexPath(indexPath, animated: true)
+            return false
+            
+        case MainStoryboard.IndexPath.Rate:
+            #if FAHRSCHULE_LITE
+                let sURL = Settings.sharedSettings().iTunesLiteLink
+            #else
+                let sURL = Settings.sharedSettings().iTunesLink
+            #endif
+            UIApplication.sharedApplication().openURL(NSURL(string: sURL)!)
+            self.collectionView?.deselectItemAtIndexPath(indexPath, animated: true)
+            return false
+            
+        default:
+            return true
+        }
+        
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let splitController = segue.destinationViewController as? UISplitViewController {
+            let masterNavController = splitController.viewControllers.first as? UINavigationController
+            let extraController = masterNavController?.topViewController as! ExtraTableController
+            extraController.dataSource = self.dataSource
+            
+        }
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+    
+//    MARK: - Collection Veiw Datasource
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.count
     }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(MainStoryboard.CellIdentifiers.mainCell, forIndexPath: indexPath) as! ExtraCollectionCell
+        let item = self.dataSource[indexPath.row]
+        cell.textLabel.text = item["title"]
+        println("\(cell.textLabel.text)")
+        let imageName = item["image"]
+        
+        if let image = UIImage(named: imageName!) {
+            cell.imageView.image = image
+        } else {
+            println("\(imageName)")
+        }
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+//    MARK: - Collection View Flowlayout delegate
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let width = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? CGRectGetWidth(collectionView.bounds) : CGRectGetWidth(collectionView.bounds) / 2.0
+        return CGSizeMake(width - 1.0, 44.0)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }

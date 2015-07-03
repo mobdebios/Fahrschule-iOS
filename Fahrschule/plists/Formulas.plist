@@ -4,35 +4,13 @@
 <array>
 	<dict>
 		<key>formula</key>
-		<string>(Geschwindigkeit / 10) * 3</string>
-		<key>text</key>
-		<string>Der Weg, der zwischen Erkennen einer Gefahr und Beginn der tatsächlichen Bremsung zurückgelegt wird.</string>
-		<key>title</key>
-		<string>Reaktionsweg</string>
-	</dict>
-	<dict>
-		<key>formula</key>
 		<string>k * (Geschwindigkeit / 10) ^ 2</string>
 		<key>text</key>
 		<string>Die Strecke, die ein Fahrzeug vom Beginn der Bremsung bis zum Ende der Bremsung zurücklegt. Bei trockener und gefestigter Fahrbahn gilt hierbei k=1. Bei nasser Fahrbahn und Betonfahrbahn wird etwa der 1,5-fache bis doppelte Bremsweg (k=1,5…2) und bei Schnee- und Eisfahrbahn, sowie Rollsplit, wird der vierfache Bremsweg (k=4) benötigt.</string>
 		<key>title</key>
 		<string>Bremsweg</string>
-	</dict>
-	<dict>
-		<key>formula</key>
-		<string>(k / 2) * (Geschwindigkeit / 10) ^ 2</string>
-		<key>text</key>
-		<string>Bei trockener und gefestigter Fahrbahn gilt hierbei k=1. Bei nasser Fahrbahn und Betonfahrbahn wird etwa der 1,5-fache bis doppelte Bremsweg (k=1,5…2) und bei Schnee- und Eisfahrbahn, sowie Rollsplit, wird der vierfache Bremsweg (k=4) benötigt.</string>
-		<key>title</key>
-		<string>Gefahrenbremsung</string>
-	</dict>
-	<dict>
-		<key>formula</key>
-		<string>Reaktionsweg + Bremsweg</string>
-		<key>text</key>
-		<string>Der Anhalteweg ist die Strecke, die ein Fahrzeug vom Zeitpunkt des Auftretens eines Hindernisses bis zum Stillstand zurücklegt.</string>
-		<key>title</key>
-		<string>Anhalteweg</string>
+		<key>nib</key>
+		<string>Formula_Breaking_Distance</string>
 	</dict>
 	<dict>
 		<key>formula</key>
@@ -41,14 +19,50 @@
 		<string>Die Distanz, die mindestens zwischen zwei Fahrzeugen im Straßenverkehr eingehalten werden sollte. Bei trockener und gefestigter Fahrbahn gilt hierbei k=1. Bei nasser Fahrbahn und Betonfahrbahn wird etwa der 1,5-fache bis doppelte Bremsweg (k=1,5…2) und bei Schnee- und Eisfahrbahn, sowie Rollsplit, wird der vierfache Bremsweg (k=4) benötigt.</string>
 		<key>title</key>
 		<string>Mindestabstand</string>
+		<key>nib</key>
+		<string>Formula_Minimum_Distance</string>
+	</dict>
+	<dict>
+		<key>formula</key>
+		<string>(k / 2) * (Geschwindigkeit / 10) ^ 2</string>
+		<key>text</key>
+		<string>Bei trockener und gefestigter Fahrbahn gilt hierbei k=1. Bei nasser Fahrbahn und Betonfahrbahn wird etwa der 1,5-fache bis doppelte Bremsweg (k=1,5…2) und bei Schnee- und Eisfahrbahn, sowie Rollsplit, wird der vierfache Bremsweg (k=4) benötigt.</string>
+		<key>title</key>
+		<string>Gefahrenbremsung</string>
+		<key>nib</key>
+		<string>Formula_Emergency_Braking</string>
 	</dict>
 	<dict>
 		<key>formula</key>
 		<string>Innerorts: 50 km/h, Außerorts Pkw / KRad: 100 km/h / 80 km/h, Autobahn: kein Limit</string>
 		<key>text</key>
-		<string>Die erlaubte Höchstgeschwindigkeit ist ein verbindlicher Grenzwert für die Geschwindigkeit eines Fahrzeugs, der nicht überschritten werden darf. In Deutschland gelten die folgenden Werte:</string>
+		<string>Die erlaubte Höchstgeschwindigkeit ist ein verbindlicher Grenzwert für die Geschwindigkeit eines Fahrzeugs, der nicht überschritten werden darf. In Deutschland gelten die folgenden Werte:
+        </string>
 		<key>title</key>
 		<string>Tempolimits</string>
+		<key>nib</key>
+		<string>Formula_Speed_Limits</string>
+	</dict>
+	<dict>
+		<key>formula</key>
+		<string>(Geschwindigkeit / 10) * 3</string>
+		<key>text</key>
+		<string>Der Weg, der zwischen Erkennen einer Gefahr und Beginn der tatsächlichen Bremsung zurückgelegt wird.
+        </string>
+		<key>title</key>
+		<string>Reaktionsweg</string>
+		<key>nib</key>
+		<string>Formula_Pathway</string>
+	</dict>
+	<dict>
+		<key>formula</key>
+		<string>Reaktionsweg + Bremsweg</string>
+		<key>text</key>
+		<string>Der Anhalteweg ist die Strecke, die ein Fahrzeug vom Zeitpunkt des Auftretens eines Hindernisses bis zum Stillstand zurücklegt.</string>
+		<key>title</key>
+		<string>Anhalteweg</string>
+		<key>nib</key>
+		<string>Formula_Stopping_Distance</string>
 	</dict>
 </array>
 </plist>
