@@ -83,6 +83,13 @@ class BrakingDistanceViewController: UIViewController {
         counterView.countLabel.text = "\(Int(sender.value))"
         counterView.setNeedsLayout()
         
+//        let lengthFormatter = NSLengthFormatter()
+//        lengthFormatter.numberFormatter.locale = NSLocale(localeIdentifier: "de_DE")
+//        lengthFormatter.numberFormatter.maximumFractionDigits = 0
+//        var val: Double = 0.3 * Double(sender.value)
+//        reactionDistanceLabel.text = lengthFormatter.stringFromMeters(val)
+        
+        
         reactionDistanceLabel.text = "\(UInt(roundf(0.3 * sender.value))) m"
         breakingDistanceNormalLabel.text = "\( UInt(roundf((sender.value * 0.1) * (sender.value * 0.1) * Float(breakingConstant))) ) m"
         breakingDistanceEmergencyLabel.text = "\( UInt(roundf((sender.value * 0.1) * (sender.value * 0.1) * Float(breakingConstant)  * 0.5)) ) m"

@@ -62,6 +62,9 @@ class ExtraTableController: UITableViewController {
         
         
         switch indexPath.row {
+        case 1:
+            self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showFormulas, sender: self)
+            break
         case 2:
             self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showBrakingDistance, sender: self)
             break
