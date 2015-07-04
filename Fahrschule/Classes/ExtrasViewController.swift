@@ -11,8 +11,11 @@ import UIKit
 class ExtrasViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 //    MARK: - Types
     struct MainStoryboard {
-        struct SegueIdentifiers {
-            static let StartExam = "StartExam"
+        struct ControllerIdentifiers {
+            static let TrafficSigns = "TrafficSignsViewController"
+            static let BrakingDistance = "BrakingDistanceViewController"
+            static let Formulas = "FormulasViewController"
+            static let Regulations = "RegulationsController"
         }
         
         struct CellIdentifiers {
@@ -61,11 +64,11 @@ class ExtrasViewController: UICollectionViewController, UICollectionViewDelegate
             return false
             
         case MainStoryboard.IndexPath.Rate:
-            #if FAHRSCHULE_LITE
-                let sURL = Settings.sharedSettings().iTunesLiteLink
-            #else
-                let sURL = Settings.sharedSettings().iTunesLink
-            #endif
+#if FAHRSCHULE_LITE
+            let sURL = Settings.sharedSettings().iTunesLiteLink
+#else
+            let sURL = Settings.sharedSettings().iTunesLink
+#endif
             UIApplication.sharedApplication().openURL(NSURL(string: sURL)!)
             self.collectionView?.deselectItemAtIndexPath(indexPath, animated: true)
             return false
@@ -79,9 +82,27 @@ class ExtrasViewController: UICollectionViewController, UICollectionViewDelegate
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if let splitController = segue.destinationViewController as? UISplitViewController {
+            let indexPath = self.collectionView?.indexPathsForSelectedItems().first as! NSIndexPath
+            
             let masterNavController = splitController.viewControllers.first as? UINavigationController
-            let extraController = masterNavController?.topViewController as! ExtraTableController
-            extraController.dataSource = self.dataSource
+            let masterController = masterNavController?.topViewController as! ExtraTableController
+            masterController.dataSource = self.dataSource
+            masterController.tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+            
+            var detailController: UIViewController
+            switch indexPath.row {
+            case 1:
+                detailController = self.storyboard!.instantiateViewControllerWithIdentifier(MainStoryboard.ControllerIdentifiers.Formulas) as! UIViewController
+            case 2:
+                detailController = self.storyboard!.instantiateViewControllerWithIdentifier(MainStoryboard.ControllerIdentifiers.BrakingDistance) as! UIViewController
+            case 3:
+                detailController = self.storyboard!.instantiateViewControllerWithIdentifier(MainStoryboard.ControllerIdentifiers.TrafficSigns) as! UIViewController
+            default:
+                detailController = self.storyboard!.instantiateViewControllerWithIdentifier(MainStoryboard.ControllerIdentifiers.Regulations) as! UIViewController
+            }
+            let navController = UINavigationController(rootViewController: detailController)
+            splitController.showDetailViewController(navController, sender: self)
+            
             
         }
     }
@@ -95,9 +116,7 @@ class ExtrasViewController: UICollectionViewController, UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(MainStoryboard.CellIdentifiers.mainCell, forIndexPath: indexPath) as! ExtraCollectionCell
         let item = self.dataSource[indexPath.row]
         cell.textLabel.text = item["title"]
-        println("\(cell.textLabel.text)")
         let imageName = item["image"]
-        
         if let image = UIImage(named: imageName!) {
             cell.imageView.image = image
         } else {

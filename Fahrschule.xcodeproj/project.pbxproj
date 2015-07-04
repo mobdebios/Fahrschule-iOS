@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A675AD0A8C719742018B4910 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 269DCE109E0575703524C6F9 /* libPods.a */; };
+		FA1929661B480FCA008F6372 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1929651B480FCA008F6372 /* SettingsViewController.swift */; };
+		FA1929691B4829EA008F6372 /* TeachingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1929681B4829EA008F6372 /* TeachingTypeViewController.swift */; };
 		FA1BA08A1B341213008840BF /* SubGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */; };
 		FA1BA08C1B34216B008840BF /* QuestionCatalogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */; };
 		FA1BBAD01B3C28BD0024E846 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BBACF1B3C28BD0024E846 /* ExamViewController.swift */; };
@@ -103,6 +105,8 @@
 		269DCE109E0575703524C6F9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F20E54A61A98D0C124E2A27 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA86E95A39E490B7C04FFBC4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FA1929651B480FCA008F6372 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Classes/SettingsViewController.swift; sourceTree = "<group>"; };
+		FA1929681B4829EA008F6372 /* TeachingTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeachingTypeViewController.swift; path = Classes/TeachingTypeViewController.swift; sourceTree = "<group>"; };
 		FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubGroupTableViewController.swift; path = Classes/SubGroupTableViewController.swift; sourceTree = "<group>"; };
 		FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionCatalogTableViewController.swift; path = Classes/QuestionCatalogTableViewController.swift; sourceTree = "<group>"; };
 		FA1BBACF1B3C28BD0024E846 /* ExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamViewController.swift; path = Classes/ExamViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +249,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FA1929671B480FCF008F6372 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA1929651B480FCA008F6372 /* SettingsViewController.swift */,
+				FA1929681B4829EA008F6372 /* TeachingTypeViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		FA28956D1B38369400123796 /* License Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +348,7 @@
 		FA6081C31B45B46600FEB8E3 /* Formulas */ = {
 			isa = PBXGroup;
 			children = (
+				FA6081C11B45735600FEB8E3 /* FormulaCollectionCell.swift */,
 				FA6081BF1B453B5400FEB8E3 /* FormulasViewController.swift */,
 			);
 			name = Formulas;
@@ -457,6 +471,7 @@
 				FA6081C31B45B46600FEB8E3 /* Formulas */,
 				FA6081DB1B45C8CF00FEB8E3 /* Braking Distance */,
 				FA4D62621B46A70000702F14 /* Traffic Signs */,
+				FA1929671B480FCF008F6372 /* Settings */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -465,7 +480,6 @@
 			isa = PBXGroup;
 			children = (
 				FA5317CE1B47085E0083E37C /* MarginLabel.swift */,
-				FA6081C11B45735600FEB8E3 /* FormulaCollectionCell.swift */,
 				FA29FB191B2C807D00689451 /* SubgroupCell.swift */,
 				FA3D41B11B2F57A200011C5C /* InquirerCollectionCell.swift */,
 				FA3D41B21B2F57A200011C5C /* InquirerCollectionCell.xib */,
@@ -780,12 +794,14 @@
 				FA6081DA1B45C8C700FEB8E3 /* BrakingDistanceViewController.swift in Sources */,
 				FA1BBAD01B3C28BD0024E846 /* ExamViewController.swift in Sources */,
 				FA3D41B01B2F4A7300011C5C /* UIViewController+Extension.swift in Sources */,
+				FA1929661B480FCA008F6372 /* SettingsViewController.swift in Sources */,
 				FA29FB1A1B2C807D00689451 /* SubgroupCell.swift in Sources */,
 				FA3F31081B316F2100BD5566 /* LearningResultViewController.swift in Sources */,
 				FA3D41B31B2F57A200011C5C /* InquirerCollectionCell.swift in Sources */,
 				FAC76E191B448B9E00CC9B68 /* ExtraCollectionCell.swift in Sources */,
 				FA4D62641B46CED100702F14 /* TrafficSignsCollectionCell.swift in Sources */,
 				FAC76E161B447CC900CC9B68 /* ExtrasViewController.swift in Sources */,
+				FA1929691B4829EA008F6372 /* TeachingTypeViewController.swift in Sources */,
 				FAAC8C1C1B2B701E00804FEB /* CircularChartView.swift in Sources */,
 				FAAC8C371B2B722800804FEB /* Question.m in Sources */,
 				FAAC8C1F1B2B701E00804FEB /* UIColor+Extension.swift in Sources */,

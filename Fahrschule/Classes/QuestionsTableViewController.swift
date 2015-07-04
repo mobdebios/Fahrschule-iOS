@@ -86,7 +86,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         super.viewDidLoad()
 
         // Observers
-        regisgerObservers()
+        registerObservers()
         
         // TableView settings
         self.clearsSelectionOnViewWillAppear = true
@@ -100,7 +100,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
     }
     
 //    MARK: - Observers
-    func regisgerObservers() {
+    func registerObservers() {
         let center = NSNotificationCenter.defaultCenter()
         let queue = NSOperationQueue.mainQueue()
         

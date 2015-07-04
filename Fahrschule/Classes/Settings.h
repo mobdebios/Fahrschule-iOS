@@ -50,18 +50,18 @@ typedef NS_ENUM(NSInteger, LicenseClass) {
 /*
  * iPad
  */
-typedef enum {
+typedef NS_ENUM(NSUInteger, SettingsView) {
     kLicenseClassSelectorView = 1,
     kTeachingTypeSelectorView = 2,
     kImpressumView = 3
-} SettingsView;
+};
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, ExtrasView) {
     kFormulasView = 1,
     kBrakingDistanceView = 2,
     kTrafficSignsView = 3,
     kStVOView = 4
-} ExtrasView;
+};
 
 @interface Settings : NSObject {
     NSDictionary *_examSheetDictionary;

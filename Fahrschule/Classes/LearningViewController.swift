@@ -57,7 +57,7 @@ class LearningViewController: UIViewController {
             }
         }
         
-        regisgerObservers()
+        registerObservers()
         configureView()
     }
     
@@ -67,7 +67,7 @@ class LearningViewController: UIViewController {
     }
     
 //    MARK: - Observers
-    func regisgerObservers() {
+    func registerObservers() {
         NSUserDefaults.standardUserDefaults().addObserver(self, forKeyPath: SettingsLicenseClassKey, options: .New, context: nil)
     }
     
@@ -76,11 +76,13 @@ class LearningViewController: UIViewController {
     }
     
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
-        if keyPath == SettingsLicenseClassKey {
+        switch keyPath {
+        case SettingsLicenseClassKey:
             configureView()
-        } else {
+        default:
             super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
         }
+        
     }
 
 //    MARK: - Private functions

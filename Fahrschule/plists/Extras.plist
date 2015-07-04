@@ -4,37 +4,37 @@
 <array>
 	<dict>
 		<key>image</key>
-		<string>anleitung.png</string>
+		<string>anleitung</string>
 		<key>title</key>
 		<string>Anleitung</string>
 	</dict>
 	<dict>
 		<key>image</key>
-		<string>formelsammlung.png</string>
+		<string>formelsammlung</string>
 		<key>title</key>
 		<string>Formelsammlung</string>
 	</dict>
 	<dict>
 		<key>image</key>
-		<string>bremsberechner.png</string>
+		<string>bremsberechner</string>
 		<key>title</key>
 		<string>Bremswegberechner</string>
 	</dict>
 	<dict>
 		<key>image</key>
-		<string>verkehrszeichen.png</string>
+		<string>verkehrszeichen</string>
 		<key>title</key>
 		<string>Verkehrszeichen</string>
 	</dict>
 	<dict>
 		<key>image</key>
-		<string>StVO.png</string>
+		<string>StVO</string>
 		<key>title</key>
 		<string>StVO</string>
 	</dict>
 	<dict>
 		<key>image</key>
-		<string>icon_bewerten.png</string>
+		<string>icon_bewerten</string>
 		<key>title</key>
 		<string>App bewerten</string>
 	</dict>

@@ -112,7 +112,7 @@ Cg
         <!--StVO-->
         <scene sceneID="ci5-Pb-v1e">
             <objects>
-                <viewController id="pnU-T7-yWK" customClass="RegulationsController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegulationsController" id="pnU-T7-yWK" customClass="RegulationsController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="784-SU-YR4"/>
                         <viewControllerLayoutGuide type="bottom" id="ZNI-xB-jRw"/>
@@ -141,7 +141,132 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YhO-bd-o8p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2977" y="2948"/>
+            <point key="canvasLocation" x="2885" y="2940"/>
+        </scene>
+        <!--Formelsammlung-->
+        <scene sceneID="eNZ-54-fSi">
+            <objects>
+                <viewController id="J1R-xB-Qpw" customClass="FormulasViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jXo-Jw-A0c"/>
+                        <viewControllerLayoutGuide type="bottom" id="cxu-XM-VtW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0VH-aO-SKq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aHv-Z1-1Tk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="oeE-5k-RWw">
+                                    <size key="itemSize" width="286" height="376"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="dDT-bo-8N4" customClass="FormulaCollectionCell" customModule="Fahrschule" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="376"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdF-Hh-9IS" userLabel="Title">
+                                                    <rect key="frame" x="23" y="48" width="237" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="th4-g7-lDC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qs-YT-VNt" userLabel="Test">
+                                                    <rect key="frame" x="26" y="80" width="234" height="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                    <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hW-PX-Bq9" userLabel="Formula">
+                                                    <rect key="frame" x="26" y="127" width="234" height="130"/>
+                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96862745100000003" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="130" id="4fP-GQ-9an"/>
+                                                        <constraint firstAttribute="width" constant="234" id="Rj2-tH-j64"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="jdF-Hh-9IS" firstAttribute="top" secondItem="dDT-bo-8N4" secondAttribute="topMargin" constant="40" id="74k-9P-JWm"/>
+                                            <constraint firstItem="0hW-PX-Bq9" firstAttribute="top" secondItem="9Qs-YT-VNt" secondAttribute="bottom" constant="31" id="ATf-9L-caw"/>
+                                            <constraint firstItem="0hW-PX-Bq9" firstAttribute="leading" secondItem="jdF-Hh-9IS" secondAttribute="leading" constant="3" id="GRn-ja-pjp"/>
+                                            <constraint firstAttribute="centerX" secondItem="0hW-PX-Bq9" secondAttribute="centerX" id="Kbm-3v-lgw"/>
+                                            <constraint firstItem="0hW-PX-Bq9" firstAttribute="trailing" secondItem="jdF-Hh-9IS" secondAttribute="trailing" id="cr8-wd-7rs"/>
+                                            <constraint firstItem="9Qs-YT-VNt" firstAttribute="top" secondItem="jdF-Hh-9IS" secondAttribute="bottom" constant="10" id="fXw-yV-5rh"/>
+                                            <constraint firstItem="9Qs-YT-VNt" firstAttribute="trailing" secondItem="0hW-PX-Bq9" secondAttribute="trailing" id="fl0-ba-Otq"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="0hW-PX-Bq9" secondAttribute="bottom" constant="10" id="klA-2v-hZi"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="0hW-PX-Bq9" secondAttribute="bottom" constant="115" id="l85-Gb-ZNC"/>
+                                            <constraint firstItem="9Qs-YT-VNt" firstAttribute="leading" secondItem="0hW-PX-Bq9" secondAttribute="leading" id="sUr-3j-xN4"/>
+                                        </constraints>
+                                        <size key="customSize" width="286" height="376"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="klA-2v-hZi"/>
+                                                <exclude reference="l85-Gb-ZNC"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="ATf-9L-caw"/>
+                                                <include reference="klA-2v-hZi"/>
+                                                <exclude reference="l85-Gb-ZNC"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="ATf-9L-caw"/>
+                                                <exclude reference="klA-2v-hZi"/>
+                                                <include reference="l85-Gb-ZNC"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="formulaView" destination="0hW-PX-Bq9" id="lPt-mh-z4g"/>
+                                            <outlet property="textLabel" destination="9Qs-YT-VNt" id="mCy-9h-icv"/>
+                                            <outlet property="titleLabel" destination="jdF-Hh-9IS" id="G1s-J1-bfA"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="J1R-xB-Qpw" id="9nG-sI-aXm"/>
+                                    <outlet property="delegate" destination="J1R-xB-Qpw" id="1QU-ZH-5dt"/>
+                                </connections>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pGC-Hx-LDk">
+                                <rect key="frame" x="281" y="523" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aHv-Z1-1Tk" secondAttribute="trailing" id="4Rf-Zo-H1H"/>
+                            <constraint firstItem="cxu-XM-VtW" firstAttribute="top" secondItem="aHv-Z1-1Tk" secondAttribute="bottom" id="5yE-aC-eSD"/>
+                            <constraint firstItem="cxu-XM-VtW" firstAttribute="top" secondItem="pGC-Hx-LDk" secondAttribute="bottom" constant="40" id="C4D-uD-CIW"/>
+                            <constraint firstItem="aHv-Z1-1Tk" firstAttribute="top" secondItem="0VH-aO-SKq" secondAttribute="top" id="u3F-q0-n90"/>
+                            <constraint firstAttribute="centerX" secondItem="pGC-Hx-LDk" secondAttribute="centerX" constant="-0.5" id="usR-kz-ppB"/>
+                            <constraint firstItem="aHv-Z1-1Tk" firstAttribute="leading" secondItem="0VH-aO-SKq" secondAttribute="leading" id="xrt-Ag-YWj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Formelsammlung" id="eCP-Yc-aAt"/>
+                    <connections>
+                        <outlet property="collectionView" destination="aHv-Z1-1Tk" id="Aw1-X5-yGn"/>
+                        <outlet property="pageControl" destination="pGC-Hx-LDk" id="JhZ-yE-dn0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVA-aY-SnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2106" y="2940"/>
         </scene>
         <!--Extras-->
         <scene sceneID="5EX-9g-ZiR">
@@ -185,7 +310,6 @@ Cg
                     </navigationItem>
                     <connections>
                         <segue destination="HoX-Wm-qbL" kind="showDetail" identifier="showStVO" id="eQw-vc-oo4"/>
-                        <segue destination="URu-Kn-3R6" kind="show" identifier="showLicenseClass" id="9OB-D8-udY"/>
                         <segue destination="N67-dX-4Ob" kind="showDetail" identifier="showFormulas" id="izu-oe-Tea"/>
                         <segue destination="gZ0-Vk-gb6" kind="showDetail" identifier="showBrakingDistance" id="fg0-u4-7xF"/>
                         <segue destination="gPL-wO-ZCu" kind="showDetail" identifier="showTrafficSigns" id="MWK-aH-WZ6"/>
@@ -219,7 +343,7 @@ Cg
                     <tabBarItem key="tabBarItem" title="Extra" id="V6U-tv-CSf"/>
                     <connections>
                         <segue destination="Na7-O5-DFh" kind="relationship" relationship="masterViewController" id="tpX-KI-tYh"/>
-                        <segue destination="gPL-wO-ZCu" kind="relationship" relationship="detailViewController" id="z6L-Dg-ztU"/>
+                        <segue destination="N67-dX-4Ob" kind="relationship" relationship="detailViewController" id="TuW-QL-af3"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkb-iM-ZgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -598,7 +722,7 @@ Cg
                                 <action selector="didTapCloseButton:" destination="pkk-13-VKG" id="nZp-Q7-C9R"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="aJM-3L-0N7">
+                        <barButtonItem key="rightBarButtonItem" id="aJM-3L-0N7">
                             <view key="customView" contentMode="scaleToFill" id="W41-cw-fL2">
                                 <rect key="frame" x="534" y="5" width="70" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -974,11 +1098,12 @@ Cg
                         <segue destination="JQF-eh-R2K" kind="relationship" relationship="viewControllers" id="EXc-kS-WRi"/>
                         <segue destination="u2R-gb-MTK" kind="relationship" relationship="viewControllers" id="mS1-ot-sFh"/>
                         <segue destination="c4n-zY-Wpl" kind="relationship" relationship="viewControllers" id="FAZ-UE-xiw"/>
+                        <segue destination="XN1-9u-YqX" kind="relationship" relationship="viewControllers" id="eJS-xJ-XXP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44e-Tk-qS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3160" y="867"/>
+            <point key="canvasLocation" x="-3312" y="3299"/>
         </scene>
         <!--Extras-->
         <scene sceneID="OQi-IK-e3Q">
@@ -1178,16 +1303,18 @@ Cg
                             <outlet property="delegate" destination="YgD-f5-vzG" id="KKO-sS-gEX"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Führerscheinklasse" id="ocL-4l-6sX"/>
+                    <navigationItem key="navigationItem" title="Führerscheinklasse" id="ocL-4l-6sX">
+                        <barButtonItem key="backBarButtonItem" title="Zurück" id="hh2-ec-53a"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lS7-jx-o3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184" y="2948"/>
+            <point key="canvasLocation" x="276" y="5092"/>
         </scene>
         <!--Bremswegberechner-->
         <scene sceneID="aX5-0c-q8T">
             <objects>
-                <viewController id="dQc-g8-oTA" customClass="BrakingDistanceViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrakingDistanceViewController" id="dQc-g8-oTA" customClass="BrakingDistanceViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fGd-Z7-eGl"/>
                         <viewControllerLayoutGuide type="bottom" id="Uv2-ax-vJ4"/>
@@ -1384,12 +1511,223 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfg-2h-sHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="2948"/>
+            <point key="canvasLocation" x="1309" y="2940"/>
+        </scene>
+        <!--Einstellungen-->
+        <scene sceneID="weE-5n-MUi">
+            <objects>
+                <tableViewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="HLJ-bw-ecu" customClass="SettingsViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Tqy-63-kg6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Fragenfilter" id="ePd-Ya-K3J">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="jjo-35-5j4" detailTextLabel="A82-6H-PU8" imageView="zFP-dD-kTb" style="IBUITableViewCellStyleValue1" id="ryh-l4-bJL">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ryh-l4-bJL" id="zdz-RT-v2t">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Führerscheinklasse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jjo-35-5j4">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="LicenseClass" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A82-6H-PU8" userLabel="LicenseClass">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="alleklassen" id="zFP-dD-kTb">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="URu-Kn-3R6" kind="showDetail" identifier="ShowLicenseClasses" id="2Kf-Mh-pn0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zTJ-TH-6w2" detailTextLabel="NOS-np-iZx" imageView="WLJ-lx-Mqm" style="IBUITableViewCellStyleValue1" id="JJZ-0E-5ra">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JJZ-0E-5ra" id="LBh-nQ-XW1">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Erwerbstyp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zTJ-TH-6w2">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="TeachingType" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NOS-np-iZx">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ersterwerb" id="WLJ-lx-Mqm">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="zeC-v0-Ldi" kind="showDetail" identifier="ShowTeachingType" id="pK3-UJ-GVC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Zusatzeinstellungen" id="Swy-Os-Pu6">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="j1r-e5-sBv">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j1r-e5-sBv" id="GQi-8M-fdT">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="o1f-Yy-Yby">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o1f-Yy-Yby" id="pDC-ur-cAC">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Y7U-uD-Bry">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y7U-uD-Bry" id="cYA-wX-e1K">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="HLJ-bw-ecu" id="S4p-Wo-tj9"/>
+                            <outlet property="delegate" destination="HLJ-bw-ecu" id="67e-DS-hrR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Einstellungen" id="2YB-Zh-qtg">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="A51-lv-0Gv"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="licenseClassLabel" destination="A82-6H-PU8" id="9tP-zo-qFC"/>
+                        <outlet property="teachingTypeLabel" destination="NOS-np-iZx" id="rcA-DS-jzS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Blb-3b-7RQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="613" y="3587"/>
+        </scene>
+        <!--Erwerbstyp-->
+        <scene sceneID="PaO-3g-yvt">
+            <objects>
+                <tableViewController storyboardIdentifier="TeachingTypeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DF5-9l-blL" customClass="TeachingTypeViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="T4T-ca-JUb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="UZT-Xa-Wkz">
+                                <string key="footerTitle">Bitte beachte: jede Führerscheinklasse und jeder Erwerbstyp verfügt über ein separates Prüfungsarchiv inklusive Statistik. Jede Führerscheinklasse hat zudem ein eigenes „Markierte“-Fragenarchiv.</string>
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="EQT-jg-Kj8" style="IBUITableViewCellStyleDefault" id="rKY-OD-Whd">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rKY-OD-Whd" id="IQl-mP-VNV">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Ersterwerb" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EQT-jg-Kj8">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="xjr-Ea-3pH" style="IBUITableViewCellStyleDefault" id="AT2-ak-eHu">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AT2-ak-eHu" id="eoz-K8-THd">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Erweiterung" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xjr-Ea-3pH">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="DF5-9l-blL" id="6FV-hV-geV"/>
+                            <outlet property="delegate" destination="DF5-9l-blL" id="dN8-dr-dPG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Erwerbstyp" id="dfe-He-1n2">
+                        <barButtonItem key="backBarButtonItem" title="Zurück" id="oMb-YN-YCL"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="extensionCell" destination="AT2-ak-eHu" id="2sv-yv-kcB"/>
+                        <outlet property="firstPurchaseCell" destination="rKY-OD-Whd" id="UFf-SQ-2IS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3B-SJ-lsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1052" y="5092"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6GK-pt-sgS">
+            <objects>
+                <navigationController id="zeC-v0-Ldi" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lw7-B6-cGP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DF5-9l-blL" kind="relationship" relationship="rootViewController" id="OA8-Lc-1YC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wsz-Bk-FWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1052" y="4344"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GVf-dh-Zw4">
+            <objects>
+                <navigationController storyboardIdentifier="SettingsNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vQa-PM-GEU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cBh-A6-xtu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HLJ-bw-ecu" kind="relationship" relationship="rootViewController" id="NTc-Ye-VKo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Biw-n5-g3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-211" y="3587"/>
+        </scene>
+        <!--Einstellungen-->
+        <scene sceneID="MEA-xf-4WB">
+            <objects>
+                <splitViewController storyboardIdentifier="SettingsSplitController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XN1-9u-YqX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Einstellungen" image="einstellungen" id="bGy-GS-h71"/>
+                    <connections>
+                        <segue destination="vQa-PM-GEU" kind="relationship" relationship="masterViewController" id="pZu-sw-IaT"/>
+                        <segue destination="URu-Kn-3R6" kind="relationship" relationship="detailViewController" id="LO0-6y-XVR"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jii-uM-jCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1187" y="3587"/>
         </scene>
         <!--Verkehrszeichen-->
         <scene sceneID="HwA-An-01f">
             <objects>
-                <viewController id="ppB-Ff-Gdo" customClass="TrafficSignsViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrafficSignsViewController" id="ppB-Ff-Gdo" customClass="TrafficSignsViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FjG-Hf-YLa"/>
                         <viewControllerLayoutGuide type="bottom" id="BJx-o7-0N5"/>
@@ -1500,82 +1838,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Jz-Jc-Kbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-300" y="2948"/>
-        </scene>
-        <!--Formelsammlung-->
-        <scene sceneID="2AL-77-NQx">
-            <objects>
-                <collectionViewController id="jTd-3e-6lU" customClass="FormulasViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="av3-fL-ccg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Exi-kr-ea3">
-                            <size key="itemSize" width="250" height="365"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="70" minY="50" maxX="70" maxY="30"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="714-cK-pm8" customClass="FormulaCollectionCell" customModule="Fahrschule" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="365"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mx-Pj-eoP" userLabel="Title">
-                                            <rect key="frame" x="8" y="8" width="234" height="18"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                            <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lC-O3-8QW" userLabel="Test">
-                                            <rect key="frame" x="8" y="26" width="234" height="16"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                            <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SyR-DD-s9d" userLabel="Formula">
-                                            <rect key="frame" x="8" y="92" width="234" height="130"/>
-                                            <color key="backgroundColor" red="0.96078431372549022" green="0.96862745098039216" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="130" id="mQM-eM-drz"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="3lC-O3-8QW" firstAttribute="trailing" secondItem="714-cK-pm8" secondAttribute="trailingMargin" id="EkX-Vm-dlE"/>
-                                    <constraint firstItem="SyR-DD-s9d" firstAttribute="leading" secondItem="714-cK-pm8" secondAttribute="leadingMargin" id="FhX-2w-0Zd"/>
-                                    <constraint firstItem="3lC-O3-8QW" firstAttribute="top" secondItem="7mx-Pj-eoP" secondAttribute="bottom" id="L1L-1s-2MU"/>
-                                    <constraint firstItem="3lC-O3-8QW" firstAttribute="leading" secondItem="714-cK-pm8" secondAttribute="leadingMargin" id="Pf1-eI-V2Q"/>
-                                    <constraint firstItem="7mx-Pj-eoP" firstAttribute="trailing" secondItem="714-cK-pm8" secondAttribute="trailingMargin" id="Tu4-zu-ofB"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="SyR-DD-s9d" secondAttribute="trailing" id="Wsv-pL-0As"/>
-                                    <constraint firstItem="7mx-Pj-eoP" firstAttribute="leading" secondItem="714-cK-pm8" secondAttribute="leadingMargin" id="Zah-dV-jpz"/>
-                                    <constraint firstItem="SyR-DD-s9d" firstAttribute="top" secondItem="3lC-O3-8QW" secondAttribute="bottom" constant="50" id="gMe-Wd-YnF"/>
-                                    <constraint firstItem="7mx-Pj-eoP" firstAttribute="top" secondItem="714-cK-pm8" secondAttribute="topMargin" id="jyO-OM-hyJ"/>
-                                </constraints>
-                                <size key="customSize" width="250" height="365"/>
-                                <connections>
-                                    <outlet property="formulaView" destination="SyR-DD-s9d" id="CU5-ec-bkK"/>
-                                    <outlet property="textLabel" destination="3lC-O3-8QW" id="Gjs-3C-Hub"/>
-                                    <outlet property="titleLabel" destination="7mx-Pj-eoP" id="Pkz-Bz-aGR"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="jTd-3e-6lU" id="zbU-2o-ts5"/>
-                            <outlet property="delegate" destination="jTd-3e-6lU" id="Nwh-ad-l12"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" title="Formelsammlung" id="TOj-RB-irE"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ls5-O8-dxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1346" y="2948"/>
+            <point key="canvasLocation" x="532" y="2940"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RAE-yf-1xc">
@@ -1593,7 +1856,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmF-YY-Szt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184" y="2160"/>
+            <point key="canvasLocation" x="276" y="4344"/>
         </scene>
         <!--Prüfung-->
         <scene sceneID="BBj-K0-7JN">
@@ -1649,7 +1912,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNJ-If-fvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2977" y="2160"/>
+            <point key="canvasLocation" x="2885" y="2152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xYt-9X-8mv">
@@ -1662,12 +1925,12 @@ Cg
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="jTd-3e-6lU" kind="relationship" relationship="rootViewController" id="gAm-Dz-Hu3"/>
+                        <segue destination="J1R-xB-Qpw" kind="relationship" relationship="rootViewController" id="Ehl-Vy-aW0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9A-Hd-2nf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1346" y="2160"/>
+            <point key="canvasLocation" x="2106" y="2152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bdh-XX-cBn">
@@ -1685,7 +1948,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDf-LV-dbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="2160"/>
+            <point key="canvasLocation" x="1309" y="2152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KGM-V8-hap">
@@ -1703,7 +1966,7 @@ Cg
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQB-zj-mF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-300" y="2160"/>
+            <point key="canvasLocation" x="532" y="2152"/>
         </scene>
     </scenes>
     <resources>
@@ -1711,7 +1974,10 @@ Cg
         <image name="Btn-Bkg" width="7" height="7"/>
         <image name="Btn-Bkg-Disabled" width="7" height="8"/>
         <image name="StVO" width="22" height="22"/>
+        <image name="alleklassen" width="28" height="28"/>
         <image name="bestanden" width="123" height="88"/>
+        <image name="einstellungen" width="29" height="26"/>
+        <image name="ersterwerb" width="26" height="16"/>
         <image name="extras" width="29" height="29"/>
         <image name="image_pruefung" width="230" height="152"/>
         <image name="lernen" width="28" height="21"/>
@@ -1728,10 +1994,11 @@ Cg
         <image name="zurück" width="12" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WGN-u6-W6t"/>
-        <segue reference="M3p-ca-7CZ"/>
-        <segue reference="Okv-YO-Pjg"/>
-        <segue reference="P8s-YZ-A7r"/>
-        <segue reference="z6L-Dg-ztU"/>
+        <segue reference="izu-oe-Tea"/>
+        <segue reference="nrw-bA-U7w"/>
+        <segue reference="t6u-3P-n5A"/>
+        <segue reference="ZSQ-z6-ukX"/>
+        <segue reference="2Kf-Mh-pn0"/>
+        <segue reference="eIE-8e-YLG"/>
     </inferredMetricsTieBreakers>
 </document>

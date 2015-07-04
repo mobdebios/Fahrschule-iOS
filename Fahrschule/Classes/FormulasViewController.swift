@@ -2,14 +2,14 @@
 //  FormulasViewController.swift
 //  Fahrschule
 //
-//  Created by Шурик on 02.07.15.
-//  Copyright (c) 2015 Alexandr Zhovty. All rights reserved.
+//  Created on 02.07.15.
+//  Copyright (c) 2015. All rights reserved.
 //
 
 import UIKit
 
 
-class FormulasViewController: UICollectionViewController {
+class FormulasViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
 //    MARK: - Types
     struct MainStoryboard {
@@ -25,25 +25,43 @@ class FormulasViewController: UICollectionViewController {
         static let nibName = "nib"
     }
     
+//    MARK: Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
 //    MARK: Properties
     var dataSource: [[String: String]]!
     
 //    MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.clearsSelectionOnViewWillAppear = false
         
         let path = NSBundle.mainBundle().pathForResource("Formulas", ofType: "plist")!
         dataSource = NSArray(contentsOfFile: path)  as! [[String: String]]
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            var flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+            flowLayout.scrollDirection = .Horizontal
+            flowLayout.minimumInteritemSpacing = 0.0
+            flowLayout.minimumLineSpacing = 0.0
+            collectionView.pagingEnabled = true
+            collectionView.collectionViewLayout = flowLayout
+            pageControl.numberOfPages = dataSource.count
+
+        } else {
+            
+            
+            
+            pageControl.removeFromSuperview()
+        }
     }
 
 //    MARK: - Collection View datasource
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(MainStoryboard.CellIdentifiers.mainCell, forIndexPath: indexPath) as! FormulaCollectionCell
     
         let item = dataSource[indexPath.item]
@@ -64,5 +82,23 @@ class FormulasViewController: UICollectionViewController {
         return cell
     }
 
+//    MARK: - Collection View Flowlayout delegate
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        var width: CGFloat = CGRectGetWidth(collectionView.bounds)
+        var height: CGFloat = CGRectGetHeight(collectionView.bounds) - collectionView.contentInset.top - collectionView.contentInset.bottom
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            width = width / 2
+            height = height / 2
+        }
+        return CGSizeMake(width, height)
+    }
+    
+//    MARK: - Scroll View delegate
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            let indexPath = collectionView.indexPathsForVisibleItems().last as! NSIndexPath
+            pageControl.currentPage = indexPath.item
+        }
+    }
 
 }

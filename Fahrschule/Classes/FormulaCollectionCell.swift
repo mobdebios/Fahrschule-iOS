@@ -14,4 +14,9 @@ class FormulaCollectionCell: UICollectionViewCell {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var formulaView: UIView!
     
+    override func layoutSubviews() {
+        contentView.frame = bounds
+        super.layoutSubviews()
+    }
+    
 }

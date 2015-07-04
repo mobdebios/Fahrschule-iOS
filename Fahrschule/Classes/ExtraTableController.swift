@@ -39,11 +39,6 @@ class ExtraTableController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 //    MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
@@ -60,22 +55,26 @@ class ExtraTableController: UITableViewController {
 //    MARK: - Table View datasource
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        
         switch indexPath.row {
+        case 0:
+            break
         case 1:
             self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showFormulas, sender: self)
-            break
         case 2:
             self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showBrakingDistance, sender: self)
-            break
         case 3:
             self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showTrafficSigns, sender: self)
-            break
         case 4:
             self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showStVO, sender: self)
             break
         default:
-            break
+#if FAHRSCHULE_LITE
+            let sURL = Settings.sharedSettings().iTunesLiteLink
+#else
+            let sURL = Settings.sharedSettings().iTunesLink
+#endif
+            UIApplication.sharedApplication().openURL(NSURL(string: sURL)!)
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
 

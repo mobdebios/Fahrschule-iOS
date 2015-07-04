@@ -27,13 +27,13 @@ class ExamViewController: UIViewController {
 //    MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        regisgerObservers()
+        registerObservers()
         updateBadgeNumber()
     }
 
     
 //    MARK: - Observers
-    func regisgerObservers() {
+    func registerObservers() {
         
         let center = NSNotificationCenter.defaultCenter()
         let queue = NSOperationQueue.mainQueue()
