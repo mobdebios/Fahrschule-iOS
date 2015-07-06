@@ -17,14 +17,10 @@ class LicenseClassSelectViewController: UICollectionViewController, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
 
         self.clearsSelectionOnViewWillAppear = false
-
         let path = NSBundle.mainBundle().pathForResource("LicenseClasses", ofType: "plist")
         self.licenseClassesDict = NSDictionary(contentsOfFile: path!)
-        
         
     }
 

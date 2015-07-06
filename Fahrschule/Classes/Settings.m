@@ -10,6 +10,7 @@
 
 NSString * const SettingsLicenseClassKey = @"licenseClass";
 NSString * const SettingsTeachingTypeKey = @"teachingType";
+NSString * const SettingsGuestModeKey = @"guestMode";
 NSString * const SettingsNotificationDidChangeAnswersGiven = @"didChangeAnswersGiven";
 NSString * const SettingsNotificationDidSelectQuestion = @"didSelectetQuestion";
 NSString * const SettingsNotificationUpdateBadgeValue = @"updateBadgeValue";
@@ -45,26 +46,22 @@ NSString * const SettingsNotificationUpdateBadgeValue = @"updateBadgeValue";
 - (void)setTeachingType:(TeachingType)teachingType
 {
     [self.userDefaults setValue:[NSNumber numberWithInt:teachingType] forKey:SettingsTeachingTypeKey];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"teachingTypeChanged" object:nil];
-    
     [self setCurrentLicenseClassTeachingTypeState];
 }
 
 - (TeachingType)teachingType
 {
-    NSNumber *ret = [self.userDefaults valueForKey:@"teachingType"];
+    NSNumber *ret = [self.userDefaults valueForKey:SettingsTeachingTypeKey];
 	return ret ? [ret intValue] : kUnknownTeachingType;
 }
 
-- (void)setGuestMode:(BOOL)guestMode
-{
-	[self.userDefaults setValue:[NSNumber numberWithBool:guestMode] forKey:@"guestMode"];
+
+- (void)setGuestMode:(BOOL)guestMode {
+    [self.userDefaults setBool:guestMode forKey:SettingsGuestModeKey];
 }
 
-- (BOOL)guestMode
-{    
-    NSNumber *ret = [self.userDefaults valueForKey:@"guestMode"];
-	return ret ? [ret boolValue] : NO;
+- (BOOL)guestMode {
+    return [self.userDefaults boolForKey:SettingsGuestModeKey];
 }
 
 - (void)setSolutionMode:(BOOL)solutionMode

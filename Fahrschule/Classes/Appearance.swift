@@ -17,6 +17,7 @@ class Appearance: NSObject {
         Appearance.customizeNavigationBar()
         Appearance.customizeTabBar()
         Appearance.customizePageControl()
+        Appearance.customizeSwitchControl()
     }
     
     class func customizeNavigationBar() {
@@ -41,6 +42,12 @@ class Appearance: NSObject {
         let appearance = UIPageControl.appearance()
         appearance.pageIndicatorTintColor = UIColor.grayInactive()
         appearance.currentPageIndicatorTintColor = UIColor.roseAshesColor()
+    }
+    
+    class func customizeSwitchControl() {
+        let apperance = UISwitch.appearance()
+        apperance.onTintColor = UIColor.roseAshesColor()
+        
     }
     
 }

@@ -13,6 +13,9 @@
 		FA1BA08A1B341213008840BF /* SubGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */; };
 		FA1BA08C1B34216B008840BF /* QuestionCatalogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */; };
 		FA1BBAD01B3C28BD0024E846 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BBACF1B3C28BD0024E846 /* ExamViewController.swift */; };
+		FA27AF9A1B4A7EAD00FE4836 /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27AF991B4A7EAD00FE4836 /* ImpressumViewController.swift */; };
+		FA27AF9D1B4A82FC00FE4836 /* impressum.html in Resources */ = {isa = PBXBuildFile; fileRef = FA27AF9C1B4A82FC00FE4836 /* impressum.html */; };
+		FA27AF9F1B4A8CB500FE4836 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27AF9E1B4A8CB500FE4836 /* SplitViewController.swift */; };
 		FA2895751B384F3500123796 /* LicenseClassSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */; };
 		FA29FB121B2C384B00689451 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB101B2C384B00689451 /* ProgressCell.swift */; };
 		FA29FB131B2C384B00689451 /* ProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA29FB111B2C384B00689451 /* ProgressCell.xib */; };
@@ -110,6 +113,9 @@
 		FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubGroupTableViewController.swift; path = Classes/SubGroupTableViewController.swift; sourceTree = "<group>"; };
 		FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionCatalogTableViewController.swift; path = Classes/QuestionCatalogTableViewController.swift; sourceTree = "<group>"; };
 		FA1BBACF1B3C28BD0024E846 /* ExamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamViewController.swift; path = Classes/ExamViewController.swift; sourceTree = "<group>"; };
+		FA27AF991B4A7EAD00FE4836 /* ImpressumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImpressumViewController.swift; path = Classes/ImpressumViewController.swift; sourceTree = "<group>"; };
+		FA27AF9C1B4A82FC00FE4836 /* impressum.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = impressum.html; sourceTree = "<group>"; };
+		FA27AF9E1B4A8CB500FE4836 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewController.swift; path = Classes/SplitViewController.swift; sourceTree = "<group>"; };
 		FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseClassSelectViewController.swift; path = Classes/LicenseClassSelectViewController.swift; sourceTree = "<group>"; };
 		FA29FB101B2C384B00689451 /* ProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressCell.swift; path = Classes/ProgressCell.swift; sourceTree = "<group>"; };
 		FA29FB111B2C384B00689451 /* ProgressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProgressCell.xib; path = Classes/ProgressCell.xib; sourceTree = "<group>"; };
@@ -254,13 +260,31 @@
 			children = (
 				FA1929651B480FCA008F6372 /* SettingsViewController.swift */,
 				FA1929681B4829EA008F6372 /* TeachingTypeViewController.swift */,
+				FA27AF991B4A7EAD00FE4836 /* ImpressumViewController.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		FA27AF9B1B4A82FC00FE4836 /* htmls */ = {
+			isa = PBXGroup;
+			children = (
+				FA27AF9C1B4A82FC00FE4836 /* impressum.html */,
+			);
+			path = htmls;
+			sourceTree = "<group>";
+		};
+		FA27AFA01B4A8CB900FE4836 /* Split */ = {
+			isa = PBXGroup;
+			children = (
+				FA27AF9E1B4A8CB500FE4836 /* SplitViewController.swift */,
+			);
+			name = Split;
 			sourceTree = "<group>";
 		};
 		FA28956D1B38369400123796 /* License Class */ = {
 			isa = PBXGroup;
 			children = (
+				FAD2BD721B3865780010EBF0 /* LicenseCell.swift */,
 				FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */,
 			);
 			name = "License Class";
@@ -439,6 +463,7 @@
 		FAAC88801B2B66C300804FEB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FA27AF9B1B4A82FC00FE4836 /* htmls */,
 				FAAC8C541B2B77D100804FEB /* pdfs */,
 				FAAC8C561B2B77D100804FEB /* plists */,
 				FAAC8C5F1B2B77D100804FEB /* SQL */,
@@ -472,6 +497,7 @@
 				FA6081DB1B45C8CF00FEB8E3 /* Braking Distance */,
 				FA4D62621B46A70000702F14 /* Traffic Signs */,
 				FA1929671B480FCF008F6372 /* Settings */,
+				FA27AFA01B4A8CB900FE4836 /* Split */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -485,7 +511,6 @@
 				FA3D41B21B2F57A200011C5C /* InquirerCollectionCell.xib */,
 				FA2EDC241B302DBE00CFAACF /* InquirerTableCell.swift */,
 				FA2EDC251B302DBE00CFAACF /* InquirerTableCell.xib */,
-				FAD2BD721B3865780010EBF0 /* LicenseCell.swift */,
 				FA61C7CC1B349F5400351FDA /* ProgressItem.swift */,
 				FA61C7CE1B34A88400351FDA /* ProgressView.swift */,
 				FA29FB101B2C384B00689451 /* ProgressCell.swift */,
@@ -693,6 +718,7 @@
 				FAAC8C751B2B77D100804FEB /* new_questions_20131101.sql in Resources */,
 				FAAC8C6E1B2B77D100804FEB /* LicenseClasses.plist in Resources */,
 				FAAC8C731B2B77D100804FEB /* new_licenseclasses_20130119.sql in Resources */,
+				FA27AF9D1B4A82FC00FE4836 /* impressum.html in Resources */,
 				FAAC88671B2B667400804FEB /* LaunchScreen.xib in Resources */,
 				FAAC8C6A1B2B77D100804FEB /* ExamSheet.plist in Resources */,
 				FAAC8C6B1B2B77D100804FEB /* Extras.plist in Resources */,
@@ -789,6 +815,7 @@
 				FAAC8C1D1B2B701E00804FEB /* CircularCounterView.swift in Sources */,
 				FAAC8C321B2B722800804FEB /* Answer.m in Sources */,
 				FA29FB251B2CC41600689451 /* QuestionCell.swift in Sources */,
+				FA27AF9A1B4A7EAD00FE4836 /* ImpressumViewController.swift in Sources */,
 				FA6081BC1B45200A00FEB8E3 /* ExtraTableController.swift in Sources */,
 				FA6189431B334D1A00B3E46C /* QuestionsTableViewController.swift in Sources */,
 				FA6081DA1B45C8C700FEB8E3 /* BrakingDistanceViewController.swift in Sources */,
@@ -796,6 +823,7 @@
 				FA3D41B01B2F4A7300011C5C /* UIViewController+Extension.swift in Sources */,
 				FA1929661B480FCA008F6372 /* SettingsViewController.swift in Sources */,
 				FA29FB1A1B2C807D00689451 /* SubgroupCell.swift in Sources */,
+				FA27AF9F1B4A8CB500FE4836 /* SplitViewController.swift in Sources */,
 				FA3F31081B316F2100BD5566 /* LearningResultViewController.swift in Sources */,
 				FA3D41B31B2F57A200011C5C /* InquirerCollectionCell.swift in Sources */,
 				FAC76E191B448B9E00CC9B68 /* ExtraCollectionCell.swift in Sources */,

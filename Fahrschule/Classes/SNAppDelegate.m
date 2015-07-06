@@ -43,7 +43,16 @@
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LicenseClassSelectViewController"];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:vc];
         [self.window makeKeyAndVisible];
-        [self.window.rootViewController presentViewController:navController animated:NO completion:NULL];
+        [self.window.rootViewController presentViewController:navController animated:NO completion:^{
+            NSString *title = NSLocalizedString(@"Willkomen", nil);
+            NSString *msg = NSLocalizedString(@"Bitte entscheide dich für eine Führerscheinklasse. Um nachträglich die gewünschte Klasse zu ändern, rufe die Einstellungen auf. Viel Erfolg und Spaß beim Lernen!", nil);
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
+            
+            NSString *closeButton = NSLocalizedString(@"Schließen", nil);
+            [alertController addAction:[UIAlertAction actionWithTitle:closeButton style:UIAlertActionStyleCancel handler:nil]];
+            [navController presentViewController:alertController animated:NO completion:nil];
+            
+        }];
     }
     
     
