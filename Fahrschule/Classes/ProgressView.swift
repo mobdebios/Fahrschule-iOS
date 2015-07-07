@@ -10,33 +10,16 @@ import UIKit
 
 class ProgressView: UIView {
     
-    var succedLayer: UIView!
-    var failedLayer: UIView!
+    var succedLayer: CALayer!
+    var failedLayer: CALayer!
+    
+    var bkgLayer: CALayer!
     
     var progressItem: ProgressItem = ProgressItem() {
         didSet {
             self.reloadData()
         }
     }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        self.failedLayer = UIView(frame: CGRectMake(0, 0, 0, CGRectGetHeight(self.bounds)))
-        self.failedLayer.backgroundColor = UIColor.roseAshesColor()
-        self.addSubview(self.failedLayer)
-        
-        self.succedLayer = UIView(frame: CGRectMake(0, 0, 0, CGRectGetHeight(self.bounds)))
-        self.succedLayer.backgroundColor = UIColor.lemonColor()
-        self.addSubview(self.succedLayer)
-        
-        
-    }
-//
-//    required override init(frame: CGRect) {
-//        self.progressValue = ProgressItem()
-//        super.init(frame: frame)
-//    }
     
     private func reloadData() {
         
@@ -48,34 +31,50 @@ class ProgressView: UIView {
             failedWidth = CGFloat(self.progressItem.faultyAnswers) / CGFloat(self.progressItem.numOfQuestions) * CGRectGetWidth(self.bounds)
         }
         
-        var frame = self.succedLayer.frame
-        frame.size.width = succedWidth
-        self.succedLayer.frame = frame
+        if failedLayer != nil {
+            var frame = failedLayer.frame
+            frame.size.width = succedWidth + failedWidth
+            failedLayer.frame = frame
+            
+        }
         
-        frame = self.failedLayer.frame
-        frame.size.width = succedWidth + failedWidth
-        self.failedLayer.frame = frame
-        
-        
+        if succedLayer != nil {
+            var frame = succedLayer.frame
+            frame.size.width = succedWidth
+            succedLayer.frame = frame
+            
+        }
     }
 
     //    MARK: Drawing
     override func layoutSubviews() {
         super.layoutSubviews()
         
-//        if failedLayer == nil {
-//            failedLayer = UIView(frame: CGRectMake(0, 0, 0, CGRectGetHeight(self.bounds)))
-//            failedLayer.backgroundColor = UIColor.roseAshesColor()
-//            self.addSubview(failedLayer)
-//        }
-//        
-//        if succedLayer == nil {
-//            succedLayer = UIView(frame: CGRectMake(0, 0, 0, CGRectGetHeight(self.bounds)))
-//            succedLayer.backgroundColor = UIColor.lemonColor()
-//            self.addSubview(succedLayer)
-//        }
-//        
-//        
+        if bkgLayer == nil {
+            bkgLayer = CALayer()
+            bkgLayer.backgroundColor = backgroundColor?.CGColor
+            layer.addSublayer(bkgLayer)
+        }
+        
+        bkgLayer.frame = bounds
+        
+        
+        
+        if failedLayer == nil {
+            failedLayer = CALayer()
+            failedLayer.frame = CGRectMake(0, 0, 0, CGRectGetHeight(self.bounds))
+            failedLayer.backgroundColor = UIColor.roseAshesColor().CGColor
+            layer.addSublayer(failedLayer)
+        }
+        
+        if succedLayer == nil {
+            succedLayer = CALayer()
+            succedLayer.frame = CGRectMake(0, 0, 0, CGRectGetHeight(self.bounds))
+            succedLayer.backgroundColor = UIColor.lemonColor().CGColor
+            layer.addSublayer(succedLayer)
+        }
+        
+        
         self.reloadData()
         
     }
