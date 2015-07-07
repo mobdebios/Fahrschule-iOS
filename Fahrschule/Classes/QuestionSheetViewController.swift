@@ -301,6 +301,11 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
                     model.hasSolutionBeenShown = false
                     
                 }
+                
+                // Get QuestionsTable Controller
+                masterViewController?.dataSource = mutableArray
+                masterViewController?.tableView.reloadData()
+                masterViewController?.questionSheetType = .History
 
                 
                 resultsVC.managedObjectContext = self.managedObjectContext

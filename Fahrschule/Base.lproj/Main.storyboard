@@ -2100,11 +2100,11 @@ Cg
         <image name="zurück" width="12" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eIE-8e-YLG"/>
-        <segue reference="LO0-6y-XVR"/>
-        <segue reference="izu-oe-Tea"/>
         <segue reference="nrw-bA-U7w"/>
         <segue reference="t6u-3P-n5A"/>
         <segue reference="ZSQ-z6-ukX"/>
+        <segue reference="izu-oe-Tea"/>
+        <segue reference="LO0-6y-XVR"/>
+        <segue reference="eIE-8e-YLG"/>
     </inferredMetricsTieBreakers>
 </document>

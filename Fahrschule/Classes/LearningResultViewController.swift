@@ -55,6 +55,9 @@ class LearningResultViewController: UIViewController {
         
         if let qsvc = segue.destinationViewController as? QuestionSheetViewController {
             
+            // Get QuestionSheetController from stack
+            let detailController = self.navigationController?.viewControllers.first as! QuestionSheetViewController
+            
             var questionsModels = self.questionModels
             
             // Show only incorrect questions
@@ -78,6 +81,19 @@ class LearningResultViewController: UIViewController {
             qsvc.questionModels = questionModels
             qsvc.solutionIsShown = true
             qsvc.navigationItem.leftBarButtonItem = nil
+            
+            
+            println("asdfasdf  1 \(self.parentViewController)")
+            println("asdfasdf 2 \(self.parentViewController?.parentViewController)")
+            
+            // Get QuestionsTable Controller
+            let masterController = detailController.masterViewController
+            qsvc.masterViewController = masterController
+            masterController?.dataSource = qsvc.questionModels
+            if self.questionModels.count != masterController?.dataSource.count {
+                masterController?.tableView.reloadData()
+            }
+            masterController?.questionSheetType = .History
             
         }
         

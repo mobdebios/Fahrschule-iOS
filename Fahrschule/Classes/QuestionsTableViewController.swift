@@ -203,7 +203,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         if let navController = segue.destinationViewController as? UINavigationController {
             if let qsvc = navController.topViewController as? QuestionSheetViewController {
                 qsvc.managedObjectContext = self.managedObjectContext
-                
+                qsvc.masterViewController = self
                 if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
                     for model in self.dataSource {
                         model.givenAnswers = nil

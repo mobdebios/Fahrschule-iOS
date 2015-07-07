@@ -35,7 +35,7 @@ class ExtrasViewController: UICollectionViewController, UICollectionViewDelegate
 //    MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.clearsSelectionOnViewWillAppear = true
         
         let bundle = NSBundle.mainBundle()

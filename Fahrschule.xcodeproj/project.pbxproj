@@ -8,90 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A675AD0A8C719742018B4910 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 269DCE109E0575703524C6F9 /* libPods.a */; };
-		FA0A328D1B4C64D0003BF621 /* ExamStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C271B2B722800804FEB /* ExamStatistic.m */; };
-		FA0A328E1B4C64D0003BF621 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C181B2B701E00804FEB /* NSString+Extension.swift */; };
-		FA0A328F1B4C64D0003BF621 /* ExamResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87CC261B41B2C4009C6A6D /* ExamResultViewController.swift */; };
-		FA0A32901B4C64D0003BF621 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C401B2B732600804FEB /* Settings.m */; };
-		FA0A32911B4C64D0003BF621 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88551B2B667400804FEB /* main.m */; };
-		FA0A32921B4C64D0003BF621 /* FormulaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081C11B45735600FEB8E3 /* FormulaCollectionCell.swift */; };
-		FA0A32931B4C64D0003BF621 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C151B2B701E00804FEB /* Appearance.swift */; };
-		FA0A32941B4C64D0003BF621 /* Fahrschule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAAC885A1B2B667400804FEB /* Fahrschule.xcdatamodeld */; };
-		FA0A32951B4C64D0003BF621 /* FormulasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081BF1B453B5400FEB8E3 /* FormulasViewController.swift */; };
-		FA0A32961B4C64D0003BF621 /* ProgressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61C7CC1B349F5400351FDA /* ProgressItem.swift */; };
-		FA0A32971B4C64D0003BF621 /* QuestionCatalogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */; };
-		FA0A32981B4C64D0003BF621 /* MarginLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5317CE1B47085E0083E37C /* MarginLabel.swift */; };
-		FA0A32991B4C64D0003BF621 /* MainGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C2B1B2B722800804FEB /* MainGroup.m */; };
-		FA0A329A1B4C64D0003BF621 /* InquirerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2EDC241B302DBE00CFAACF /* InquirerTableCell.swift */; };
-		FA0A329B1B4C64D0003BF621 /* LicenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2BD721B3865780010EBF0 /* LicenseCell.swift */; };
-		FA0A329C1B4C64D0003BF621 /* RegulationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081BD1B45366B00FEB8E3 /* RegulationsController.swift */; };
-		FA0A329D1B4C64D0003BF621 /* SubGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C311B2B722800804FEB /* SubGroup.m */; };
-		FA0A329E1B4C64D0003BF621 /* QuestionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA494D501B2EEFA000DBCA04 /* QuestionSheetViewController.swift */; };
-		FA0A329F1B4C64D0003BF621 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61C7CE1B34A88400351FDA /* ProgressView.swift */; };
-		FA0A32A01B4C64D0003BF621 /* ExamQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C251B2B722800804FEB /* ExamQuestion.m */; };
-		FA0A32A11B4C64D0003BF621 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB101B2C384B00689451 /* ProgressCell.swift */; };
-		FA0A32A21B4C64D0003BF621 /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE2F861B3ACFF5003A98FB /* LearningViewController.swift */; };
-		FA0A32A31B4C64D0003BF621 /* LearningStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C291B2B722800804FEB /* LearningStatistic.m */; };
-		FA0A32A41B4C64D0003BF621 /* TrafficSignsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D62601B46A6F600702F14 /* TrafficSignsViewController.swift */; };
-		FA0A32A51B4C64D0003BF621 /* SNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88821B2B695D00804FEB /* SNAppDelegate.m */; };
-		FA0A32A61B4C64D0003BF621 /* CircularCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C171B2B701E00804FEB /* CircularCounterView.swift */; };
-		FA0A32A71B4C64D0003BF621 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C231B2B722800804FEB /* Answer.m */; };
-		FA0A32A81B4C64D0003BF621 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB241B2CC41600689451 /* QuestionCell.swift */; };
-		FA0A32A91B4C64D0003BF621 /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27AF991B4A7EAD00FE4836 /* ImpressumViewController.swift */; };
-		FA0A32AA1B4C64D0003BF621 /* ExtraTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081BB1B45200A00FEB8E3 /* ExtraTableController.swift */; };
-		FA0A32AB1B4C64D0003BF621 /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6189421B334D1A00B3E46C /* QuestionsTableViewController.swift */; };
-		FA0A32AC1B4C64D0003BF621 /* BrakingDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081D91B45C8C600FEB8E3 /* BrakingDistanceViewController.swift */; };
-		FA0A32AD1B4C64D0003BF621 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BBACF1B3C28BD0024E846 /* ExamViewController.swift */; };
-		FA0A32AE1B4C64D0003BF621 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D41AF1B2F4A7300011C5C /* UIViewController+Extension.swift */; };
-		FA0A32AF1B4C64D0003BF621 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1929651B480FCA008F6372 /* SettingsViewController.swift */; };
-		FA0A32B01B4C64D0003BF621 /* SubgroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB191B2C807D00689451 /* SubgroupCell.swift */; };
-		FA0A32B11B4C64D0003BF621 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27AF9E1B4A8CB500FE4836 /* SplitViewController.swift */; };
-		FA0A32B21B4C64D0003BF621 /* LearningResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F31071B316F2100BD5566 /* LearningResultViewController.swift */; };
-		FA0A32B31B4C64D0003BF621 /* InquirerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D41B11B2F57A200011C5C /* InquirerCollectionCell.swift */; };
-		FA0A32B41B4C64D0003BF621 /* ExtraCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E181B448B9E00CC9B68 /* ExtraCollectionCell.swift */; };
-		FA0A32B51B4C64D0003BF621 /* TrafficSignsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D62631B46CED100702F14 /* TrafficSignsCollectionCell.swift */; };
-		FA0A32B61B4C64D0003BF621 /* ExtrasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E151B447CC900CC9B68 /* ExtrasViewController.swift */; };
-		FA0A32B71B4C64D0003BF621 /* TeachingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1929681B4829EA008F6372 /* TeachingTypeViewController.swift */; };
-		FA0A32B81B4C64D0003BF621 /* CircularChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C161B2B701E00804FEB /* CircularChartView.swift */; };
-		FA0A32B91B4C64D0003BF621 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C2D1B2B722800804FEB /* Question.m */; };
-		FA0A32BA1B4C64D0003BF621 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C191B2B701E00804FEB /* UIColor+Extension.swift */; };
-		FA0A32BB1B4C64D0003BF621 /* NSArray+shuffleArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C4A1B2B755C00804FEB /* NSArray+shuffleArray.m */; };
-		FA0A32BC1B4C64D0003BF621 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C1A1B2B701E00804FEB /* UIFont+Extension.swift */; };
-		FA0A32BD1B4C64D0003BF621 /* LicenseClassSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */; };
-		FA0A32BE1B4C64D0003BF621 /* SubGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */; };
-		FA0A32BF1B4C64D0003BF621 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C3E1B2B732600804FEB /* QuestionModel.m */; };
-		FA0A32C01B4C64D0003BF621 /* QuestionTags.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C2F1B2B722800804FEB /* QuestionTags.m */; };
-		FA0A32C11B4C64D0003BF621 /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C7B1B2B85FD00804FEB /* Checksum.m */; };
-		FA0A32C31B4C64D0003BF621 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAC8C461B2B74D000804FEB /* libsqlite3.dylib */; };
-		FA0A32C41B4C64D0003BF621 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 269DCE109E0575703524C6F9 /* libPods.a */; };
-		FA0A32C61B4C64D0003BF621 /* StVO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C551B2B77D100804FEB /* StVO.pdf */; };
-		FA0A32C71B4C64D0003BF621 /* Fahrschule.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C601B2B77D100804FEB /* Fahrschule.sqlite */; };
-		FA0A32C81B4C64D0003BF621 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAC88601B2B667400804FEB /* Main.storyboard */; };
-		FA0A32C91B4C64D0003BF621 /* ExtrasLite.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5B1B2B77D100804FEB /* ExtrasLite.plist */; };
-		FA0A32CA1B4C64D0003BF621 /* TrafficSigns.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5E1B2B77D100804FEB /* TrafficSigns.plist */; };
-		FA0A32CB1B4C64D0003BF621 /* Formula_Pathway.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081D31B45C50D00FEB8E3 /* Formula_Pathway.xib */; };
-		FA0A32CC1B4C64D0003BF621 /* abakus.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C571B2B77D100804FEB /* abakus.plist */; };
-		FA0A32CD1B4C64D0003BF621 /* new_questions_20131101.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C651B2B77D100804FEB /* new_questions_20131101.sql */; };
-		FA0A32CE1B4C64D0003BF621 /* LicenseClasses.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5D1B2B77D100804FEB /* LicenseClasses.plist */; };
-		FA0A32CF1B4C64D0003BF621 /* new_licenseclasses_20130119.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C631B2B77D100804FEB /* new_licenseclasses_20130119.sql */; };
-		FA0A32D01B4C64D0003BF621 /* impressum.html in Resources */ = {isa = PBXBuildFile; fileRef = FA27AF9C1B4A82FC00FE4836 /* impressum.html */; };
-		FA0A32D11B4C64D0003BF621 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAC88651B2B667400804FEB /* LaunchScreen.xib */; };
-		FA0A32D21B4C64D0003BF621 /* ExamSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C591B2B77D100804FEB /* ExamSheet.plist */; };
-		FA0A32D31B4C64D0003BF621 /* Extras.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5A1B2B77D100804FEB /* Extras.plist */; };
-		FA0A32D41B4C64D0003BF621 /* InquirerCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3D41B21B2F57A200011C5C /* InquirerCollectionCell.xib */; };
-		FA0A32D51B4C64D0003BF621 /* FahrschuleLite.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C611B2B77D100804FEB /* FahrschuleLite.sqlite */; };
-		FA0A32D61B4C64D0003BF621 /* Formula_Speed_Limits.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081CD1B45BCD700FEB8E3 /* Formula_Speed_Limits.xib */; };
-		FA0A32D71B4C64D0003BF621 /* lite_query.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C621B2B77D100804FEB /* lite_query.sql */; };
-		FA0A32D81B4C64D0003BF621 /* Formula_Emergency_Braking.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081CA1B45BB2B00FEB8E3 /* Formula_Emergency_Braking.xib */; };
-		FA0A32D91B4C64D0003BF621 /* ProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA29FB111B2C384B00689451 /* ProgressCell.xib */; };
-		FA0A32DA1B4C64D0003BF621 /* new_questions.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C641B2B77D100804FEB /* new_questions.sql */; };
-		FA0A32DB1B4C64D0003BF621 /* Formula_Stopping_Distance.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081D61B45C6A600FEB8E3 /* Formula_Stopping_Distance.xib */; };
-		FA0A32DC1B4C64D0003BF621 /* Formulas.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5C1B2B77D100804FEB /* Formulas.plist */; };
-		FA0A32DD1B4C64D0003BF621 /* new_questions_2013_04_01.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C661B2B77D100804FEB /* new_questions_2013_04_01.sql */; };
-		FA0A32DE1B4C64D0003BF621 /* InquirerTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2EDC251B302DBE00CFAACF /* InquirerTableCell.xib */; };
-		FA0A32DF1B4C64D0003BF621 /* Formula_Breaking_Distance.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081C41B45B4A400FEB8E3 /* Formula_Breaking_Distance.xib */; };
-		FA0A32E01B4C64D0003BF621 /* Anleitung.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C581B2B77D100804FEB /* Anleitung.plist */; };
-		FA0A32E11B4C64D0003BF621 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAC88631B2B667400804FEB /* Images.xcassets */; };
-		FA0A32E21B4C64D0003BF621 /* Formula_Minimum_Distance.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081C71B45B78000FEB8E3 /* Formula_Minimum_Distance.xib */; };
 		FA1929661B480FCA008F6372 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1929651B480FCA008F6372 /* SettingsViewController.swift */; };
 		FA1929691B4829EA008F6372 /* TeachingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1929681B4829EA008F6372 /* TeachingTypeViewController.swift */; };
 		FA1BA08A1B341213008840BF /* SubGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */; };
@@ -101,6 +17,90 @@
 		FA27AF9D1B4A82FC00FE4836 /* impressum.html in Resources */ = {isa = PBXBuildFile; fileRef = FA27AF9C1B4A82FC00FE4836 /* impressum.html */; };
 		FA27AF9F1B4A8CB500FE4836 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27AF9E1B4A8CB500FE4836 /* SplitViewController.swift */; };
 		FA2895751B384F3500123796 /* LicenseClassSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */; };
+		FA2929471B4C6C0500D8D051 /* ExamStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C271B2B722800804FEB /* ExamStatistic.m */; };
+		FA2929481B4C6C0500D8D051 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C181B2B701E00804FEB /* NSString+Extension.swift */; };
+		FA2929491B4C6C0500D8D051 /* ExamResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87CC261B41B2C4009C6A6D /* ExamResultViewController.swift */; };
+		FA29294A1B4C6C0500D8D051 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C401B2B732600804FEB /* Settings.m */; };
+		FA29294B1B4C6C0500D8D051 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88551B2B667400804FEB /* main.m */; };
+		FA29294C1B4C6C0500D8D051 /* FormulaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081C11B45735600FEB8E3 /* FormulaCollectionCell.swift */; };
+		FA29294D1B4C6C0500D8D051 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C151B2B701E00804FEB /* Appearance.swift */; };
+		FA29294E1B4C6C0500D8D051 /* Fahrschule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAAC885A1B2B667400804FEB /* Fahrschule.xcdatamodeld */; };
+		FA29294F1B4C6C0500D8D051 /* FormulasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081BF1B453B5400FEB8E3 /* FormulasViewController.swift */; };
+		FA2929501B4C6C0500D8D051 /* ProgressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61C7CC1B349F5400351FDA /* ProgressItem.swift */; };
+		FA2929511B4C6C0500D8D051 /* QuestionCatalogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA08B1B34216B008840BF /* QuestionCatalogTableViewController.swift */; };
+		FA2929521B4C6C0500D8D051 /* MarginLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5317CE1B47085E0083E37C /* MarginLabel.swift */; };
+		FA2929531B4C6C0500D8D051 /* MainGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C2B1B2B722800804FEB /* MainGroup.m */; };
+		FA2929541B4C6C0500D8D051 /* InquirerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2EDC241B302DBE00CFAACF /* InquirerTableCell.swift */; };
+		FA2929551B4C6C0500D8D051 /* LicenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2BD721B3865780010EBF0 /* LicenseCell.swift */; };
+		FA2929561B4C6C0500D8D051 /* RegulationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081BD1B45366B00FEB8E3 /* RegulationsController.swift */; };
+		FA2929571B4C6C0500D8D051 /* SubGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C311B2B722800804FEB /* SubGroup.m */; };
+		FA2929581B4C6C0500D8D051 /* QuestionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA494D501B2EEFA000DBCA04 /* QuestionSheetViewController.swift */; };
+		FA2929591B4C6C0500D8D051 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61C7CE1B34A88400351FDA /* ProgressView.swift */; };
+		FA29295A1B4C6C0500D8D051 /* ExamQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C251B2B722800804FEB /* ExamQuestion.m */; };
+		FA29295B1B4C6C0500D8D051 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB101B2C384B00689451 /* ProgressCell.swift */; };
+		FA29295C1B4C6C0500D8D051 /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE2F861B3ACFF5003A98FB /* LearningViewController.swift */; };
+		FA29295D1B4C6C0500D8D051 /* LearningStatistic.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C291B2B722800804FEB /* LearningStatistic.m */; };
+		FA29295E1B4C6C0500D8D051 /* TrafficSignsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D62601B46A6F600702F14 /* TrafficSignsViewController.swift */; };
+		FA29295F1B4C6C0500D8D051 /* SNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC88821B2B695D00804FEB /* SNAppDelegate.m */; };
+		FA2929601B4C6C0500D8D051 /* CircularCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C171B2B701E00804FEB /* CircularCounterView.swift */; };
+		FA2929611B4C6C0500D8D051 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C231B2B722800804FEB /* Answer.m */; };
+		FA2929621B4C6C0500D8D051 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB241B2CC41600689451 /* QuestionCell.swift */; };
+		FA2929631B4C6C0500D8D051 /* ImpressumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27AF991B4A7EAD00FE4836 /* ImpressumViewController.swift */; };
+		FA2929641B4C6C0500D8D051 /* ExtraTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081BB1B45200A00FEB8E3 /* ExtraTableController.swift */; };
+		FA2929651B4C6C0500D8D051 /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6189421B334D1A00B3E46C /* QuestionsTableViewController.swift */; };
+		FA2929661B4C6C0500D8D051 /* BrakingDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6081D91B45C8C600FEB8E3 /* BrakingDistanceViewController.swift */; };
+		FA2929671B4C6C0500D8D051 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BBACF1B3C28BD0024E846 /* ExamViewController.swift */; };
+		FA2929681B4C6C0500D8D051 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D41AF1B2F4A7300011C5C /* UIViewController+Extension.swift */; };
+		FA2929691B4C6C0500D8D051 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1929651B480FCA008F6372 /* SettingsViewController.swift */; };
+		FA29296A1B4C6C0500D8D051 /* SubgroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB191B2C807D00689451 /* SubgroupCell.swift */; };
+		FA29296B1B4C6C0500D8D051 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27AF9E1B4A8CB500FE4836 /* SplitViewController.swift */; };
+		FA29296C1B4C6C0500D8D051 /* LearningResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F31071B316F2100BD5566 /* LearningResultViewController.swift */; };
+		FA29296D1B4C6C0500D8D051 /* InquirerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D41B11B2F57A200011C5C /* InquirerCollectionCell.swift */; };
+		FA29296E1B4C6C0500D8D051 /* ExtraCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E181B448B9E00CC9B68 /* ExtraCollectionCell.swift */; };
+		FA29296F1B4C6C0500D8D051 /* TrafficSignsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D62631B46CED100702F14 /* TrafficSignsCollectionCell.swift */; };
+		FA2929701B4C6C0500D8D051 /* ExtrasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E151B447CC900CC9B68 /* ExtrasViewController.swift */; };
+		FA2929711B4C6C0500D8D051 /* TeachingTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1929681B4829EA008F6372 /* TeachingTypeViewController.swift */; };
+		FA2929721B4C6C0500D8D051 /* CircularChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C161B2B701E00804FEB /* CircularChartView.swift */; };
+		FA2929731B4C6C0500D8D051 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C2D1B2B722800804FEB /* Question.m */; };
+		FA2929741B4C6C0500D8D051 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C191B2B701E00804FEB /* UIColor+Extension.swift */; };
+		FA2929751B4C6C0500D8D051 /* NSArray+shuffleArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C4A1B2B755C00804FEB /* NSArray+shuffleArray.m */; };
+		FA2929761B4C6C0500D8D051 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C1A1B2B701E00804FEB /* UIFont+Extension.swift */; };
+		FA2929771B4C6C0500D8D051 /* LicenseClassSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */; };
+		FA2929781B4C6C0500D8D051 /* SubGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */; };
+		FA2929791B4C6C0500D8D051 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C3E1B2B732600804FEB /* QuestionModel.m */; };
+		FA29297A1B4C6C0500D8D051 /* QuestionTags.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C2F1B2B722800804FEB /* QuestionTags.m */; };
+		FA29297B1B4C6C0500D8D051 /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAC8C7B1B2B85FD00804FEB /* Checksum.m */; };
+		FA29297D1B4C6C0500D8D051 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAC8C461B2B74D000804FEB /* libsqlite3.dylib */; };
+		FA29297E1B4C6C0500D8D051 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 269DCE109E0575703524C6F9 /* libPods.a */; };
+		FA2929801B4C6C0500D8D051 /* StVO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C551B2B77D100804FEB /* StVO.pdf */; };
+		FA2929811B4C6C0500D8D051 /* Fahrschule.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C601B2B77D100804FEB /* Fahrschule.sqlite */; };
+		FA2929821B4C6C0500D8D051 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAC88601B2B667400804FEB /* Main.storyboard */; };
+		FA2929831B4C6C0500D8D051 /* ExtrasLite.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5B1B2B77D100804FEB /* ExtrasLite.plist */; };
+		FA2929841B4C6C0500D8D051 /* TrafficSigns.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5E1B2B77D100804FEB /* TrafficSigns.plist */; };
+		FA2929851B4C6C0500D8D051 /* Formula_Pathway.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081D31B45C50D00FEB8E3 /* Formula_Pathway.xib */; };
+		FA2929861B4C6C0500D8D051 /* abakus.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C571B2B77D100804FEB /* abakus.plist */; };
+		FA2929871B4C6C0500D8D051 /* new_questions_20131101.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C651B2B77D100804FEB /* new_questions_20131101.sql */; };
+		FA2929881B4C6C0500D8D051 /* LicenseClasses.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5D1B2B77D100804FEB /* LicenseClasses.plist */; };
+		FA2929891B4C6C0500D8D051 /* new_licenseclasses_20130119.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C631B2B77D100804FEB /* new_licenseclasses_20130119.sql */; };
+		FA29298A1B4C6C0500D8D051 /* impressum.html in Resources */ = {isa = PBXBuildFile; fileRef = FA27AF9C1B4A82FC00FE4836 /* impressum.html */; };
+		FA29298B1B4C6C0500D8D051 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAC88651B2B667400804FEB /* LaunchScreen.xib */; };
+		FA29298C1B4C6C0500D8D051 /* ExamSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C591B2B77D100804FEB /* ExamSheet.plist */; };
+		FA29298D1B4C6C0500D8D051 /* Extras.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5A1B2B77D100804FEB /* Extras.plist */; };
+		FA29298E1B4C6C0500D8D051 /* InquirerCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3D41B21B2F57A200011C5C /* InquirerCollectionCell.xib */; };
+		FA29298F1B4C6C0500D8D051 /* FahrschuleLite.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C611B2B77D100804FEB /* FahrschuleLite.sqlite */; };
+		FA2929901B4C6C0500D8D051 /* Formula_Speed_Limits.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081CD1B45BCD700FEB8E3 /* Formula_Speed_Limits.xib */; };
+		FA2929911B4C6C0500D8D051 /* lite_query.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C621B2B77D100804FEB /* lite_query.sql */; };
+		FA2929921B4C6C0500D8D051 /* Formula_Emergency_Braking.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081CA1B45BB2B00FEB8E3 /* Formula_Emergency_Braking.xib */; };
+		FA2929931B4C6C0500D8D051 /* ProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA29FB111B2C384B00689451 /* ProgressCell.xib */; };
+		FA2929941B4C6C0500D8D051 /* new_questions.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C641B2B77D100804FEB /* new_questions.sql */; };
+		FA2929951B4C6C0500D8D051 /* Formula_Stopping_Distance.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081D61B45C6A600FEB8E3 /* Formula_Stopping_Distance.xib */; };
+		FA2929961B4C6C0500D8D051 /* Formulas.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C5C1B2B77D100804FEB /* Formulas.plist */; };
+		FA2929971B4C6C0500D8D051 /* new_questions_2013_04_01.sql in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C661B2B77D100804FEB /* new_questions_2013_04_01.sql */; };
+		FA2929981B4C6C0500D8D051 /* InquirerTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2EDC251B302DBE00CFAACF /* InquirerTableCell.xib */; };
+		FA2929991B4C6C0500D8D051 /* Formula_Breaking_Distance.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081C41B45B4A400FEB8E3 /* Formula_Breaking_Distance.xib */; };
+		FA29299A1B4C6C0500D8D051 /* Anleitung.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAAC8C581B2B77D100804FEB /* Anleitung.plist */; };
+		FA29299B1B4C6C0500D8D051 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAC88631B2B667400804FEB /* Images.xcassets */; };
+		FA29299C1B4C6C0500D8D051 /* Formula_Minimum_Distance.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6081C71B45B78000FEB8E3 /* Formula_Minimum_Distance.xib */; };
 		FA29FB121B2C384B00689451 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB101B2C384B00689451 /* ProgressCell.swift */; };
 		FA29FB131B2C384B00689451 /* ProgressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA29FB111B2C384B00689451 /* ProgressCell.xib */; };
 		FA29FB1A1B2C807D00689451 /* SubgroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29FB191B2C807D00689451 /* SubgroupCell.swift */; };
@@ -192,7 +192,6 @@
 		269DCE109E0575703524C6F9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F20E54A61A98D0C124E2A27 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA86E95A39E490B7C04FFBC4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		FA0A32E71B4C64D0003BF621 /* Fahrschule copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fahrschule copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0A32E81B4C64D0003BF621 /* Fahrschule copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Fahrschule copy-Info.plist"; path = "/Users/alex/Desktop/Current Project/Fahrschul-App/Fahrschule/Fahrschule copy-Info.plist"; sourceTree = "<absolute>"; };
 		FA1929651B480FCA008F6372 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Classes/SettingsViewController.swift; sourceTree = "<group>"; };
 		FA1929681B4829EA008F6372 /* TeachingTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeachingTypeViewController.swift; path = Classes/TeachingTypeViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +202,8 @@
 		FA27AF9C1B4A82FC00FE4836 /* impressum.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = impressum.html; sourceTree = "<group>"; };
 		FA27AF9E1B4A8CB500FE4836 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewController.swift; path = Classes/SplitViewController.swift; sourceTree = "<group>"; };
 		FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseClassSelectViewController.swift; path = Classes/LicenseClassSelectViewController.swift; sourceTree = "<group>"; };
+		FA2929A11B4C6C0500D8D051 /* Fahrschule copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fahrschule copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA2929A21B4C6C0500D8D051 /* Fahrschule copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Fahrschule copy2-Info.plist"; path = "/Users/alex/Desktop/Current Project/Fahrschul-App/Fahrschule/Fahrschule copy2-Info.plist"; sourceTree = "<absolute>"; };
 		FA29FB101B2C384B00689451 /* ProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressCell.swift; path = Classes/ProgressCell.swift; sourceTree = "<group>"; };
 		FA29FB111B2C384B00689451 /* ProgressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProgressCell.xib; path = Classes/ProgressCell.xib; sourceTree = "<group>"; };
 		FA29FB191B2C807D00689451 /* SubgroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubgroupCell.swift; path = Classes/SubgroupCell.swift; sourceTree = "<group>"; };
@@ -305,12 +306,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FA0A32C21B4C64D0003BF621 /* Frameworks */ = {
+		FA29297C1B4C6C0500D8D051 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA0A32C31B4C64D0003BF621 /* libsqlite3.dylib in Frameworks */,
-				FA0A32C41B4C64D0003BF621 /* libPods.a in Frameworks */,
+				FA29297D1B4C6C0500D8D051 /* libsqlite3.dylib in Frameworks */,
+				FA29297E1B4C6C0500D8D051 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +491,7 @@
 				A480C64113872F13AEA75625 /* Pods */,
 				2136DB104B0BEAA3906A9F9D /* Frameworks */,
 				FA0A32E81B4C64D0003BF621 /* Fahrschule copy-Info.plist */,
+				FA2929A21B4C6C0500D8D051 /* Fahrschule copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -498,7 +500,7 @@
 			children = (
 				FAAC88501B2B667400804FEB /* Fahrschule.app */,
 				FAAC886C1B2B667400804FEB /* FahrschuleTests.xctest */,
-				FA0A32E71B4C64D0003BF621 /* Fahrschule copy.app */,
+				FA2929A11B4C6C0500D8D051 /* Fahrschule copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -724,23 +726,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA0A328A1B4C64D0003BF621 /* Fahrschule Lite */ = {
+		FA2929441B4C6C0500D8D051 /* Fahrschule lite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA0A32E41B4C64D0003BF621 /* Build configuration list for PBXNativeTarget "Fahrschule Lite" */;
+			buildConfigurationList = FA29299E1B4C6C0500D8D051 /* Build configuration list for PBXNativeTarget "Fahrschule lite" */;
 			buildPhases = (
-				FA0A328B1B4C64D0003BF621 /* Check Pods Manifest.lock */,
-				FA0A328C1B4C64D0003BF621 /* Sources */,
-				FA0A32C21B4C64D0003BF621 /* Frameworks */,
-				FA0A32C51B4C64D0003BF621 /* Resources */,
-				FA0A32E31B4C64D0003BF621 /* Copy Pods Resources */,
+				FA2929451B4C6C0500D8D051 /* Check Pods Manifest.lock */,
+				FA2929461B4C6C0500D8D051 /* Sources */,
+				FA29297C1B4C6C0500D8D051 /* Frameworks */,
+				FA29297F1B4C6C0500D8D051 /* Resources */,
+				FA29299D1B4C6C0500D8D051 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Fahrschule Lite";
+			name = "Fahrschule lite";
 			productName = Fahrschule;
-			productReference = FA0A32E71B4C64D0003BF621 /* Fahrschule copy.app */;
+			productReference = FA2929A11B4C6C0500D8D051 /* Fahrschule copy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FAAC884F1B2B667400804FEB /* Fahrschule */ = {
@@ -814,46 +816,46 @@
 			projectRoot = "";
 			targets = (
 				FAAC884F1B2B667400804FEB /* Fahrschule */,
-				FA0A328A1B4C64D0003BF621 /* Fahrschule Lite */,
 				FAAC886B1B2B667400804FEB /* FahrschuleTests */,
+				FA2929441B4C6C0500D8D051 /* Fahrschule lite */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FA0A32C51B4C64D0003BF621 /* Resources */ = {
+		FA29297F1B4C6C0500D8D051 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA0A32C61B4C64D0003BF621 /* StVO.pdf in Resources */,
-				FA0A32C71B4C64D0003BF621 /* Fahrschule.sqlite in Resources */,
-				FA0A32C81B4C64D0003BF621 /* Main.storyboard in Resources */,
-				FA0A32C91B4C64D0003BF621 /* ExtrasLite.plist in Resources */,
-				FA0A32CA1B4C64D0003BF621 /* TrafficSigns.plist in Resources */,
-				FA0A32CB1B4C64D0003BF621 /* Formula_Pathway.xib in Resources */,
-				FA0A32CC1B4C64D0003BF621 /* abakus.plist in Resources */,
-				FA0A32CD1B4C64D0003BF621 /* new_questions_20131101.sql in Resources */,
-				FA0A32CE1B4C64D0003BF621 /* LicenseClasses.plist in Resources */,
-				FA0A32CF1B4C64D0003BF621 /* new_licenseclasses_20130119.sql in Resources */,
-				FA0A32D01B4C64D0003BF621 /* impressum.html in Resources */,
-				FA0A32D11B4C64D0003BF621 /* LaunchScreen.xib in Resources */,
-				FA0A32D21B4C64D0003BF621 /* ExamSheet.plist in Resources */,
-				FA0A32D31B4C64D0003BF621 /* Extras.plist in Resources */,
-				FA0A32D41B4C64D0003BF621 /* InquirerCollectionCell.xib in Resources */,
-				FA0A32D51B4C64D0003BF621 /* FahrschuleLite.sqlite in Resources */,
-				FA0A32D61B4C64D0003BF621 /* Formula_Speed_Limits.xib in Resources */,
-				FA0A32D71B4C64D0003BF621 /* lite_query.sql in Resources */,
-				FA0A32D81B4C64D0003BF621 /* Formula_Emergency_Braking.xib in Resources */,
-				FA0A32D91B4C64D0003BF621 /* ProgressCell.xib in Resources */,
-				FA0A32DA1B4C64D0003BF621 /* new_questions.sql in Resources */,
-				FA0A32DB1B4C64D0003BF621 /* Formula_Stopping_Distance.xib in Resources */,
-				FA0A32DC1B4C64D0003BF621 /* Formulas.plist in Resources */,
-				FA0A32DD1B4C64D0003BF621 /* new_questions_2013_04_01.sql in Resources */,
-				FA0A32DE1B4C64D0003BF621 /* InquirerTableCell.xib in Resources */,
-				FA0A32DF1B4C64D0003BF621 /* Formula_Breaking_Distance.xib in Resources */,
-				FA0A32E01B4C64D0003BF621 /* Anleitung.plist in Resources */,
-				FA0A32E11B4C64D0003BF621 /* Images.xcassets in Resources */,
-				FA0A32E21B4C64D0003BF621 /* Formula_Minimum_Distance.xib in Resources */,
+				FA2929801B4C6C0500D8D051 /* StVO.pdf in Resources */,
+				FA2929811B4C6C0500D8D051 /* Fahrschule.sqlite in Resources */,
+				FA2929821B4C6C0500D8D051 /* Main.storyboard in Resources */,
+				FA2929831B4C6C0500D8D051 /* ExtrasLite.plist in Resources */,
+				FA2929841B4C6C0500D8D051 /* TrafficSigns.plist in Resources */,
+				FA2929851B4C6C0500D8D051 /* Formula_Pathway.xib in Resources */,
+				FA2929861B4C6C0500D8D051 /* abakus.plist in Resources */,
+				FA2929871B4C6C0500D8D051 /* new_questions_20131101.sql in Resources */,
+				FA2929881B4C6C0500D8D051 /* LicenseClasses.plist in Resources */,
+				FA2929891B4C6C0500D8D051 /* new_licenseclasses_20130119.sql in Resources */,
+				FA29298A1B4C6C0500D8D051 /* impressum.html in Resources */,
+				FA29298B1B4C6C0500D8D051 /* LaunchScreen.xib in Resources */,
+				FA29298C1B4C6C0500D8D051 /* ExamSheet.plist in Resources */,
+				FA29298D1B4C6C0500D8D051 /* Extras.plist in Resources */,
+				FA29298E1B4C6C0500D8D051 /* InquirerCollectionCell.xib in Resources */,
+				FA29298F1B4C6C0500D8D051 /* FahrschuleLite.sqlite in Resources */,
+				FA2929901B4C6C0500D8D051 /* Formula_Speed_Limits.xib in Resources */,
+				FA2929911B4C6C0500D8D051 /* lite_query.sql in Resources */,
+				FA2929921B4C6C0500D8D051 /* Formula_Emergency_Braking.xib in Resources */,
+				FA2929931B4C6C0500D8D051 /* ProgressCell.xib in Resources */,
+				FA2929941B4C6C0500D8D051 /* new_questions.sql in Resources */,
+				FA2929951B4C6C0500D8D051 /* Formula_Stopping_Distance.xib in Resources */,
+				FA2929961B4C6C0500D8D051 /* Formulas.plist in Resources */,
+				FA2929971B4C6C0500D8D051 /* new_questions_2013_04_01.sql in Resources */,
+				FA2929981B4C6C0500D8D051 /* InquirerTableCell.xib in Resources */,
+				FA2929991B4C6C0500D8D051 /* Formula_Breaking_Distance.xib in Resources */,
+				FA29299A1B4C6C0500D8D051 /* Anleitung.plist in Resources */,
+				FA29299B1B4C6C0500D8D051 /* Images.xcassets in Resources */,
+				FA29299C1B4C6C0500D8D051 /* Formula_Minimum_Distance.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,7 +935,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FA0A328B1B4C64D0003BF621 /* Check Pods Manifest.lock */ = {
+		FA2929451B4C6C0500D8D051 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -948,7 +950,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FA0A32E31B4C64D0003BF621 /* Copy Pods Resources */ = {
+		FA29299D1B4C6C0500D8D051 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -966,63 +968,63 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FA0A328C1B4C64D0003BF621 /* Sources */ = {
+		FA2929461B4C6C0500D8D051 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA0A328D1B4C64D0003BF621 /* ExamStatistic.m in Sources */,
-				FA0A328E1B4C64D0003BF621 /* NSString+Extension.swift in Sources */,
-				FA0A328F1B4C64D0003BF621 /* ExamResultViewController.swift in Sources */,
-				FA0A32901B4C64D0003BF621 /* Settings.m in Sources */,
-				FA0A32911B4C64D0003BF621 /* main.m in Sources */,
-				FA0A32921B4C64D0003BF621 /* FormulaCollectionCell.swift in Sources */,
-				FA0A32931B4C64D0003BF621 /* Appearance.swift in Sources */,
-				FA0A32941B4C64D0003BF621 /* Fahrschule.xcdatamodeld in Sources */,
-				FA0A32951B4C64D0003BF621 /* FormulasViewController.swift in Sources */,
-				FA0A32961B4C64D0003BF621 /* ProgressItem.swift in Sources */,
-				FA0A32971B4C64D0003BF621 /* QuestionCatalogTableViewController.swift in Sources */,
-				FA0A32981B4C64D0003BF621 /* MarginLabel.swift in Sources */,
-				FA0A32991B4C64D0003BF621 /* MainGroup.m in Sources */,
-				FA0A329A1B4C64D0003BF621 /* InquirerTableCell.swift in Sources */,
-				FA0A329B1B4C64D0003BF621 /* LicenseCell.swift in Sources */,
-				FA0A329C1B4C64D0003BF621 /* RegulationsController.swift in Sources */,
-				FA0A329D1B4C64D0003BF621 /* SubGroup.m in Sources */,
-				FA0A329E1B4C64D0003BF621 /* QuestionSheetViewController.swift in Sources */,
-				FA0A329F1B4C64D0003BF621 /* ProgressView.swift in Sources */,
-				FA0A32A01B4C64D0003BF621 /* ExamQuestion.m in Sources */,
-				FA0A32A11B4C64D0003BF621 /* ProgressCell.swift in Sources */,
-				FA0A32A21B4C64D0003BF621 /* LearningViewController.swift in Sources */,
-				FA0A32A31B4C64D0003BF621 /* LearningStatistic.m in Sources */,
-				FA0A32A41B4C64D0003BF621 /* TrafficSignsViewController.swift in Sources */,
-				FA0A32A51B4C64D0003BF621 /* SNAppDelegate.m in Sources */,
-				FA0A32A61B4C64D0003BF621 /* CircularCounterView.swift in Sources */,
-				FA0A32A71B4C64D0003BF621 /* Answer.m in Sources */,
-				FA0A32A81B4C64D0003BF621 /* QuestionCell.swift in Sources */,
-				FA0A32A91B4C64D0003BF621 /* ImpressumViewController.swift in Sources */,
-				FA0A32AA1B4C64D0003BF621 /* ExtraTableController.swift in Sources */,
-				FA0A32AB1B4C64D0003BF621 /* QuestionsTableViewController.swift in Sources */,
-				FA0A32AC1B4C64D0003BF621 /* BrakingDistanceViewController.swift in Sources */,
-				FA0A32AD1B4C64D0003BF621 /* ExamViewController.swift in Sources */,
-				FA0A32AE1B4C64D0003BF621 /* UIViewController+Extension.swift in Sources */,
-				FA0A32AF1B4C64D0003BF621 /* SettingsViewController.swift in Sources */,
-				FA0A32B01B4C64D0003BF621 /* SubgroupCell.swift in Sources */,
-				FA0A32B11B4C64D0003BF621 /* SplitViewController.swift in Sources */,
-				FA0A32B21B4C64D0003BF621 /* LearningResultViewController.swift in Sources */,
-				FA0A32B31B4C64D0003BF621 /* InquirerCollectionCell.swift in Sources */,
-				FA0A32B41B4C64D0003BF621 /* ExtraCollectionCell.swift in Sources */,
-				FA0A32B51B4C64D0003BF621 /* TrafficSignsCollectionCell.swift in Sources */,
-				FA0A32B61B4C64D0003BF621 /* ExtrasViewController.swift in Sources */,
-				FA0A32B71B4C64D0003BF621 /* TeachingTypeViewController.swift in Sources */,
-				FA0A32B81B4C64D0003BF621 /* CircularChartView.swift in Sources */,
-				FA0A32B91B4C64D0003BF621 /* Question.m in Sources */,
-				FA0A32BA1B4C64D0003BF621 /* UIColor+Extension.swift in Sources */,
-				FA0A32BB1B4C64D0003BF621 /* NSArray+shuffleArray.m in Sources */,
-				FA0A32BC1B4C64D0003BF621 /* UIFont+Extension.swift in Sources */,
-				FA0A32BD1B4C64D0003BF621 /* LicenseClassSelectViewController.swift in Sources */,
-				FA0A32BE1B4C64D0003BF621 /* SubGroupTableViewController.swift in Sources */,
-				FA0A32BF1B4C64D0003BF621 /* QuestionModel.m in Sources */,
-				FA0A32C01B4C64D0003BF621 /* QuestionTags.m in Sources */,
-				FA0A32C11B4C64D0003BF621 /* Checksum.m in Sources */,
+				FA2929471B4C6C0500D8D051 /* ExamStatistic.m in Sources */,
+				FA2929481B4C6C0500D8D051 /* NSString+Extension.swift in Sources */,
+				FA2929491B4C6C0500D8D051 /* ExamResultViewController.swift in Sources */,
+				FA29294A1B4C6C0500D8D051 /* Settings.m in Sources */,
+				FA29294B1B4C6C0500D8D051 /* main.m in Sources */,
+				FA29294C1B4C6C0500D8D051 /* FormulaCollectionCell.swift in Sources */,
+				FA29294D1B4C6C0500D8D051 /* Appearance.swift in Sources */,
+				FA29294E1B4C6C0500D8D051 /* Fahrschule.xcdatamodeld in Sources */,
+				FA29294F1B4C6C0500D8D051 /* FormulasViewController.swift in Sources */,
+				FA2929501B4C6C0500D8D051 /* ProgressItem.swift in Sources */,
+				FA2929511B4C6C0500D8D051 /* QuestionCatalogTableViewController.swift in Sources */,
+				FA2929521B4C6C0500D8D051 /* MarginLabel.swift in Sources */,
+				FA2929531B4C6C0500D8D051 /* MainGroup.m in Sources */,
+				FA2929541B4C6C0500D8D051 /* InquirerTableCell.swift in Sources */,
+				FA2929551B4C6C0500D8D051 /* LicenseCell.swift in Sources */,
+				FA2929561B4C6C0500D8D051 /* RegulationsController.swift in Sources */,
+				FA2929571B4C6C0500D8D051 /* SubGroup.m in Sources */,
+				FA2929581B4C6C0500D8D051 /* QuestionSheetViewController.swift in Sources */,
+				FA2929591B4C6C0500D8D051 /* ProgressView.swift in Sources */,
+				FA29295A1B4C6C0500D8D051 /* ExamQuestion.m in Sources */,
+				FA29295B1B4C6C0500D8D051 /* ProgressCell.swift in Sources */,
+				FA29295C1B4C6C0500D8D051 /* LearningViewController.swift in Sources */,
+				FA29295D1B4C6C0500D8D051 /* LearningStatistic.m in Sources */,
+				FA29295E1B4C6C0500D8D051 /* TrafficSignsViewController.swift in Sources */,
+				FA29295F1B4C6C0500D8D051 /* SNAppDelegate.m in Sources */,
+				FA2929601B4C6C0500D8D051 /* CircularCounterView.swift in Sources */,
+				FA2929611B4C6C0500D8D051 /* Answer.m in Sources */,
+				FA2929621B4C6C0500D8D051 /* QuestionCell.swift in Sources */,
+				FA2929631B4C6C0500D8D051 /* ImpressumViewController.swift in Sources */,
+				FA2929641B4C6C0500D8D051 /* ExtraTableController.swift in Sources */,
+				FA2929651B4C6C0500D8D051 /* QuestionsTableViewController.swift in Sources */,
+				FA2929661B4C6C0500D8D051 /* BrakingDistanceViewController.swift in Sources */,
+				FA2929671B4C6C0500D8D051 /* ExamViewController.swift in Sources */,
+				FA2929681B4C6C0500D8D051 /* UIViewController+Extension.swift in Sources */,
+				FA2929691B4C6C0500D8D051 /* SettingsViewController.swift in Sources */,
+				FA29296A1B4C6C0500D8D051 /* SubgroupCell.swift in Sources */,
+				FA29296B1B4C6C0500D8D051 /* SplitViewController.swift in Sources */,
+				FA29296C1B4C6C0500D8D051 /* LearningResultViewController.swift in Sources */,
+				FA29296D1B4C6C0500D8D051 /* InquirerCollectionCell.swift in Sources */,
+				FA29296E1B4C6C0500D8D051 /* ExtraCollectionCell.swift in Sources */,
+				FA29296F1B4C6C0500D8D051 /* TrafficSignsCollectionCell.swift in Sources */,
+				FA2929701B4C6C0500D8D051 /* ExtrasViewController.swift in Sources */,
+				FA2929711B4C6C0500D8D051 /* TeachingTypeViewController.swift in Sources */,
+				FA2929721B4C6C0500D8D051 /* CircularChartView.swift in Sources */,
+				FA2929731B4C6C0500D8D051 /* Question.m in Sources */,
+				FA2929741B4C6C0500D8D051 /* UIColor+Extension.swift in Sources */,
+				FA2929751B4C6C0500D8D051 /* NSArray+shuffleArray.m in Sources */,
+				FA2929761B4C6C0500D8D051 /* UIFont+Extension.swift in Sources */,
+				FA2929771B4C6C0500D8D051 /* LicenseClassSelectViewController.swift in Sources */,
+				FA2929781B4C6C0500D8D051 /* SubGroupTableViewController.swift in Sources */,
+				FA2929791B4C6C0500D8D051 /* QuestionModel.m in Sources */,
+				FA29297A1B4C6C0500D8D051 /* QuestionTags.m in Sources */,
+				FA29297B1B4C6C0500D8D051 /* Checksum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,7 +1176,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FA0A32E51B4C64D0003BF621 /* Debug */ = {
+		FA29299F1B4C6C0500D8D051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CA86E95A39E490B7C04FFBC4 /* Pods.debug.xcconfig */;
 			buildSettings = {
@@ -1190,12 +1192,11 @@
 					"BITHOCKEY_BUILD=\"@\\\"38\\\"\"",
 					"BITHOCKEY_C_BUILD=\"\\\"38\\\"\"",
 					FAHRSCHULE_LITE,
-					"=",
-					1,
 				);
-				INFOPLIST_FILE = "Fahrschule copy-Info.plist";
+				INFOPLIST_FILE = "Fahrschule copy2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "Fahrschule copy";
 				SWIFT_OBJC_BRIDGING_HEADER = "Fahrschule/Fahrschule-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1203,7 +1204,7 @@
 			};
 			name = Debug;
 		};
-		FA0A32E61B4C64D0003BF621 /* Release */ = {
+		FA2929A01B4C6C0500D8D051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F20E54A61A98D0C124E2A27 /* Pods.release.xcconfig */;
 			buildSettings = {
@@ -1219,12 +1220,11 @@
 					"BITHOCKEY_BUILD=\"@\\\"38\\\"\"",
 					"BITHOCKEY_C_BUILD=\"\\\"38\\\"\"",
 					FAHRSCHULE_LITE,
-					"=",
-					1,
 				);
-				INFOPLIST_FILE = "Fahrschule copy-Info.plist";
+				INFOPLIST_FILE = "Fahrschule copy2-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "Fahrschule copy";
 				SWIFT_OBJC_BRIDGING_HEADER = "Fahrschule/Fahrschule-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1391,11 +1391,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA0A32E41B4C64D0003BF621 /* Build configuration list for PBXNativeTarget "Fahrschule Lite" */ = {
+		FA29299E1B4C6C0500D8D051 /* Build configuration list for PBXNativeTarget "Fahrschule lite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FA0A32E51B4C64D0003BF621 /* Debug */,
-				FA0A32E61B4C64D0003BF621 /* Release */,
+				FA29299F1B4C6C0500D8D051 /* Debug */,
+				FA2929A01B4C6C0500D8D051 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

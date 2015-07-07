@@ -297,7 +297,7 @@
     NSMutableArray *examQuestions = [[NSMutableArray alloc] init];
     
 #ifdef FAHRSCHULE_LITE
-    NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"Question" inManagedObjectContext:context]];
     
     NSArray *inArray = [NSArray arrayWithObjects:@"6.1.1", @"1.1.7", @"2.3.2", @"1.1.3", @"2.2.37", @"3.1.22", @"6.3.16", @"2.5.4", @"4.8.14", @"11.21.6", nil];
