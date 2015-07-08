@@ -37,6 +37,17 @@
     [self registerDefaults];
     [Appearance customizeAppearance];
     
+    
+    // Remove unnecessary controller for iPad versions
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+        NSMutableArray *array = [tabBarController.viewControllers mutableCopy];
+        
+        UIViewController *extraController = [tabBarController.storyboard instantiateViewControllerWithIdentifier:@"ExtraSplitController"];
+        [array replaceObjectAtIndex:2 withObject:extraController];
+        tabBarController.viewControllers = array;
+    }
+    
     Settings *settings = [Settings sharedSettings];
     if (settings.licenseClass == kUnknownLicenseClass) {
         UIStoryboard *storyboard = self.window.rootViewController.storyboard;
