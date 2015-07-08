@@ -55,8 +55,7 @@ class LearningResultViewController: UIViewController {
         
         if let qsvc = segue.destinationViewController as? QuestionSheetViewController {
             
-            // Get QuestionSheetController from stack
-            let detailController = self.navigationController?.viewControllers.first as! QuestionSheetViewController
+            
             
             var questionsModels = self.questionModels
             
@@ -87,10 +86,14 @@ class LearningResultViewController: UIViewController {
             println("asdfasdf 2 \(self.parentViewController?.parentViewController)")
             
             // Get QuestionsTable Controller
-            let masterController = detailController.masterViewController
-            qsvc.masterViewController = masterController
-            masterController?.dataSource = qsvc.questionModels
-            masterController?.tableView.reloadData()
+             // Get QuestionSheetController from stack
+            if let detailController = self.navigationController?.viewControllers.first as? QuestionSheetViewController {
+                let masterController = detailController.masterViewController
+                qsvc.masterViewController = masterController
+                masterController?.dataSource = qsvc.questionModels
+                masterController?.tableView.reloadData()
+            }
+            
             
         }
         

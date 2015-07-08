@@ -39,14 +39,14 @@
     
     
     // Remove unnecessary controller for iPad versions
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    NSMutableArray *array = [tabBarController.viewControllers mutableCopy];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-        NSMutableArray *array = [tabBarController.viewControllers mutableCopy];
-        
-        UIViewController *extraController = [tabBarController.storyboard instantiateViewControllerWithIdentifier:@"ExtraSplitController"];
-        [array replaceObjectAtIndex:2 withObject:extraController];
-        tabBarController.viewControllers = array;
+        [array removeObjectAtIndex:2];
+    } else {
+        [array removeObjectAtIndex:3];
     }
+    tabBarController.viewControllers = array;
     
     Settings *settings = [Settings sharedSettings];
     if (settings.licenseClass == kUnknownLicenseClass) {

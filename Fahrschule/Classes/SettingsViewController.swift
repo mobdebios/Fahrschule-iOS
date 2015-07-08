@@ -122,7 +122,9 @@ class SettingsViewController: UITableViewController {
             if settings.hasSeenLicenseClassChangeMessage() == false {
                 let msg = NSLocalizedString("Bitte beachte: jede Führerscheinklasse und jeder Erwerbstyp verfügt über ein separates Prüfungsarchiv inklusive Statistik. Jede Führerscheinklasse hat zudem ein eigenes „Markierte“-Fragenarchiv.", comment: "")
                 let alertController = UIAlertController(title: "", message: msg, preferredStyle: .Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: { _ in
+                    self.performSegueWithIdentifier(segue.identifier, sender: self)
+                }))
                 presentViewController(alertController, animated: true, completion: nil)
             }
             

@@ -37,6 +37,11 @@ class ExtraTableController: UITableViewController {
         self.dataSource = NSArray(contentsOfFile: path!) as! [[String : String]]
     
         self.clearsSelectionOnViewWillAppear = true
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            navigationItem.leftBarButtonItem = nil
+        }
+        
     }
 
 //    MARK: - Table view data source
