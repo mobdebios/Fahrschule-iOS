@@ -155,8 +155,8 @@ Cg
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aHv-Z1-1Tk">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aHv-Z1-1Tk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="oeE-5k-RWw">
                                     <size key="itemSize" width="286" height="376"/>
@@ -245,7 +245,7 @@ Cg
                                 </connections>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pGC-Hx-LDk">
-                                <rect key="frame" x="281" y="523" width="39" height="37"/>
+                                <rect key="frame" x="281" y="474" width="39" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1135,6 +1135,7 @@ Cg
                         <segue destination="JQF-eh-R2K" kind="relationship" relationship="viewControllers" id="EXc-kS-WRi"/>
                         <segue destination="u2R-gb-MTK" kind="relationship" relationship="viewControllers" id="mS1-ot-sFh"/>
                         <segue destination="c4n-zY-Wpl" kind="relationship" relationship="viewControllers" id="FAZ-UE-xiw"/>
+                        <segue destination="ncA-mM-gx4" kind="relationship" relationship="viewControllers" id="pYm-3C-lKM"/>
                         <segue destination="XN1-9u-YqX" kind="relationship" relationship="viewControllers" id="eJS-xJ-XXP"/>
                     </connections>
                 </tabBarController>

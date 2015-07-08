@@ -41,6 +41,11 @@ class ExtraTableController: UITableViewController {
         }
     
         self.clearsSelectionOnViewWillAppear = true
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            navigationItem.leftBarButtonItem = nil
+        }
+        
     }
 
 //    MARK: - Table view data source
