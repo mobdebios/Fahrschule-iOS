@@ -162,9 +162,9 @@ class ExamResultViewController: UIViewController {
         let masterController = detailController.masterViewController
         qsvc.masterViewController = masterController
         masterController?.dataSource = qsvc.questionModels
-        if self.questionModels.count != masterController?.dataSource.count {
+//        if self.questionModels.count != masterController?.dataSource.count {
             masterController?.tableView.reloadData()
-        }
+//        }
         masterController?.questionSheetType = .History
        
         

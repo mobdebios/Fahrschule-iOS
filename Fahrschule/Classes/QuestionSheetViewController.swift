@@ -8,12 +8,7 @@
 
 import UIKit
 
-enum QuestionSheetType: Int {
-    case Learning
-    case Exam
-    case RetryExam
-    case History
-}
+
 
 
 let reuseIdentifier = "Cell"
@@ -305,7 +300,7 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
                 // Get QuestionsTable Controller
                 masterViewController?.dataSource = mutableArray
                 masterViewController?.tableView.reloadData()
-                masterViewController?.questionSheetType = .History
+                masterViewController?.questionSheetType = QuestionSheetType.Learning
 
                 
                 resultsVC.managedObjectContext = self.managedObjectContext

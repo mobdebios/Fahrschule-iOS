@@ -9,6 +9,38 @@
 import UIKit
 
 
+enum QuestionSheetType: Int {
+    case Learning
+    case Exam
+    case RetryExam
+    case History
+}
+
+//struct QuestionSheetType : RawOptionSetType, BooleanType {
+//    private var value: UInt
+//    init(_ rawValue: UInt) { self.value = rawValue }
+//    
+//    // MARK: _RawOptionSetType
+//    init(rawValue: UInt) { self.value = rawValue }
+//    
+//    // MARK: NilLiteralConvertible
+//    init(nilLiteral: ()) { self.value = 0}
+//    
+//    // MARK: RawRepresentable
+//    var rawValue: UInt { return self.value }
+//    
+//    // MARK: BooleanType
+//    var boolValue: Bool { return self.value != 0 }
+//    
+//    // MARK: BitwiseOperationsType
+//    static var allZeros: QuestionSheetType { return self(0) }
+//    
+//    // MARK: User defined bit values
+//    static var Learning: QuestionSheetType   { return self(0) }
+//    static var Exam: QuestionSheetType  { return self(1 << 0) }
+//    static var History: QuestionSheetType   { return self(1 << 1) }
+//}
+
 
 class QuestionsTableViewController: UITableViewController, UISearchResultsUpdating, UISplitViewControllerDelegate {
 
@@ -182,7 +214,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
 //    MARK: - Navigation
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            if identifier == MainStoryboard.SegueIdentifiers.showExamQuestions || identifier == MainStoryboard.SegueIdentifiers.showTestQuestions  {
+            if identifier == MainStoryboard.SegueIdentifiers.showExamQuestions {
                 if detailNavigationController != nil {
                     if detailNavigationController?.topViewController is QuestionSheetViewController {
                         let qsvc = detailNavigationController?.topViewController as! QuestionSheetViewController
@@ -192,6 +224,36 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
                     } else {
                         return false
                     }
+                }
+            }
+            else if identifier == MainStoryboard.SegueIdentifiers.showTestQuestions {
+                
+                if detailNavigationController == nil {
+                    let splitController = self.parentViewController?.parentViewController as! UISplitViewController
+                    detailNavigationController = splitController.viewControllers.last as? UINavigationController
+                    
+                    let qsvc = storyboard?.instantiateViewControllerWithIdentifier("QuestionSheetViewController") as! QuestionSheetViewController
+                    qsvc.masterViewController = self
+                    qsvc.managedObjectContext = managedObjectContext
+                    qsvc.questionModels = dataSource
+                    qsvc.currentIndexPath = tableView.indexPathForSelectedRow()!
+                    
+                    if let cell = sender as? UITableViewCell {
+                        qsvc.questionModels = self.dataSource
+                        qsvc.currentIndexPath = self.tableView.indexPathForSelectedRow()!
+                    }
+                    else if let arr = sender as? [QuestionModel] {
+                        qsvc.questionModels = arr
+                    }
+                    
+                    detailNavigationController?.pushViewController(qsvc, animated: true)
+                    return false
+                }
+                else if detailNavigationController?.viewControllers.count == 2 {
+                    let qsvc = detailNavigationController?.topViewController as! QuestionSheetViewController
+                    qsvc.showQuestionAtIndexPath(tableView.indexPathForSelectedRow()!)
+                    return false
+                    
                 }
             }
         }
@@ -221,6 +283,8 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
                 
                 qsvc.questionSheetType = self.questionSheetType
                 
+                
+                
             }
         }
 
@@ -230,7 +294,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
     @IBAction func didTapButtonQuery(sender: AnyObject) {
 
         let title = NSLocalizedString("Was soll abgefragt werden?", comment: "")
-        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Abbrechen", comment: ""), style: .Cancel, handler: nil))
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Alle Fragen", comment: ""), style: .Default, handler: { (alertAction) -> Void in

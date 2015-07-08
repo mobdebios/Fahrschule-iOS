@@ -90,10 +90,7 @@ class LearningResultViewController: UIViewController {
             let masterController = detailController.masterViewController
             qsvc.masterViewController = masterController
             masterController?.dataSource = qsvc.questionModels
-            if self.questionModels.count != masterController?.dataSource.count {
-                masterController?.tableView.reloadData()
-            }
-            masterController?.questionSheetType = .History
+            masterController?.tableView.reloadData()
             
         }
         
@@ -107,11 +104,11 @@ class LearningResultViewController: UIViewController {
             //        [self.navigationController pushViewController:bfvvc animated:YES];
         #else
             
-            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-                self.navigationController?.popToRootViewControllerAnimated(true)
-            } else {
+//            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+//                self.navigationController?.popToRootViewControllerAnimated(true)
+//            } else {
                 self.navigationController!.dismissViewControllerAnimated(true, completion: nil)
-            }
+//            }
             
         #endif
         
