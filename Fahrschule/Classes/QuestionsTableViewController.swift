@@ -63,6 +63,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
     }
     
 //    MARK: Properties
+    var masterNavigationController: UINavigationController?
     var detailNavigationController: UINavigationController?
     var questionSheetType: QuestionSheetType = .Learning {
         didSet {
@@ -397,6 +398,31 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         cell.titleLabel.text = question.text
         
         return cell
+        
+    }
+    
+//    MARK: - Table View delegate
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+//        case .Pad:
+//            break
+            
+        case .Pad where masterNavigationController != navigationController && masterNavigationController?.topViewController is QuestionsTableViewController:
+            println("asdfasdf 2")
+        case .Pad where masterNavigationController != navigationController: // Cell in detail was selected
+            println("asdfasf 1 \(masterNavigationController) && \(masterNavigationController?.topViewController)")
+        default:
+            let questionarieController = storyboard?.instantiateViewControllerWithIdentifier("QuestionSheetViewController") as! QuestionSheetViewController
+            questionarieController.masterViewController = self
+            questionarieController.managedObjectContext = managedObjectContext
+            questionarieController.questionModels = dataSource
+            questionarieController.currentIndexPath = indexPath
+            questionarieController.masterNavigationController = masterNavigationController
+            questionarieController.detailNavigationController = detailNavigationController
+            navigationController!.pushViewController(questionarieController, animated: true)
+            
+        }
         
     }
     

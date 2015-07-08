@@ -41,6 +41,7 @@ class SubGroupTableViewController: UITableViewController {
             self.dataSource = SubGroup.subGroupsInRelationsTo(self.mainGroup, inManagedObjectContext: self.managedObjectContext) as! [SubGroup]
         }
     }
+    var selectedIndexPath: NSIndexPath? // Uses to select row when controller shown in master from detail controller
     
     
     
@@ -73,7 +74,7 @@ class SubGroupTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Table Settings
-        self.clearsSelectionOnViewWillAppear = true
+        self.clearsSelectionOnViewWillAppear = UIDevice.currentDevice().userInterfaceIdiom == .Phone
         self.tableView.estimatedRowHeight = 44.0
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Zurück", comment: ""), style: .Plain, target: nil, action: nil)
@@ -82,8 +83,16 @@ class SubGroupTableViewController: UITableViewController {
         #if FAHRSCHULE_LITE
 //            [self showbannerFullversionAnimated];
         #endif
+        
+        if selectedIndexPath != nil {
+            tableView.selectRowAtIndexPath(selectedIndexPath, animated: false, scrollPosition: .None)
+        }
 
     }
+    
+    
+    
+    
 
 
 //    MARK: - Navigation
@@ -171,12 +180,18 @@ class SubGroupTableViewController: UITableViewController {
         let questionsController = storyboard?.instantiateViewControllerWithIdentifier(MainStoryboard.ViewControllerIdentifier.Questions) as! QuestionsTableViewController
         questionsController.managedObjectContext = managedObjectContext
         questionsController.subGroup = subGroup
+        questionsController.masterNavigationController = masterNavigationController
+        questionsController.detailNavigationController = detailNavigationController
         
         switch UIDevice.currentDevice().userInterfaceIdiom {
         case .Pad:
             if navigationController == masterNavigationController {
                 // Update detail controller
-                
+                if let questionsController = detailNavigationController?.topViewController as? QuestionsTableViewController {
+                    questionsController.subGroup = subGroup
+                    questionsController.tableView.reloadData()
+        
+                }
                 
             } else {
                 // Update master controller
@@ -189,7 +204,9 @@ class SubGroupTableViewController: UITableViewController {
                 subgroupController.dataSource = dataSource
                 subgroupController.title = self.title
                 subgroupController.mainGroup = mainGroup
-            
+                subgroupController.masterNavigationController = masterNavigationController
+                subgroupController.detailNavigationController = navigationController
+                subgroupController.selectedIndexPath = tableView.indexPathForSelectedRow()
                 masterNavigationController?.pushViewController(subgroupController, animated: true)
                 
                 

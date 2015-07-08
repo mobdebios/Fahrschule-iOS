@@ -435,7 +435,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
                 subgroupController.masterNavigationController = navigationController
                 detailNavigationController?.delegate = self
                 subgroupController.detailNavigationController = detailNavigationController
-//                subgroupController.navigationItem.hidesBackButton = true
+                subgroupController.navigationItem.hidesBackButton = true
                 detailNavigationController?.pushViewController(subgroupController, animated: true)
                 
             }

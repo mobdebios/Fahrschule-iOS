@@ -377,7 +377,7 @@ Cg
         <scene sceneID="aQG-ny-HxF">
             <objects>
                 <splitViewController storyboardIdentifier="ExtraSplitController" id="ncA-mM-gx4" customClass="SplitViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Extra" id="V6U-tv-CSf"/>
+                    <tabBarItem key="tabBarItem" title="Extra" image="extras" id="V6U-tv-CSf"/>
                     <connections>
                         <segue destination="Na7-O5-DFh" kind="relationship" relationship="masterViewController" id="tpX-KI-tYh"/>
                         <segue destination="N67-dX-4Ob" kind="relationship" relationship="detailViewController" id="TuW-QL-af3"/>
@@ -628,7 +628,6 @@ Cg
                                     <outlet property="iconImageView" destination="llO-nC-kBJ" id="Xq6-vV-PWQ"/>
                                     <outlet property="numberLabel" destination="JCK-UW-BCY" id="ML1-Ls-Fl6"/>
                                     <outlet property="titleLabel" destination="bAH-cw-vjw" id="U0z-8T-lUo"/>
-                                    <segue destination="qAv-4W-19N" kind="showDetail" identifier="showTestQuestions" id="IBR-Tf-KQr"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamCell" id="JWN-xP-hO9" customClass="QuestionCell" customModule="Fahrschule" customModuleProvider="target">
@@ -663,7 +662,6 @@ Cg
                                 <connections>
                                     <outlet property="iconImageView" destination="Bq1-MI-xg2" id="wwc-LB-sl1"/>
                                     <outlet property="titleLabel" destination="PLx-MK-BZO" id="Vki-z9-WCj"/>
-                                    <segue destination="qAv-4W-19N" kind="showDetail" identifier="showExamQuestions" id="Okv-YO-Pjg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2101,11 +2099,12 @@ Cg
         <image name="zurück" width="12" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TuW-QL-af3"/>
+        <segue reference="2Kf-Mh-pn0"/>
+        <segue reference="pYm-3C-lKM"/>
         <segue reference="nrw-bA-U7w"/>
+        <segue reference="t6u-3P-n5A"/>
         <segue reference="ja7-WU-yKG"/>
-        <segue reference="IBR-Tf-KQr"/>
-        <segue reference="LO0-6y-XVR"/>
+        <segue reference="TuW-QL-af3"/>
         <segue reference="Wvb-ev-O25"/>
     </inferredMetricsTieBreakers>
 </document>
