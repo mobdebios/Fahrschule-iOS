@@ -25,9 +25,15 @@ class SubGroupTableViewController: UITableViewController {
         struct Restoration {
             static let managedObjectID = "managedObjectID"
         }
+        
+        struct ViewControllerIdentifier {
+            static let Questions = "QuestionsTableViewController"
+        }
     }
     
 //    MARK: Properties
+    var masterNavigationController: UINavigationController?
+    var detailNavigationController: UINavigationController?
     var managedObjectContext: NSManagedObjectContext!
     var dataSource: [SubGroup]!
     var mainGroup: MainGroup! {
@@ -69,6 +75,8 @@ class SubGroupTableViewController: UITableViewController {
         // Table Settings
         self.clearsSelectionOnViewWillAppear = true
         self.tableView.estimatedRowHeight = 44.0
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Zurück", comment: ""), style: .Plain, target: nil, action: nil)
         
         
         #if FAHRSCHULE_LITE
@@ -156,13 +164,58 @@ class SubGroupTableViewController: UITableViewController {
         return cell
     }
     
+//    MARK: - Table View delegate
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let subGroup = dataSource[indexPath.row]
+        let questionsController = storyboard?.instantiateViewControllerWithIdentifier(MainStoryboard.ViewControllerIdentifier.Questions) as! QuestionsTableViewController
+        questionsController.managedObjectContext = managedObjectContext
+        questionsController.subGroup = subGroup
+        
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+        case .Pad:
+            if navigationController == masterNavigationController {
+                // Update detail controller
+                
+                
+            } else {
+                // Update master controller
+                if masterNavigationController?.viewControllers.count > 2 {
+                    masterNavigationController?.popToViewController(masterNavigationController!.viewControllers[2] as! UIViewController, animated: false)
+                }
+                
+                let subgroupController = storyboard?.instantiateViewControllerWithIdentifier("SubGroupTableViewController") as! SubGroupTableViewController
+                subgroupController.managedObjectContext = managedObjectContext
+                subgroupController.dataSource = dataSource
+                subgroupController.title = self.title
+                subgroupController.mainGroup = mainGroup
+            
+                masterNavigationController?.pushViewController(subgroupController, animated: true)
+                
+                
+                // Update detail controller
+                questionsController.navigationItem.hidesBackButton = true
+                navigationController?.pushViewController(questionsController, animated: true)
+            }
+            
+        case .Phone:
+            navigationController?.pushViewController(questionsController, animated: true)
+        default: return
+        }
+        
+        
+//        vc.managedObjectContext = self.managedObjectContext
+//        vc.subGroup = self.dataSource[indexPath.row]
+    }
+    
 //    MARK: - Private functions
     private func openQuestionSheetController(questions: [Question]) {
-        if let models = QuestionModel.modelsForQuestions(questions) as? [QuestionModel] {
-            if models.count > 0 {
-                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showQuestionnaire, sender: models)
-            }
-        }
+        
+//        if let models = QuestionModel.modelsForQuestions(questions) as? [QuestionModel] {
+//            if models.count > 0 {
+//                self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showQuestionnaire, sender: models)
+//            }
+//        }
     }
     
 
