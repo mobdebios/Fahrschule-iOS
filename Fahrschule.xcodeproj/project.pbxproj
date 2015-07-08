@@ -192,7 +192,6 @@
 		269DCE109E0575703524C6F9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F20E54A61A98D0C124E2A27 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA86E95A39E490B7C04FFBC4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		FA0A32E81B4C64D0003BF621 /* Fahrschule copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Fahrschule copy-Info.plist"; path = "/Users/alex/Desktop/Current Project/Fahrschul-App/Fahrschule/Fahrschule copy-Info.plist"; sourceTree = "<absolute>"; };
 		FA1929651B480FCA008F6372 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Classes/SettingsViewController.swift; sourceTree = "<group>"; };
 		FA1929681B4829EA008F6372 /* TeachingTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeachingTypeViewController.swift; path = Classes/TeachingTypeViewController.swift; sourceTree = "<group>"; };
 		FA1BA0891B341213008840BF /* SubGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubGroupTableViewController.swift; path = Classes/SubGroupTableViewController.swift; sourceTree = "<group>"; };
@@ -203,7 +202,6 @@
 		FA27AF9E1B4A8CB500FE4836 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplitViewController.swift; path = Classes/SplitViewController.swift; sourceTree = "<group>"; };
 		FA2895741B384F3500123796 /* LicenseClassSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LicenseClassSelectViewController.swift; path = Classes/LicenseClassSelectViewController.swift; sourceTree = "<group>"; };
 		FA2929A11B4C6C0500D8D051 /* Fahrschule copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fahrschule copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA2929A21B4C6C0500D8D051 /* Fahrschule copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Fahrschule copy2-Info.plist"; path = "/Users/alex/Desktop/Current Project/Fahrschul-App/Fahrschule/Fahrschule copy2-Info.plist"; sourceTree = "<absolute>"; };
 		FA29FB101B2C384B00689451 /* ProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressCell.swift; path = Classes/ProgressCell.swift; sourceTree = "<group>"; };
 		FA29FB111B2C384B00689451 /* ProgressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProgressCell.xib; path = Classes/ProgressCell.xib; sourceTree = "<group>"; };
 		FA29FB191B2C807D00689451 /* SubgroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubgroupCell.swift; path = Classes/SubgroupCell.swift; sourceTree = "<group>"; };
@@ -490,8 +488,6 @@
 				FAAC88511B2B667400804FEB /* Products */,
 				A480C64113872F13AEA75625 /* Pods */,
 				2136DB104B0BEAA3906A9F9D /* Frameworks */,
-				FA0A32E81B4C64D0003BF621 /* Fahrschule copy-Info.plist */,
-				FA2929A21B4C6C0500D8D051 /* Fahrschule copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
