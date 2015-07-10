@@ -30,7 +30,10 @@ class QuestionSheetViewController: UICollectionViewController, UICollectionViewD
     var currentIndexPath: NSIndexPath!
     var questionModels: [QuestionModel]!
     var questionSheetType: QuestionSheetType = .Learning
+    
     var masterViewController: QuestionsTableViewController?
+    var masterNavigationController: UINavigationController?
+    var detailNavigationController: UINavigationController?
     
     // Timer
     private var examTimer: NSTimer?

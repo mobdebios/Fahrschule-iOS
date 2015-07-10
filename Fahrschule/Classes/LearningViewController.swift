@@ -130,6 +130,7 @@ class LearningViewController: UIViewController {
                 let learningController = self.storyboard?.instantiateViewControllerWithIdentifier(MainStoryboard.ViewControllerIndentifier.LearningViewController) as! LearningViewController
                 learningController.managedObjectContext = self.managedObjectContext;
                 let navController = UINavigationController(rootViewController: learningController)
+                catalogsController?.detailNavigationController = navController
                 learningController.questionnaireButton?.hidden = true
                 splitControler.showDetailViewController(navController, sender: sender)
                 

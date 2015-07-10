@@ -48,6 +48,7 @@
     }
     tabBarController.viewControllers = array;
     
+    
     Settings *settings = [Settings sharedSettings];
     if (settings.licenseClass == kUnknownLicenseClass) {
         UIStoryboard *storyboard = self.window.rootViewController.storyboard;

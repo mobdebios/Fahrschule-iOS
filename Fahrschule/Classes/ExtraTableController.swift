@@ -35,6 +35,10 @@ class ExtraTableController: UITableViewController {
         
         let path = NSBundle.mainBundle().pathForResource("Extras", ofType: "plist")
         self.dataSource = NSArray(contentsOfFile: path!) as! [[String : String]]
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            navigationItem.leftBarButtonItem = nil
+        }
     
         self.clearsSelectionOnViewWillAppear = true
         

@@ -8,13 +8,17 @@
 
 import UIKit
 
-class QuestionCatalogTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class QuestionCatalogTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
     
 //    MARK: - Types
     struct MainStoryboard {
         struct ViewControllerTitle {
             static let questionnaire = NSLocalizedString("Fragenkatalog", comment: "")
             static let marked = NSLocalizedString("Markierte", comment: "")
+        }
+        
+        struct ViewControllersIdentifiers {
+            static let SubGroup = "SubGroupTableViewController"
         }
         
         struct TableViewCellIdentifiers {
@@ -41,6 +45,7 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     var progressDict = [Int: ProgressItem]()
     var localObservers = [AnyObject]()
     var questionsController: UIViewController?
+    var detailNavigationController: UINavigationController? 
     
     
     var searchController = UISearchController()
@@ -118,6 +123,12 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
 //        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
 //            self.navigationItem.leftBarButtonItem = nil
 //        }
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            navigationController?.delegate = self
+            detailNavigationController?.delegate = self
+        }
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -400,23 +411,41 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     
 //    MARK: - Table View delegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if self.isCatalogSelected() {
-            self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showListSubSubgroup, sender: self)
-        }
-    }
-    
-//   MARK:  - UISearchResultsUpdating
-    
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        // updateSearchResultsForSearchController(_:) is called when the controller is being dismissed to allow those who are using the controller they are search as the results controller a chance to reset their state. No need to update anything if we're being dismissed.
-        if !searchController.active {
-            return
+//        if self.isCatalogSelected() {
+//            self.performSegueWithIdentifier(MainStoryboard.SegueIdentifiers.showListSubSubgroup, sender: self)
+//        }
+        
+        // Subgroup controller
+        let subgroupController = storyboard?.instantiateViewControllerWithIdentifier(MainStoryboard.ViewControllersIdentifiers.SubGroup) as! SubGroupTableViewController
+        var offset = indexPath.section == 1 ? numberOfThemes[0] : 0
+        offset += indexPath.row
+        let mainGroup = self.dataSource[offset]
+        subgroupController.managedObjectContext = self.managedObjectContext
+        subgroupController.mainGroup = mainGroup
+        subgroupController.title = mainGroup.name
+        
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+        case .Pad: // Show in detail
+            if let topController = detailNavigationController?.topViewController as? SubGroupTableViewController {
+                topController.mainGroup = mainGroup
+                topController.title = mainGroup.name
+                topController.tableView.reloadData()
+                
+            } else {
+                subgroupController.masterNavigationController = navigationController
+                detailNavigationController?.delegate = self
+                subgroupController.detailNavigationController = detailNavigationController
+                subgroupController.navigationItem.hidesBackButton = true
+                detailNavigationController?.pushViewController(subgroupController, animated: true)
+                
+            }
+        case .Phone:
+            navigationController?.pushViewController(subgroupController, animated: true)
+        default: return
         }
         
-        let filterString = searchController.searchBar.text
-        println("\(__FUNCTION__) filterString: \(filterString)")
+        
     }
-    
     
 //    MARK: - Private Functions
     private func progressItemForMainGroupAtIndex(index: Int)->ProgressItem {
@@ -438,6 +467,32 @@ class QuestionCatalogTableViewController: UIViewController, UITableViewDataSourc
     }
     
     
+//    MARK: - Navigation Controller delegate
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        // Show the first controller in the detail stack
+        if navigationController == self.navigationController && viewController == self {
+            detailNavigationController?.popToRootViewControllerAnimated(true)
+        }
+        else if navigationController == detailNavigationController && viewController is SubGroupTableViewController && self.navigationController?.topViewController != self {
+            self.navigationController!.popToRootViewControllerAnimated(true)
+        }
+    }
+    
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        // Show the first controller in the detail stack
+        if navigationController == detailNavigationController {
+            if navigationController.viewControllers.count == 1 {
+                if let indexPath = tableView.indexPathForSelectedRow() {
+                    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                }
+            }
+        }
+        
+
+        
+        
+        
+    }
     
     
 }

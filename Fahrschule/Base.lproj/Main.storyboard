@@ -308,7 +308,7 @@ Cg
         <!--Extras-->
         <scene sceneID="5EX-9g-ZiR">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="huf-ew-7bm" customClass="ExtraTableController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ExtraTableController" clearsSelectionOnViewWillAppear="NO" id="huf-ew-7bm" customClass="ExtraTableController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Os9-bh-Cdc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -376,7 +376,7 @@ Cg
         <!--Extra-->
         <scene sceneID="aQG-ny-HxF">
             <objects>
-                <splitViewController id="ncA-mM-gx4" customClass="SplitViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="ExtraSplitController" id="ncA-mM-gx4" customClass="SplitViewController" customModule="Fahrschule" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Extra" image="extras" id="V6U-tv-CSf"/>
                     <connections>
                         <segue destination="Na7-O5-DFh" kind="relationship" relationship="masterViewController" id="tpX-KI-tYh"/>
@@ -550,7 +550,6 @@ Cg
                                 <connections>
                                     <outlet property="numberLabel" destination="EN5-Jn-ZE1" id="SPr-6C-D32"/>
                                     <outlet property="titleLabel" destination="vG4-6a-w7I" id="d0s-56-BIF"/>
-                                    <segue destination="0RN-2b-nlp" kind="show" id="ZSQ-z6-ukX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -569,6 +568,7 @@ Cg
                     </navigationItem>
                     <connections>
                         <segue destination="qAv-4W-19N" kind="showDetail" identifier="QuestionSheetViewController" id="sRF-O0-CLU"/>
+                        <segue destination="0RN-2b-nlp" kind="show" identifier="ShowQuestionsList" id="ja7-WU-yKG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edp-yR-dBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -628,7 +628,6 @@ Cg
                                     <outlet property="iconImageView" destination="llO-nC-kBJ" id="Xq6-vV-PWQ"/>
                                     <outlet property="numberLabel" destination="JCK-UW-BCY" id="ML1-Ls-Fl6"/>
                                     <outlet property="titleLabel" destination="bAH-cw-vjw" id="U0z-8T-lUo"/>
-                                    <segue destination="qAv-4W-19N" kind="showDetail" identifier="showTestQuestions" id="IBR-Tf-KQr"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExamCell" id="JWN-xP-hO9" customClass="QuestionCell" customModule="Fahrschule" customModuleProvider="target">
@@ -663,7 +662,6 @@ Cg
                                 <connections>
                                     <outlet property="iconImageView" destination="Bq1-MI-xg2" id="wwc-LB-sl1"/>
                                     <outlet property="titleLabel" destination="PLx-MK-BZO" id="Vki-z9-WCj"/>
-                                    <segue destination="qAv-4W-19N" kind="showDetail" identifier="showExamQuestions" id="Okv-YO-Pjg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -680,10 +678,13 @@ Cg
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="queryButton" destination="lMA-B5-o4S" id="L6L-K9-Uib"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNG-zI-YU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418" y="-1303"/>
+            <point key="canvasLocation" x="2420" y="-1295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NUG-6c-Dbu">
@@ -1119,7 +1120,7 @@ Cg
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOQ-77-bwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xni-wJ-W3L" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="878" y="-1303"/>
+            <point key="canvasLocation" x="876" y="-1295"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="87U-6i-Fy1">
@@ -2101,12 +2102,12 @@ Cg
         <image name="zurück" width="12" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pYm-3C-lKM"/>
         <segue reference="2Kf-Mh-pn0"/>
-        <segue reference="TuW-QL-af3"/>
+        <segue reference="pYm-3C-lKM"/>
         <segue reference="nrw-bA-U7w"/>
         <segue reference="t6u-3P-n5A"/>
-        <segue reference="ZSQ-z6-ukX"/>
+        <segue reference="ja7-WU-yKG"/>
+        <segue reference="TuW-QL-af3"/>
         <segue reference="Wvb-ev-O25"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,37 +9,38 @@
 import UIKit
 
 
-enum QuestionSheetType: Int {
-    case Learning
-    case Exam
-    case RetryExam
-    case History
-}
-
-//struct QuestionSheetType : RawOptionSetType, BooleanType {
-//    private var value: UInt
-//    init(_ rawValue: UInt) { self.value = rawValue }
-//    
-//    // MARK: _RawOptionSetType
-//    init(rawValue: UInt) { self.value = rawValue }
-//    
-//    // MARK: NilLiteralConvertible
-//    init(nilLiteral: ()) { self.value = 0}
-//    
-//    // MARK: RawRepresentable
-//    var rawValue: UInt { return self.value }
-//    
-//    // MARK: BooleanType
-//    var boolValue: Bool { return self.value != 0 }
-//    
-//    // MARK: BitwiseOperationsType
-//    static var allZeros: QuestionSheetType { return self(0) }
-//    
-//    // MARK: User defined bit values
-//    static var Learning: QuestionSheetType   { return self(0) }
-//    static var Exam: QuestionSheetType  { return self(1 << 0) }
-//    static var History: QuestionSheetType   { return self(1 << 1) }
+//enum QuestionSheetType: Int {
+//    case Learning
+//    case Exam
+//    case RetryExam
+//    case History
 //}
+
+struct QuestionSheetType : RawOptionSetType, BooleanType {
+    private var value: UInt
+    init(_ rawValue: UInt) { self.value = rawValue }
+    
+    // _RawOptionSetType
+    init(rawValue: UInt) { self.value = rawValue }
+    
+    // NilLiteralConvertible
+    init(nilLiteral: ()) { self.value = 0}
+    
+    // RawRepresentable
+    var rawValue: UInt { return self.value }
+    
+    // BooleanType
+    var boolValue: Bool { return self.value != 0 }
+    
+    // BitwiseOperationsType
+    static var allZeros: QuestionSheetType { return self(0) }
+    
+    // User defined bit values
+    static var None: QuestionSheetType      { return self(0) }
+    static var Learning: QuestionSheetType  { return self(1 << 0) }
+    static var Exam: QuestionSheetType      { return self(1 << 1) }
+    static var History: QuestionSheetType   { return self(1 << 2) }
+}
 
 
 class QuestionsTableViewController: UITableViewController, UISearchResultsUpdating, UISplitViewControllerDelegate {
@@ -60,12 +61,22 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
             static let Learning = "Cell"
             static let Exam = "ExamCell"
         }
+        
+        struct ViewControllers {
+            static let QuestionsList = "QuestionsTableViewController"
+            static let Question = "QuestionSheetViewController"
+        }
     }
     
+//    MARK: Outlets
+    @IBOutlet var queryButton: UIBarButtonItem!
+    
 //    MARK: Properties
+    var masterNavigationController: UINavigationController?
     var detailNavigationController: UINavigationController?
     var questionSheetType: QuestionSheetType = .Learning {
         didSet {
+            self.configureView()
             self.updateTableViewCells()
         }
     }
@@ -123,6 +134,7 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         // TableView settings
         self.clearsSelectionOnViewWillAppear = true
         self.tableView.estimatedRowHeight = 44.0
+        configureView()
         
     }
     
@@ -209,6 +221,33 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
             self.tableView.reloadRowsAtIndexPaths(arr!, withRowAnimation: .Automatic)
         }
         
+    }
+    
+    func configureView() {
+        if self.questionSheetType & .History {
+            navigationItem.setHidesBackButton(false, animated: true)
+        } else {
+            
+            if navigationController == masterNavigationController {
+                navigationItem.setRightBarButtonItem(nil, animated: true)
+            }
+            
+            navigationItem.setHidesBackButton(true, animated: true)
+        }
+    }
+    
+    func questionarieController(forType type: QuestionSheetType, indexPath: NSIndexPath, models: [QuestionModel]?)->QuestionSheetViewController {
+        var questionarieController = storyboard?.instantiateViewControllerWithIdentifier("QuestionSheetViewController") as! QuestionSheetViewController
+        questionarieController.masterViewController = self
+        questionarieController.managedObjectContext = managedObjectContext
+        if models == nil {
+            questionarieController.questionModels = dataSource
+        } else {
+            questionarieController.currentIndexPath = indexPath
+        }
+        questionarieController.masterNavigationController = masterNavigationController
+        questionarieController.detailNavigationController = detailNavigationController
+        return questionarieController
     }
     
 //    MARK: - Navigation
@@ -397,6 +436,46 @@ class QuestionsTableViewController: UITableViewController, UISearchResultsUpdati
         cell.titleLabel.text = question.text
         
         return cell
+        
+    }
+    
+//    MARK: - Table View delegate
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+//        if self.questionSheetType & .History {
+//            self.questionSheetType = self.questionSheetType - QuestionSheetType.History
+//        }
+        
+        switch UIDevice.currentDevice().userInterfaceIdiom {
+//        case .Pad:
+//            break
+            
+        case .Pad where masterNavigationController == navigationController:
+            
+            break
+        case .Pad where detailNavigationController == navigationController: // Cell in detail was selected
+            
+            // Update Master Controller
+            if masterNavigationController?.topViewController is QuestionsTableViewController {
+                
+            } else {
+                let questionsVC = storyboard?.instantiateViewControllerWithIdentifier(MainStoryboard.ViewControllers.QuestionsList) as! QuestionsTableViewController
+                questionsVC.managedObjectContext = managedObjectContext
+                questionsVC.subGroup = subGroup
+                questionsVC.currentIndexPath = tableView.indexPathForSelectedRow()
+                questionsVC.questionSheetType = .Learning
+                
+                masterNavigationController?.pushViewController(questionsVC, animated: true)
+            
+            }
+            
+            var questionarieVC = questionarieController(forType: questionSheetType, indexPath: indexPath, models: nil)
+            navigationController!.pushViewController(questionarieVC, animated: true)
+            
+        default:
+            let questionarieVC = questionarieController(forType: questionSheetType, indexPath: indexPath, models: nil)
+            navigationController!.pushViewController(questionarieVC, animated: true)
+        }
         
     }
     
