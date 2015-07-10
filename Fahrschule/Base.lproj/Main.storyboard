@@ -678,6 +678,9 @@ Cg
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="queryButton" destination="lMA-B5-o4S" id="L6L-K9-Uib"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pNG-zI-YU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
